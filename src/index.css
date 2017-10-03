@@ -1,0 +1,107 @@
+* {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 11px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+body {
+  max-width: 8.5in;
+  max-height: 11in;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resume-header {
+  text-align: center;
+}
+
+.resume-header h1 {
+  margin-bottom: 0;
+}
+
+.resume-header hr {
+  height: 1px;
+  background-color: black;
+}
+
+.resume-header ul {
+  text-align: center;
+}
+
+.resume-header li {
+  list-style: none;
+  display: inline;
+  font-size: 13px;
+}
+
+.resume-header ul:first-of-type li::after {
+  content: ' | ';
+  font-weight: bold;
+}
+
+.resume-header ul:first-of-type li:last-child::after {
+  content: ''
+}
+
+.resume-header ul:nth-of-type(2) li::after {
+  content: ', '
+}
+
+.resume-header ul:nth-of-type(2) li:last-of-type::after {
+  content: ''
+}
+
+.resume-experience {
+  text-align: left;
+}
+
+.resume-experience > ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.resume-experience > ul > li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.resume-experience h2 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.resume-experience h3 {
+  display: inline-block;
+  margin: 0;
+  width: 50%;
+}
+
+.resume-experience h3:nth-of-type(2) {
+  text-align: right;
+}
+
+.resume-experience em
+, .resume-experience i {
+  display: block;
+}
+
+.resume-experience i {
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.resume-experience em {
+  margin-bottom: 5px;
+}
+
