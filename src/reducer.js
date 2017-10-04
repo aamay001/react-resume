@@ -14,7 +14,11 @@ const initialState = {
   state: Resume.state,
   zip: Resume.zip,
   country: Resume.country,
-  experience: Resume.experience
+  includeAddress: false,
+  experience: Resume.experience,
+  education: Resume.education,
+  technicalSkills: Resume.technicalSkills,
+  projects: Resume.projects
 }
 
 export default (state, action) => {
