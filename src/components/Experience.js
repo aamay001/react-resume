@@ -15,7 +15,7 @@ export class Experience extends Component{
             { exp.impact2 ? <li>{exp.impact2}</li> : ''}
             { exp.impact3 ? <li>{exp.impact3}</li> : ''}
             { exp.impact4 ? <li>{exp.impact4}</li> : ''}
-            { exp.impact5 ? <li>{exp.impact4}</li> : ''}
+            { exp.impact5 ? <li>{exp.impact5}</li> : ''}
           </ul>
         </li>
       );
