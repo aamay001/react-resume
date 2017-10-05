@@ -1,13 +1,15 @@
 const Resume = {
-  name: 'Your Name',
-  email: 'email@domain.com',
-  phone: '123-456-7890',
-  github: 'https://github.com/xxxxxxx',
-  address: '123 Main Street',
-  city: 'City',
-  state: 'CA',
-  zip: '00000',
-  country: 'USA',
+  header: {
+    name: 'Your Name',
+    email: 'email@domain.com',
+    phone: '123-456-7890',
+    github: 'https://github.com/xxxxxxx',
+    address: '123 Main Street',
+    city: 'City',
+    state: 'CA',
+    zip: '00000',
+    country: 'USA'
+  },
   experience: [
     {
       company: 'Experience 1',
