@@ -1,0 +1,10 @@
+.resume-tools-bar {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  left: 0;
+  border-top: 1px solid black;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  transition: .5s ;
+}

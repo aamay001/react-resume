@@ -5,11 +5,11 @@
 .resume-tools-menu-button div {
   width: 30px;
   height: 3px;
-  background-color: black;;
+  background-color: black;
   margin-bottom: 5px;
-  -webkit-transition: .5s ;
-  -moz-transition: .5s ;
-  transition: .5s ;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  transition: .5s;
 }
 
 .resume-tools-menu-button div.tools-shown:first-of-type {

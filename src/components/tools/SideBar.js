@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './SideBar';
+import './SideBar.css';
+
 
 export class SideBar extends Component {
   render() {
     return(
-      <h1>Side Bar</h1>
+      <div className="resume-tools-bar" style={this.props.showTools ? {width: "20%"} : {}}>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-
+  showTools: state.showTools
 });
 
 const ConnectedSideBar = connect(mapStateToProps)(SideBar);

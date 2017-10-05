@@ -10,7 +10,7 @@ export class ResumeTools extends Component {
       <div className="resume-tools">
         <aside>
           <MenuButton />
-          {this.props.showTools ? <SideBar/> : ''}
+          <SideBar/>
         </aside>
       </div>
     );
