@@ -11,8 +11,7 @@ export class MenuButton extends Component {
 
   render() {
     return (
-      <div className="resume-tools-menu-button" onClick={() => this.onMenuButtonClick()}>
-      {this.props.showTools ? <span style={{'float':'right', 'fontSize':'20px' }}>Tools</span>: ''}
+      <div className="resume-tools-menu-button" onClick={() => this.onMenuButtonClick()}>      
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>

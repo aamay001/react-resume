@@ -6,7 +6,8 @@ from './actions';
 import Resume from './resume-data';
 
 const initialState = {
-  showTools: false
+  showTools: false,
+  font: '\'Source Code Pro\', monospace'
 }
 
 function newResume(state) {

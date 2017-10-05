@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="react-resume">
         <ResumeTools />
-        <div className="resume">
+        <div className="resume" style={{'font-family': this.props.font}}>
           <Header />
           <Education />
           <TechnicalSkills />
@@ -30,4 +30,7 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = state => ({
+  font : state.font
+});
+export default connect(mapStateToProps)(App);

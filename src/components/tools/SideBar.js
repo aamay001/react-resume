@@ -6,7 +6,8 @@ import './SideBar.css';
 export class SideBar extends Component {
   render() {
     return(
-      <div className="resume-tools-bar" style={this.props.showTools ? {width: "20%"} : {}}>
+      <div className="resume-tools-bar" style={this.props.showTools ? {left: "0"} : {}}>
+        <h1>Tools</h1>
       </div>
     );
   }

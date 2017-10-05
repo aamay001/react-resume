@@ -1,10 +1,13 @@
 .resume-tools-bar {
   height: 100%;
-  width: 0%;
   position: fixed;
-  left: 0;
-  border-top: 1px solid black;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  transition: .5s ;
+  width: 300px;
+  left: -310px;
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -webkit-transition: .25s;
+  -moz-transition: .25s;
+  transition: .25s ;
+  padding-top: 40px;
+  padding-left: 10px;
 }
