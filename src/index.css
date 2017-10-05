@@ -141,9 +141,8 @@ body {
   margin-bottom: 15px;
 }
 
-@media (min-width: 500px){
+@media (min-width: 500px) {
   .resume-tech-skills .grid-container {
-    display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
   }

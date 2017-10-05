@@ -2,31 +2,22 @@ import {
   NEW_RESUME
 }
 from './actions';
-import Resume from './resume-data';
+import Resume from './resume-data-andy';
 
-const initialState = {
-  name: Resume.name,
-  email: Resume.email,
-  phone: Resume.phone,
-  github: Resume.github,
-  address: Resume.address,
-  city: Resume.city,
-  state: Resume.state,
-  zip: Resume.zip,
-  country: Resume.country,
-  includeAddress: false,
-  experience: Resume.experience,
-  education: Resume.education,
-  technicalSkills: Resume.technicalSkills,
-  projects: Resume.projects
+const initialState = {}
+
+function newResume(state) {
+  return {
+    ...state,
+    ...Resume
+  };
 }
 
-export default (state, action) => {
-  state = state || initialState;
-
-  if (action.type === NEW_RESUME){
-    state = Object.assign({}, initialState);
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case NEW_RESUME:
+      return newResume(state, action)
+    default:
+      return state;
   }
-
-  return state;
 }
