@@ -161,3 +161,17 @@ body {
   }
 }
 
+@media print {
+  .resume-tools {
+    display: none;
+  }
+}
+
+.resume-tools {
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  left: 0;
+  top: 0;
+}
+

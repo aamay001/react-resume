@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import TechnicalSkills from './components/TechnicalSkills';
 import Projects from './components/Projects';
+import ResumeTools from './components/Tools';
 import {newResume} from './actions';
 
 class App extends Component {
@@ -15,12 +16,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="resume">
-        <Header />
-        <Education />
-        <TechnicalSkills />
-        <Projects />
-        <Experience />
+      <div className="react-resume">
+        <ResumeTools />
+        <div className="resume">
+          <Header />
+          <Education />
+          <TechnicalSkills />
+          <Projects />
+          <Experience />
+        </div>
       </div>
     );
   }
