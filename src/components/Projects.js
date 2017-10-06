@@ -30,7 +30,7 @@ export class Projects extends Component{
 }
 
 const mapStateToProps = state => ({
-  projects: state.projects
+  projects: state.resume.projects
 });
 
 const ConnectedProjects = connect(mapStateToProps)(Projects);

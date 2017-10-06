@@ -17,9 +17,5 @@ export class ResumeTools extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  showTools: state.showTools
-});
-
-const ConnectedReumseTools = connect(mapStateToProps)(ResumeTools);
+const ConnectedReumseTools = connect()(ResumeTools);
 export default ConnectedReumseTools;

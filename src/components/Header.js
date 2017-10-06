@@ -25,7 +25,7 @@ export class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-  header: state.header,
+  header: state.resume.header,
   includeAddress: state.includeAddress
 });
 

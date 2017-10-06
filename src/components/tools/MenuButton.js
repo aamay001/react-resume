@@ -21,7 +21,7 @@ export class MenuButton extends Component {
 }
 
 const mapStateToProps = state => ({
-  showTools: state.showTools
+  showTools: state.tools.showTools
 })
 
 const ConnectedMenuButton = connect(mapStateToProps)(MenuButton);

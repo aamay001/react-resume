@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Field, reduxForm} from 'redux-form';
+import {conenct} from 'react-redux'
 import font from './fonts'
 
 export class FontSelector extends Component {
@@ -9,18 +9,14 @@ export class FontSelector extends Component {
 
     render() {
         return (
-            <form onSubmit={handleSubmit}>
-                
-            </form>
-        );
+            <H1>Tools</H1>
+        )
     }
 }
 
 const mapStateToProps = state => ({
-    font: state.font
+    selectedFont: state.font
 });
 
-const ConnectedFontSelector = reduxForm({
-    form: 'font-selector'
-})(FontSelector);
+const ConnectedFontSelector = connect(mapStateToProps)(FontSelector);
 export default ConnectedFontSelector;

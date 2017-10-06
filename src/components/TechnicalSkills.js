@@ -29,7 +29,7 @@ export class TechnicalSkills extends Component {
 }
 
 const mapStateToProps = state => ({
-  techSkills: state.technicalSkills
+  techSkills: state.resume.technicalSkills
 });
 
 const ConnectedTechnicalSkills = connect(mapStateToProps)(TechnicalSkills);

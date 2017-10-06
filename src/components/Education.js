@@ -23,7 +23,7 @@ export class Education extends Component{
 }
 
 const mapStateToProps = state => ({
-  education: state.education
+  education: state.resume.education
 });
 
 const ConnectedEducation = connect(mapStateToProps)(Education);

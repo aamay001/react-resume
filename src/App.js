@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="react-resume">
         <ResumeTools />
-        <div className="resume" style={{'font-family': this.props.font}}>
+        <div className="resume" style={{'fontFamily': this.props.font}}>
           <Header />
           <Education />
           <TechnicalSkills />

@@ -14,7 +14,7 @@ export class SideBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  showTools: state.showTools
+  showTools: state.tools.showTools
 });
 
 const ConnectedSideBar = connect(mapStateToProps)(SideBar);
