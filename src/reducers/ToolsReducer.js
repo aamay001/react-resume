@@ -1,8 +1,10 @@
 import {
     TOGGLE_TOOLS,
     CHANGE_FONT,
-    TOGGLE_SHOW_ITEM
+    TOGGLE_SHOW_ITEM,
+    CHANGE_RESUME_ORDER
 } from '../actions';
+import resumeOrder from '../components/tools/resumeOrder';
 
 const initialState = {
     showTools : true,
@@ -10,13 +12,14 @@ const initialState = {
     showAddress: false,
     showEmail: true,
     showPhone: true,
-    showGithub: true
+    showGithub: true,
+    resumeOrder: resumeOrder
 };
 
 function toggleTools(state) {
     return {
-    ...state,
-    showTools: !state.showTools
+        ...state,
+        showTools: !state.showTools
     };
 }
 
@@ -32,6 +35,13 @@ function toggleShowItem(state, action) {
         ...state,
         ...getItemToToggle(state, action)
     };
+}
+
+function changeResumeOrder(state, action) {
+    return {
+        ...state,
+        resumeOrder: action.order
+    }
 }
 
 function getItemToToggle(state, action){
@@ -57,6 +67,8 @@ export default (state = initialState, action) => {
             return changeFont(state,action)
         case TOGGLE_SHOW_ITEM:
             return toggleShowItem(state, action);
+        case CHANGE_RESUME_ORDER:
+            return changeResumeOrder(state,action);
         default:
             return state;
     }

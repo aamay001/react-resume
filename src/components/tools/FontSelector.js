@@ -18,12 +18,14 @@ export class FontSelector extends Component {
             return <option value={font.font} key={index}>{font.name}</option>;
         });
         return (
-            <form>
-                <label htmlFor="resume-tools-font-selector">Font</label>
-                <select id="resume-tools-font-selector" onChange={this.handleFontChange}>
-                    {fontsList}
-                </select>
-            </form>
+            <div id="resume-tools-font-selector">
+                <form>
+                    <label htmlFor="font-selector">Font</label>
+                    <select id="font-selector" onChange={this.handleFontChange}>
+                        {fontsList}
+                    </select>
+                </form>
+            </div>
         )
     }
 }

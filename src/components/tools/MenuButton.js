@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './MenuButton.css'
+import '../../styles/MenuButton.css'
 
 import {toggleTools} from '../../actions';
 
@@ -11,7 +11,7 @@ export class MenuButton extends Component {
 
   render() {
     return (
-      <div className="resume-tools-menu-button" onClick={() => this.onMenuButtonClick()}>      
+      <div className="resume-tools-menu-button" onClick={() => this.onMenuButtonClick()}>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>

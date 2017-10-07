@@ -1,0 +1,95 @@
+.resume-tools {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  left: 0;
+  top: 0;
+}
+
+.resume-tools-bar {
+  height: 100%;
+  position: fixed;
+  width: 300px;
+  left: -310px;
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -webkit-transition: .25s;
+  -moz-transition: .25s;
+  transition: .25s ;
+  padding-top: 40px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+label {
+  display:block;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.resume-tools-visibility-changer {
+  margin-top: 20px;
+}
+
+.resume-tools-visibility-changer input[type=checkbox] {
+  margin-left: 10px;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#resume-tools-font-selector #font-selector {
+  height: 35px;
+  width: 85%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border: none;
+}
+
+.resume-tools-order-changer {
+  margin-top: 25px;
+}
+
+.resume-tools-order-changer ul {
+  padding-left: 0;
+  margin-left: 8%;
+  margin-top: 0;
+}
+
+
+.resume-tools-order-changer li .drag-handle {
+  margin-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.resume-tools-order-changer li .section-name {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.resume-tools-order-changer li {
+  list-style: none;
+}
+
+.resume-tools-order-changer li div {
+  display: block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  width: 90%;
+  height: 35px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  text-align: left;
+}
+
+.resume-tools-order-changer li div:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  cursor: grab;
+}
