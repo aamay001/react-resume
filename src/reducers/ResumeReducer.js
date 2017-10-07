@@ -1,5 +1,5 @@
 import { NEW_RESUME } from '../actions';
-import Resume from '../resume-data-andy';
+import Resume from '../resume-data';
 
 const initialState = {}
 

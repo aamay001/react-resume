@@ -25,11 +25,21 @@ label {
   display:block;
   text-align: left;
   margin-left: 10%;
-  margin-top: 10px
+  margin-top: 10px;
+}
+
+.resume-tools-visibility-changer {
+  margin-top: 20px;
 }
 
 .resume-tools-visibility-changer input[type=checkbox] {
   margin-left: 10px;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 #resume-tools-font-selector {

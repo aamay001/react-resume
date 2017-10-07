@@ -13,39 +13,35 @@ export class VisibilityChanger extends Component {
     return (
       <div className="resume-tools-visibility-changer">
         <label htmlFor="address-visibility">
-          Show Address
           <input id="address-visibility"
             type="checkbox"
             checked={this.props.showAddress}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showAddress"/>
+            data-toggle="showAddress"/> Show Address
         </label>
 
         <label htmlFor="email-visibility">
-          Show Email
           <input id="email-visibility"
             type="checkbox"
             checked={this.props.showEmail}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showEmail"/>
+            data-toggle="showEmail"/> Show Email
         </label>
 
         <label htmlFor="phone-visibility">
-          Show Phone
           <input id="phone-visibility"
             type="checkbox"
             checked={this.props.showPhone}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showPhone"/>
+            data-toggle="showPhone"/> Show Phone
         </label>
 
         <label htmlFor="github-visibility">
-          Show Github
           <input id="github-visibility"
             type="checkbox"
             checked={this.props.showGithub}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showGithub"/>
+            data-toggle="showGithub"/> Show Github
         </label>
       </div>
     );
