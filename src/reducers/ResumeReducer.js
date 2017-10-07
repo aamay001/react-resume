@@ -1,8 +1,7 @@
 import { NEW_RESUME } from '../actions';
-import Resume from '../resume-data';
+import Resume from '../resume-data-andy';
 
-const initialState = {  
-}
+const initialState = {}
 
 function newResume(state) {
   return {

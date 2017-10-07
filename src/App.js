@@ -31,6 +31,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  font : state.font
+  font : state.tools.font
 });
 export default connect(mapStateToProps)(App);

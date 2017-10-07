@@ -166,11 +166,9 @@ body {
   }
 }
 
-.resume-tools {
-  position: fixed;
-  height: 100%;
-  width: 300px;
-  left: 0;
-  top: 0;
+.resume-tools * {
+  font-family: 'Cutive Mono, monospace';
 }
+
+
 
