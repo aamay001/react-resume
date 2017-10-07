@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
 .resume {
@@ -169,10 +171,5 @@ body {
     display: none;
   }
 }
-
-.resume-tools * {
-  font-family: 'Cutive Mono, monospace';
-}
-
 
 

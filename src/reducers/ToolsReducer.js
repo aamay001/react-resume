@@ -13,7 +13,11 @@ const initialState = {
     showEmail: true,
     showPhone: true,
     showGithub: true,
-    resumeOrder: resumeOrder
+    resumeOrder: resumeOrder,
+    showTechSkills: true,
+    showProjects: true,
+    showEducation: true,
+    showExperience: true
 };
 
 function toggleTools(state) {
@@ -54,6 +58,14 @@ function getItemToToggle(state, action){
             return { showPhone : !state.showPhone }
         case 'showGithub':
             return { showGithub: !state.showGithub }
+        case 'showTechSkills':
+            return { showTechSkills: !state.showTechSkills }
+        case 'showProjects':
+            return { showProjects: !state.showProjects }
+        case 'showEducation':
+            return {showEducation: !state.showEducation }
+        case 'showExperience':
+            return {showExperience: !state.showExperience}
         default:
             return {}
     }

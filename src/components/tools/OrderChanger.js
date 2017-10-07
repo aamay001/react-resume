@@ -22,7 +22,7 @@ export class OrderChanger extends Component {
       animation: 100,
       dataIdAttr: 'data-id',
       sort: true,
-      onSort: this.onOrderChange
+      onUpdate: this.onOrderChange
     });
   }
 

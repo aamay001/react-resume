@@ -27,6 +27,14 @@ export class Header extends Component {
   }
 }
 
+Header.defaultProps = {
+  header: '',
+  showAddress: true,
+  showEmail: true,
+  showPhone: true,
+  showGithub: true
+}
+
 const mapStateToProps = state => ({
   header: state.resume.header,
   showAddress: state.tools.showAddress,

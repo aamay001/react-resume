@@ -12,6 +12,8 @@ export class VisibilityChanger extends Component {
   render() {
     return (
       <div className="resume-tools-visibility-changer">
+        <label>Visibility</label>
+
         <label htmlFor="address-visibility">
           <input id="address-visibility"
             type="checkbox"
@@ -43,6 +45,38 @@ export class VisibilityChanger extends Component {
             onChange={this.handleCheckBoxChange}
             data-toggle="showGithub"/> Show Github
         </label>
+
+        <label htmlFor="education-visibility">
+        <input id="education-visibility"
+          type="checkbox"
+          checked={this.props.showEducation}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showEducation"/> Show Education
+        </label>
+
+        <label htmlFor="techskills-visibility">
+        <input id="techskills-visibility"
+          type="checkbox"
+          checked={this.props.showTechSkills}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showTechSkills"/> Show Technical Skills
+        </label>
+
+        <label htmlFor="projects-visibility">
+        <input id="projects-visibility"
+          type="checkbox"
+          checked={this.props.showProjects}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showProjects"/> Show Projects
+        </label>
+
+        <label htmlFor="experience-visibility">
+        <input id="experience-visibility"
+          type="checkbox"
+          checked={this.props.showExperience}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showExperience"/> Show Experience
+        </label>
       </div>
     );
   }
@@ -52,7 +86,11 @@ const mapStateToProps = state => ({
   showAddress: state.tools.showAddress,
   showEmail: state.tools.showEmail,
   showPhone: state.tools.showPhone,
-  showGithub: state.tools.showGithub
+  showGithub: state.tools.showGithub,
+  showTechSkills: state.tools.showTechSkills,
+  showProjects: state.tools.showProjects,
+  showEducation: state.tools.showEducation,
+  showExperience: state.tools.showExperience
 });
 
 const ConnectedVisibilityChanger = connect(mapStateToProps)(VisibilityChanger);

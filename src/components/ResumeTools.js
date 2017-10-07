@@ -7,7 +7,7 @@ import SideBar from './tools/SideBar';
 export class ResumeTools extends Component {
   render() {
     return (
-      <div className="resume-tools" >
+      <div className="resume-tools" style={{'fontFamily': 'Roboto, sans-serif'}}>
         <aside>
           <MenuButton />
           <SideBar/>

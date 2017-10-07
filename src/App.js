@@ -6,7 +6,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import TechnicalSkills from './components/TechnicalSkills';
 import Projects from './components/Projects';
-import ResumeTools from './components/Tools';
+import ResumeTools from './components/ResumeTools';
 import {newResume} from './actions';
 
 import {
@@ -26,13 +26,13 @@ class App extends Component {
     const resume = this.props.resumeOrder.map( (item, index) => {
       switch(item) {
         case EDUCATION:
-          return <Education key={index}/>
+          return this.props.showEducation ? <Education key={index}/> : ''
         case TECH_SKILLS:
-          return <TechnicalSkills key={index}/>
+          return this.props.showTechSkills ? <TechnicalSkills key={index}/> : ''
         case PROJECTS:
-          return <Projects key={index}/>
+          return this.props.showProjects ? <Projects key={index}/> : ''
         case EXPERIENCE:
-          return <Experience key={index}/>
+          return this.props.showExperience ? <Experience key={index}/> : ''
         default:
           return <p>Error with order.</p>
       }
@@ -51,6 +51,10 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   font: state.tools.font,
-  resumeOrder: state.tools.resumeOrder
+  resumeOrder: state.tools.resumeOrder,
+  showTechSkills: state.tools.showTechSkills,
+  showProjects: state.tools.showProjects,
+  showEducation: state.tools.showEducation,
+  showExperience: state.tools.showExperience
 });
 export default connect(mapStateToProps)(App);

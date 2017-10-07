@@ -15,16 +15,14 @@ export class FontSelector extends Component {
         const fontsList = fonts.sort( (f1, f2) => {
             return f1.name < f2.name ? -1 : f1.name > f2.name ? 1 :  0;
         }).map( ( font, index ) => {
-            return <option value={font.font} key={index}>{font.name}</option>;
+            return <option value={font.font} key={index} >{font.name}</option>;
         });
         return (
             <div id="resume-tools-font-selector">
-                <form>
-                    <label htmlFor="font-selector">Font</label>
-                    <select id="font-selector" onChange={this.handleFontChange}>
-                        {fontsList}
-                    </select>
-                </form>
+                <label htmlFor="font-selector">Font</label>
+                <select id="font-selector" onChange={this.handleFontChange} defaultValue={this.props.selectedFont}>
+                    {fontsList}
+                </select>
             </div>
         )
     }

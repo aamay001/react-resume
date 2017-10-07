@@ -6,7 +6,6 @@ import FontSelector from './FontSelector';
 import VisibilityChanger from './VisibilityChanger';
 import OrderChanger from './OrderChanger';
 
-
 export class SideBar extends Component {
   render() {
     return(

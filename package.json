@@ -17,6 +17,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "react-test-renderer": "^16.0.0",
     "redux-logger": "^3.0.6"
   }
 }

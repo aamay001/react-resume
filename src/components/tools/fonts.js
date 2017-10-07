@@ -49,6 +49,7 @@ const fonts = [
 { font: "Assistant, sans-serif", name: 'Assistant'},
 { font: "Antic, sans-serif", name: 'Antic'},
 { font: "Cutive Mono, monospace", name: 'Cutive Mono'},
+{ font: "Source Code Pro, monospace", name: 'Source Code Pro'}
 ];
 
 export default fonts;
