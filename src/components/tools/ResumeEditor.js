@@ -56,24 +56,25 @@ export class ResumeEditor extends Component {
   render(){
     this.updateOnOpenWindow = false;
     return(
-      <div className="resume-edit-panel" style={{display: this.props.showResumeEditor ? 'block' : 'none'}}>
-        <button onClick={this.onClickCloseResume}>X</button>
-        <label htmlFor="resume-js-editor" >Resume Editor</label>
-        <AceEditor
-          mode= "json"
-          theme="tomorrow"
-          name="resume-js-editor"
-          onChange={this.onEditorChange}
-          value={JSON.stringify(this.props.resume, null, '\t')}
-          height="90%"
-          width="100%"
-          wrapEnabled={true}
-          enableBasicAutocompletion={true}
-          enableLiveAutocompletion={true}
-          showLineNumver={true}
-          showPrintMargin={false}
-        />
-      </div>
+        <div className="resume-edit-panel"
+          style={{top: this.props.showResumeEditor ? '0' : '-82%'}}>
+          <button onClick={this.onClickCloseResume}>X</button>
+          <label htmlFor="resume-js-editor" >Resume Editor</label>
+          <AceEditor
+            mode= "json"
+            theme="tomorrow"
+            name="resume-js-editor"
+            onChange={this.onEditorChange}
+            value={JSON.stringify(this.props.resume, null, '\t')}
+            height="90%"
+            width="100%"
+            wrapEnabled={true}
+            enableBasicAutocompletion={true}
+            enableLiveAutocompletion={true}
+            showLineNumver={true}
+            showPrintMargin={false}
+          />
+        </div>
     );
   }
 }

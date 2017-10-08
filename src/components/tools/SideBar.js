@@ -10,7 +10,8 @@ import OrderChanger from './OrderChanger';
 export class SideBar extends Component {
   render() {
     return(
-      <div className="resume-tools-bar" style={this.props.showTools ? {left: "0"} : {}}>
+      <div className="resume-tools-bar"
+        style={this.props.showTools ? {left: "0"} : {}}>
         <h1>Tools</h1>
         <ResumeEditorOpener />
         <FontSelector />
