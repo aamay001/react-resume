@@ -2,7 +2,8 @@ import {
     TOGGLE_TOOLS,
     CHANGE_FONT,
     TOGGLE_SHOW_ITEM,
-    CHANGE_RESUME_ORDER
+    CHANGE_RESUME_ORDER,
+    OPEN_RESUME_EDITOR
 } from '../actions';
 import resumeOrder from '../components/tools/resumeOrder';
 
@@ -17,7 +18,8 @@ const initialState = {
     showTechSkills: true,
     showProjects: true,
     showEducation: true,
-    showExperience: true
+    showExperience: true,
+    showResumeEditor: false
 };
 
 function toggleTools(state) {
@@ -45,6 +47,13 @@ function changeResumeOrder(state, action) {
     return {
         ...state,
         resumeOrder: action.order
+    }
+}
+
+function openResumeEditor(state, action) {
+    return {
+        ...state,
+        showResumeEditor: !state.showResumeEditor
     }
 }
 
@@ -81,6 +90,8 @@ export default (state = initialState, action) => {
             return toggleShowItem(state, action);
         case CHANGE_RESUME_ORDER:
             return changeResumeOrder(state,action);
+        case OPEN_RESUME_EDITOR:
+            return openResumeEditor(state);
         default:
             return state;
     }

@@ -7,6 +7,7 @@ import Education from './components/Education';
 import TechnicalSkills from './components/TechnicalSkills';
 import Projects from './components/Projects';
 import ResumeTools from './components/ResumeTools';
+import ResumeEditor from './components/tools/ResumeEditor';
 import {newResume} from './actions';
 
 import {
@@ -40,6 +41,7 @@ class App extends Component {
     return (
       <div className="react-resume">
         <ResumeTools />
+        <ResumeEditor />
         <div className="resume" style={{'fontFamily': this.props.font}}>
           <Header />
           {resume}
