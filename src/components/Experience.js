@@ -32,7 +32,7 @@ export class Experience extends Component{
 }
 
 const mapStateToProps = state => ({
-  experience: state.experience
+  experience: state.resume.experience
 });
 
 export default connect(mapStateToProps)(Experience);

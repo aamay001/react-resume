@@ -1,8 +1,5 @@
-import {
-  NEW_RESUME
-}
-from './actions';
-import Resume from './resume-data';
+import { NEW_RESUME } from '../actions';
+import Resume from '../resume-data';
 
 const initialState = {}
 
@@ -16,7 +13,7 @@ function newResume(state) {
 export default (state = initialState, action) => {
   switch (action.type) {
     case NEW_RESUME:
-      return newResume(state, action)
+      return newResume(state)
     default:
       return state;
   }

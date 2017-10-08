@@ -1,5 +1,10 @@
 * {
-  font-family: 'Source Code Pro', monospace;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
+.resume {
   font-size: 11px;
 }
 
@@ -160,4 +165,11 @@ body {
     margin-bottom: 0;
   }
 }
+
+@media print {
+  .resume-tools {
+    display: none;
+  }
+}
+
 

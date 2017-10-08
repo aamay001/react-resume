@@ -1,0 +1,97 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+
+import { toggleShowItem } from '../../actions'
+
+export class VisibilityChanger extends Component {
+  handleCheckBoxChange = e => {
+    let item = e.target.getAttribute('data-toggle');
+    this.props.dispatch(toggleShowItem(item));
+  }
+
+  render() {
+    return (
+      <div className="resume-tools-visibility-changer">
+        <label>Visibility</label>
+
+        <label htmlFor="address-visibility">
+          <input id="address-visibility"
+            type="checkbox"
+            checked={this.props.showAddress}
+            onChange={this.handleCheckBoxChange}
+            data-toggle="showAddress"/> Show Address
+        </label>
+
+        <label htmlFor="email-visibility">
+          <input id="email-visibility"
+            type="checkbox"
+            checked={this.props.showEmail}
+            onChange={this.handleCheckBoxChange}
+            data-toggle="showEmail"/> Show Email
+        </label>
+
+        <label htmlFor="phone-visibility">
+          <input id="phone-visibility"
+            type="checkbox"
+            checked={this.props.showPhone}
+            onChange={this.handleCheckBoxChange}
+            data-toggle="showPhone"/> Show Phone
+        </label>
+
+        <label htmlFor="github-visibility">
+          <input id="github-visibility"
+            type="checkbox"
+            checked={this.props.showGithub}
+            onChange={this.handleCheckBoxChange}
+            data-toggle="showGithub"/> Show Github
+        </label>
+
+        <label htmlFor="education-visibility">
+        <input id="education-visibility"
+          type="checkbox"
+          checked={this.props.showEducation}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showEducation"/> Show Education
+        </label>
+
+        <label htmlFor="techskills-visibility">
+        <input id="techskills-visibility"
+          type="checkbox"
+          checked={this.props.showTechSkills}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showTechSkills"/> Show Technical Skills
+        </label>
+
+        <label htmlFor="projects-visibility">
+        <input id="projects-visibility"
+          type="checkbox"
+          checked={this.props.showProjects}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showProjects"/> Show Projects
+        </label>
+
+        <label htmlFor="experience-visibility">
+        <input id="experience-visibility"
+          type="checkbox"
+          checked={this.props.showExperience}
+          onChange={this.handleCheckBoxChange}
+          data-toggle="showExperience"/> Show Experience
+        </label>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  showAddress: state.tools.showAddress,
+  showEmail: state.tools.showEmail,
+  showPhone: state.tools.showPhone,
+  showGithub: state.tools.showGithub,
+  showTechSkills: state.tools.showTechSkills,
+  showProjects: state.tools.showProjects,
+  showEducation: state.tools.showEducation,
+  showExperience: state.tools.showExperience
+});
+
+const ConnectedVisibilityChanger = connect(mapStateToProps)(VisibilityChanger);
+export default ConnectedVisibilityChanger;
