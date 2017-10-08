@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import '../../styles/SideBar.css';
 
+import ResumeEditorOpener from './ResumeEditorOpener';
 import FontSelector from './FontSelector';
 import VisibilityChanger from './VisibilityChanger';
 import OrderChanger from './OrderChanger';
@@ -11,6 +12,7 @@ export class SideBar extends Component {
     return(
       <div className="resume-tools-bar" style={this.props.showTools ? {left: "0"} : {}}>
         <h1>Tools</h1>
+        <ResumeEditorOpener />
         <FontSelector />
         <VisibilityChanger />
         <OrderChanger />

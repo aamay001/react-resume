@@ -19,6 +19,8 @@
   padding-top: 40px;
   padding-left: 10px;
   text-align: center;
+  overflow-y: scroll;
+  background-color: rgba(247, 245, 245, 0.795)
 }
 
 label {
@@ -69,6 +71,7 @@ input[type=checkbox]:checked {
   -webkit-appearance: listbox;
   padding-left: 13px;
   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  background-color: white;
 }
 
 .resume-tools-order-changer {
@@ -84,7 +87,7 @@ input[type=checkbox]:checked {
 
 .resume-tools-order-changer li .drag-handle {
   margin-left: 10px;
-  font-size: 20px;
+  font-size: 22px;
   display: inline-block;
 }
 
@@ -101,14 +104,70 @@ input[type=checkbox]:checked {
   display: block;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: white;
   width: 90%;
   height: 35px;
   margin-bottom: 5px;
-  padding-top: 5px;
+  padding-top: 3px;
   text-align: left;
 }
 
 .resume-tools-order-changer li div:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   cursor: grab;
 }
+
+.resume-tools-resume-editor button {
+  width: 80%;
+  height: 32px;
+  border:none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: white;
+  outline:none
+}
+
+.resume-tools-resume-editor button:hover {
+  box-shadow: 0 5px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+.resume-edit-panel label {
+  font-family: Roboto, sans-serif !important ;
+}
+
+.resume-edit-panel {
+  position: fixed;
+  width: 65%;
+  height: 80%;
+  margin-left:auto;
+  margin-right: auto;
+  top: 5%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background-color: white;
+  z-index: 10;
+  padding: 1%
+}
+
+.resume-edit-panel label {
+  margin-left: 0;
+  width: 50%;
+}
+
+.resume-edit-panel button {
+  float:right;
+  background-color: white;
+  outline:none;
+  border: none;
+  padding-top: 3px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+}
+
+.resume-edit-panel button:active {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+}
+
+#resume-js-editor {
+  border: 1px solid black;
+  font-family: Source Code Pro, monospace;
+  height: 100%;
+}
+

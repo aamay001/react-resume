@@ -26,5 +26,15 @@ export const changeResumeOrder = order => ({
   order: order
 });
 
+export const OPEN_RESUME_EDITOR = 'OPEN_RESUME_EDITOR';
+export const openResumeEditor = () => ({
+  type: OPEN_RESUME_EDITOR
+});
+
+export const UPDATE_RESUME = 'UPDATE_RESIME';
+export const updateResume = resume => ({
+  type: UPDATE_RESUME,
+  resume
+});
 
 
