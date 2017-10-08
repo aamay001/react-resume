@@ -20,7 +20,9 @@ export class FontSelector extends Component {
         return (
             <div id="resume-tools-font-selector">
                 <label htmlFor="font-selector">Font</label>
-                <select id="font-selector" onChange={this.handleFontChange} defaultValue={this.props.selectedFont}>
+                <select id="font-selector"
+                    onChange={this.handleFontChange}
+                    defaultValue={this.props.selectedFont}>
                     {fontsList}
                 </select>
             </div>

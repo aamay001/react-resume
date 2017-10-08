@@ -12,7 +12,9 @@ export class ResumeEditorOpener extends Component{
     return (
       <div className="resume-tools-resume-editor">
         <label>Edit Resume</label>
-        <button onClick={this.onClickEditResume}>{!this.props.showResumeEditor ? 'Open Editor' : 'Close Editor'}</button>
+        <button onClick={this.onClickEditResume}>
+          {!this.props.showResumeEditor ? 'Open Editor' : 'Close Editor'}
+        </button>
       </div>
     );
   }

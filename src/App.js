@@ -41,11 +41,11 @@ class App extends Component {
     return (
       <div className="react-resume">
         <ResumeTools />
-        <ResumeEditor />
         <div className="resume" style={{'fontFamily': this.props.font}}>
           <Header />
           {resume}
         </div>
+        <ResumeEditor />
       </div>
     );
   }

@@ -8,11 +8,17 @@ export class Header extends Component {
         <h1>{this.props.header.name}</h1>
           <ul>
             { this.props.showEmail ?
-              <li><a href={`mailto:${this.props.header.email}?subject=Interview%20Request`}>{this.props.header.email}</a></li> : '' }
+              <li>
+                <a href={`mailto:${this.props.header.email}?subject=Interview%20Request`}>{this.props.header.email}</a>
+              </li> : '' }
             { this.props.showPhone ?
-              <li><a href={`tel:${this.props.header.phone}`}>{this.props.header.phone}</a></li> : '' }
+              <li>
+                <a href={`tel:${this.props.header.phone}`}>{this.props.header.phone}</a>
+              </li> : '' }
             { this.props.showGithub ?
-              <li><a href={this.props.header.github} target='_new'>{this.props.header.github}</a></li> : '' }
+              <li>
+                <a href={this.props.header.github} target='_new'>{this.props.header.github}</a>
+              </li> : '' }
           </ul>
           {this.props.showAddress ?
           <ul>
