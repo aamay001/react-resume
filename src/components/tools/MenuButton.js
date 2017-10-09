@@ -5,13 +5,14 @@ import '../../styles/MenuButton.css'
 import {toggleTools} from '../../actions';
 
 export class MenuButton extends Component {
-  onMenuButtonClick(e){
+  onMenuButtonClick = e => {
     this.props.dispatch(toggleTools());
   }
 
   render() {
     return (
-      <div className="resume-tools-menu-button" onClick={() => this.onMenuButtonClick()}>
+      <div className={this.props.showTools ? 'menu-open resume-tools-menu-button' : 'resume-tools-menu-button'}
+        onClick={this.onMenuButtonClick}>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>
         <div className={this.props.showTools ? 'tools-shown' : ''}></div>

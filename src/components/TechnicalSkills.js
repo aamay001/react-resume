@@ -33,5 +33,4 @@ const mapStateToProps = state => ({
 });
 
 const ConnectedTechnicalSkills = connect(mapStateToProps)(TechnicalSkills);
-
 export default ConnectedTechnicalSkills;

@@ -2,22 +2,23 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AceEditor from 'react-ace';
 
-import {updateResume, openResumeEditor} from '../../actions';
+import {updateResume, openResumeEditor, toggleTools} from '../../actions';
 import 'brace/mode/json';
 import 'brace/theme/tomorrow';
 import 'brace/ext/language_tools';
 
 export class ResumeEditor extends Component {
 
-  onEditorChange = updatedResume => {
-    const cleanedResume = this.isValidJSON(updatedResume);
-    if(cleanedResume) {
-      this.props.dispatch(updateResume(cleanedResume));
-    }
+  onClickCloseResume = e => {
+      this.props.dispatch(openResumeEditor());
+      this.props.dispatch(toggleTools());
   }
 
-  onClickCloseResume = e => {
-    this.props.dispatch(openResumeEditor());
+  onResumeChange = data => {
+    const updatedResume = this.isValidJSON(data);
+    if(updatedResume) {
+      this.props.dispatch(updateResume(updatedResume))
+    }
   }
 
   isValidJSON = data => {
@@ -28,17 +29,40 @@ export class ResumeEditor extends Component {
       if( !('header' in keys) && typeof(newResume.header) !== 'object' ){
         return false;
       }
+
+      let missingProp = false;
+      [
+        'name',
+        'email',
+        'phone',
+        'github',
+        'linkedin',
+        'address',
+        'city',
+        'state',
+        'zip',
+        'country'
+      ].forEach( key => {
+        if ( !(key in newResume.header) ) {
+          missingProp = true;
+        }
+      });
+
+      if (missingProp) {
+        throw new Error('');
+      }
+
       if( !('experience' in keys) && !Array.isArray(newResume.experience) ){
-        return false;
+        throw new Error('');
       }
       if( !('education' in keys) && !Array.isArray(newResume.education) ){
-        return false;
+        throw new Error('');
       }
       if( !('technicalSkills' in keys) && !Array.isArray(newResume.technicalSkills) ){
-        return false;
+        throw new Error('');
       }
       if( !('projects' in keys) && !Array.isArray(newResume.projects) ){
-        return false;
+        throw new Error('');
       }
       cleanedResume = {
         header: newResume.header,
@@ -55,24 +79,24 @@ export class ResumeEditor extends Component {
 
   render(){
     this.updateOnOpenWindow = false;
+    let editorValue = JSON.stringify(this.props.resume, null, '\t');
     return(
         <div className="resume-edit-panel"
-          style={{top: this.props.showResumeEditor ? '0' : '-82%'}}>
-          <button onClick={this.onClickCloseResume}>X</button>
-          <label htmlFor="resume-js-editor" >Resume Editor</label>
+          style={{top: this.props.showResumeEditor ? '0' : '-102%'}} >
+          <button onClick={this.onClickCloseResume}>{'<'}</button>
+          <label htmlFor="resume-js-editor" >JSON Editor</label>
           <AceEditor
             mode= "json"
             theme="tomorrow"
             name="resume-js-editor"
-            onChange={this.onEditorChange}
-            value={JSON.stringify(this.props.resume, null, '\t')}
-            height="90%"
-            width="100%"
-            wrapEnabled={true}
-            enableBasicAutocompletion={true}
-            enableLiveAutocompletion={true}
-            showLineNumver={true}
+            value={editorValue}
+            height="91%"
+            width="99%"
+            fontSize="16px"
+            showLineNumber={true}
             showPrintMargin={false}
+            tabSize={3}
+            onChange={this.onResumeChange}
           />
         </div>
     );

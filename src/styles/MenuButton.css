@@ -1,24 +1,32 @@
 .resume-tools-menu-button {
-  margin: 5px 5px;
-  position:fixed;
+  margin-left:10px;
+  margin-top: 10px;
+  position: fixed;
+  left: 0;
   z-index: 10;
 }
 
+.menu-open{
+  position: relative;
+  float: right;
+
+}
+
 .resume-tools-menu-button div {
-  width: 30px;
-  height: 3px;
+  width: 35px;
+  height: 5px;
   background-color: black;
   margin-bottom: 5px;
   -webkit-transition: .5s;
   -moz-transition: .5s;
-  transition: .5s;
+  transition: .5s all;
 }
 
 .resume-tools-menu-button div.tools-shown:first-of-type {
   transform: rotate(45deg);
   position: relative;
-  width: 25px;
-  top: 8px;
+  width: 35px;
+  top: 10px;
 }
 
 .resume-tools-menu-button div.tools-shown:nth-of-type(2) {
@@ -30,6 +38,6 @@
 .resume-tools-menu-button div.tools-shown:last-of-type {
   transform: rotate(-45deg);
   position: relative;
-  top: -8px;
-  width: 25px;
+  top: -10px;
+  width: 35px;
 }

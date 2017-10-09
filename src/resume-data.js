@@ -4,6 +4,7 @@ const Resume = {
     email: 'email@domain.com',
     phone: '123-456-7890',
     github: 'https://github.com/xxxxxxx',
+    linkedin: 'https://linkedin.com/in/xxxxxx',
     address: '123 Main Street',
     city: 'City',
     state: 'CA',
@@ -57,19 +58,19 @@ const Resume = {
       site: 'School 1',
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
-      studyDegree: 'What you earned.'
+      studyDegree: 'Subject, Degree/Certificate'
     },
     {
       site: 'School 2',
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
-      studyDegree: 'What you earned.'
+      studyDegree: 'Subject, Degree/Certificate'
     },
     {
       site: 'School 3',
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
-      studyDegree: 'What you earned.'
+      studyDegree: 'Subject, Degree/Certificate'
     },
   ],
   technicalSkills: [
