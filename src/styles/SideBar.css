@@ -173,10 +173,6 @@ input[type=checkbox]:checked {
   margin-top: -15px;
 }
 
-.resume-edit-panel button:hover {
-  box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
-}
-
 #resume-js-editor {
   border: 1px solid black;
   font-family: Source Code Pro, monospace;
