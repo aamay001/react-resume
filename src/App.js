@@ -40,8 +40,11 @@ class App extends Component {
     });
     return (
       <div className="react-resume">
-        <ResumeTools />
-        <div className="resume" style={{'fontFamily': this.props.font}}>
+        <ResumeTools ref={tools => this.resumeTools = tools}/>
+        <div className="resume"
+          style={{
+            fontFamily: this.props.font
+          }}>
           <Header />
           {resume}
         </div>
@@ -57,6 +60,7 @@ const mapStateToProps = state => ({
   showTechSkills: state.tools.showTechSkills,
   showProjects: state.tools.showProjects,
   showEducation: state.tools.showEducation,
-  showExperience: state.tools.showExperience
+  showExperience: state.tools.showExperience,
+  showTools: state.tools.showTools
 });
 export default connect(mapStateToProps)(App);

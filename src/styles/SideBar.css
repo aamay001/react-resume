@@ -1,7 +1,7 @@
 .resume-tools {
   position: fixed;
   height: 100%;
-  width: 300px;
+  width: 100%;
   left: 0;
   top: 0;
 }
@@ -9,44 +9,58 @@
 .resume-tools-bar {
   height: 100%;
   position: fixed;
-  width: 300px;
-  left: -310px;
-  background-color: white;
+  width: 100%;
+  left: -100%;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  -webkit-transition: .25s;
-  -moz-transition: .25s;
-  transition: .25s ;
-  padding-top: 40px;
-  padding-left: 10px;
+  -webkit-transition: 0.5s 0s;
+  -moz-transition: 0.5s 0s;
+  transition: all 0.5s 0s;
   text-align: center;
   overflow-y: scroll;
-  background-color: rgba(247, 245, 245, 0.795)
+  background-color: rgba(247, 245, 245, 0.932);
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.resume-tools-container {
+  margin-top: 55px;
 }
 
 label {
   display:block;
   text-align: left;
-  margin-left: 10%;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 400;
 }
 
-.resume-tools-visibility-changer label:nth-child(1n+2) {
+.resume-tools-visibility-changer div label {
   font-weight: normal;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  padding: 12px;
 }
 
 .resume-tools-visibility-changer {
   margin-top: 20px;
 }
 
-.resume-tools-visibility-changer input[type=checkbox] {
-  margin-left: 10px;
+.check-box-container {
+  border:none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: white;
+  outline:none;
+  margin-right:auto;
+  margin-left: auto;
+  padding-top: 5px;
 }
 
 input[type=checkbox] {
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
   margin-right: 5px;
   -webkit-appearance: none;
   outline: none;
@@ -59,18 +73,15 @@ input[type=checkbox]:checked {
 }
 
 #font-selector {
-  height: 30px;
-  width: 82%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  background: transparent;
   border: none;
   border-radius: 0;
   -moz-border-radiu: 0;
   -webkit-border-radius: 0;
   -webkit-appearance: listbox;
   padding-left: 13px;
-  background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  background: url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png) no-repeat right center;
+  background-size: 45px 45px;
   background-color: white;
 }
 
@@ -79,8 +90,8 @@ input[type=checkbox]:checked {
 }
 
 .resume-tools-order-changer ul {
-  padding-left: 0;
-  margin-left: 8%;
+  padding: 0;
+  margin-left: 0;
   margin-top: 0;
 }
 
@@ -93,7 +104,6 @@ input[type=checkbox]:checked {
 
 .resume-tools-order-changer li .section-name {
   margin-left: 10px;
-  font-size: 16px;
 }
 
 .resume-tools-order-changer li {
@@ -105,10 +115,7 @@ input[type=checkbox]:checked {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background-color: white;
-  width: 90%;
-  height: 35px;
-  margin-bottom: 5px;
-  padding-top: 3px;
+  padding-top: 15px;
   text-align: left;
 }
 
@@ -118,8 +125,6 @@ input[type=checkbox]:checked {
 }
 
 .resume-tools-resume-editor button {
-  width: 80%;
-  height: 32px;
   border:none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: white;
@@ -136,12 +141,8 @@ input[type=checkbox]:checked {
 
 .resume-edit-panel {
   position: fixed;
-  width: 65%;
-  height: 80%;
-  margin-left:auto;
-  margin-right: auto;
-  left: 20%;
-  top: -82%;
+  width: 100%;
+  height: 100%;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background-color: white;
@@ -150,7 +151,13 @@ input[type=checkbox]:checked {
 
 .resume-edit-panel label {
   margin-left: 0;
-  width: 50%;
+  padding-top: 10px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.resume-edit-panel em {
+  font-family: Cutivo Mono, monospace;
 }
 
 .resume-edit-panel button {
@@ -158,17 +165,33 @@ input[type=checkbox]:checked {
   background-color: white;
   outline:none;
   border: none;
-  padding-top: 3px;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+  height: 65px;
+  width: 65px;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 50px;
+  margin-top: -15px;
 }
 
-.resume-edit-panel button:active {
+.resume-edit-panel button:hover {
   box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
 }
 
 #resume-js-editor {
   border: 1px solid black;
   font-family: Source Code Pro, monospace;
-  height: 100%;
 }
 
+@media only screen and (min-width: 768px) {
+  .resume-tools,
+  .resume-tools-bar {
+    width: 300px;
+  }
+
+  .resume-edit-panel {
+    width: 75%;
+    left: 13%;
+    margin-left:auto;
+    margin-right: auto;
+  }
+}

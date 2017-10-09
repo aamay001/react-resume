@@ -19,6 +19,10 @@ export class Header extends Component {
               <li>
                 <a href={this.props.header.github} target='_new'>{this.props.header.github}</a>
               </li> : '' }
+              { this.props.showLinkedIn ?
+                <li>
+                  <a href={this.props.header.linkedin} target='_new'>{this.props.header.linkedin}</a>
+                </li> : '' }
           </ul>
           {this.props.showAddress ?
           <ul>
@@ -38,7 +42,8 @@ Header.defaultProps = {
   showAddress: true,
   showEmail: true,
   showPhone: true,
-  showGithub: true
+  showGithub: true,
+  showLinkedIn: true
 }
 
 const mapStateToProps = state => ({
@@ -46,7 +51,8 @@ const mapStateToProps = state => ({
   showAddress: state.tools.showAddress,
   showEmail: state.tools.showEmail,
   showPhone: state.tools.showPhone,
-  showGithub: state.tools.showGithub
+  showGithub: state.tools.showGithub,
+  showLinkedIn: state.tools.showLinkedIn
 });
 
 const ConnectedHeader = connect(mapStateToProps)(Header);

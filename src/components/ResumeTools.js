@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-import MenuButton from './tools/MenuButton'
 import SideBar from './tools/SideBar';
+
+import '../styles/SideBar.css';
+import '../styles/OptionStyle.css'
 
 export class ResumeTools extends Component {
   render() {
     return (
       <div className="resume-tools" style={{'fontFamily': 'Roboto, sans-serif'}}>
         <aside>
-          <MenuButton />
           <SideBar/>
         </aside>
       </div>

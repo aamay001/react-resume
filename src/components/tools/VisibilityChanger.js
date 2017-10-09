@@ -14,69 +14,95 @@ export class VisibilityChanger extends Component {
       <div className="resume-tools-visibility-changer">
         <label>Visibility</label>
 
-        <label htmlFor="address-visibility">
-          <input id="address-visibility"
+        <div className="check-box-container" >
+          <label htmlFor="address-visibility">
+            <input id="address-visibility"
+              type="checkbox"
+              checked={this.props.showAddress}
+              onChange={this.handleCheckBoxChange}
+              data-toggle="showAddress"/> Show Address
+          </label>
+        </div>
+
+        <div className="check-box-container" >
+          <label htmlFor="email-visibility">
+            <input id="email-visibility"
+              type="checkbox"
+              checked={this.props.showEmail}
+              onChange={this.handleCheckBoxChange}
+              data-toggle="showEmail"/> Show Email
+          </label>
+        </div>
+
+        <div className="check-box-container" >
+          <label htmlFor="phone-visibility">
+            <input id="phone-visibility"
+              type="checkbox"
+              checked={this.props.showPhone}
+              onChange={this.handleCheckBoxChange}
+              data-toggle="showPhone"/> Show Phone
+          </label>
+        </div>
+
+        <div className="check-box-container" >
+          <label htmlFor="github-visibility">
+            <input id="github-visibility"
+              type="checkbox"
+              checked={this.props.showGithub}
+              onChange={this.handleCheckBoxChange}
+              data-toggle="showGithub"/> Show Github
+          </label>
+        </div>
+
+        <div className="check-box-container" >
+          <label htmlFor="linkedin-visibility">
+            <input id="linkedin-visibility"
+              type="checkbox"
+              checked={this.props.showLinkedIn}
+              onChange={this.handleCheckBoxChange}
+              data-toggle="showLinkedIn"/> Show LinkedIn
+          </label>
+        </div>
+
+        <div className="check-box-container" >
+          <label htmlFor="education-visibility">
+          <input id="education-visibility"
             type="checkbox"
-            checked={this.props.showAddress}
+            checked={this.props.showEducation}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showAddress"/> Show Address
-        </label>
+            data-toggle="showEducation"/> Show Education
+          </label>
+        </div>
 
-        <label htmlFor="email-visibility">
-          <input id="email-visibility"
+        <div className="check-box-container" >
+          <label htmlFor="techskills-visibility">
+          <input id="techskills-visibility"
             type="checkbox"
-            checked={this.props.showEmail}
+            checked={this.props.showTechSkills}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showEmail"/> Show Email
-        </label>
+            data-toggle="showTechSkills"/> Show Technical Skills
+          </label>
+        </div>
 
-        <label htmlFor="phone-visibility">
-          <input id="phone-visibility"
+        <div className="check-box-container" >
+          <label htmlFor="projects-visibility">
+          <input id="projects-visibility"
             type="checkbox"
-            checked={this.props.showPhone}
+            checked={this.props.showProjects}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showPhone"/> Show Phone
-        </label>
+            data-toggle="showProjects"/> Show Projects
+          </label>
+        </div>
 
-        <label htmlFor="github-visibility">
-          <input id="github-visibility"
+        <div className="check-box-container" >
+          <label htmlFor="experience-visibility">
+          <input id="experience-visibility"
             type="checkbox"
-            checked={this.props.showGithub}
+            checked={this.props.showExperience}
             onChange={this.handleCheckBoxChange}
-            data-toggle="showGithub"/> Show Github
-        </label>
-
-        <label htmlFor="education-visibility">
-        <input id="education-visibility"
-          type="checkbox"
-          checked={this.props.showEducation}
-          onChange={this.handleCheckBoxChange}
-          data-toggle="showEducation"/> Show Education
-        </label>
-
-        <label htmlFor="techskills-visibility">
-        <input id="techskills-visibility"
-          type="checkbox"
-          checked={this.props.showTechSkills}
-          onChange={this.handleCheckBoxChange}
-          data-toggle="showTechSkills"/> Show Technical Skills
-        </label>
-
-        <label htmlFor="projects-visibility">
-        <input id="projects-visibility"
-          type="checkbox"
-          checked={this.props.showProjects}
-          onChange={this.handleCheckBoxChange}
-          data-toggle="showProjects"/> Show Projects
-        </label>
-
-        <label htmlFor="experience-visibility">
-        <input id="experience-visibility"
-          type="checkbox"
-          checked={this.props.showExperience}
-          onChange={this.handleCheckBoxChange}
-          data-toggle="showExperience"/> Show Experience
-        </label>
+            data-toggle="showExperience"/> Show Experience
+          </label>
+        </div>
       </div>
     );
   }
@@ -90,7 +116,8 @@ const mapStateToProps = state => ({
   showTechSkills: state.tools.showTechSkills,
   showProjects: state.tools.showProjects,
   showEducation: state.tools.showEducation,
-  showExperience: state.tools.showExperience
+  showExperience: state.tools.showExperience,
+  showLinkedIn: state.tools.showLinkedIn
 });
 
 const ConnectedVisibilityChanger = connect(mapStateToProps)(VisibilityChanger);

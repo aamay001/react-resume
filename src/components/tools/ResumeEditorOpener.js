@@ -11,7 +11,7 @@ export class ResumeEditorOpener extends Component{
   render() {
     return (
       <div className="resume-tools-resume-editor">
-        <label>Edit Resume</label>
+        <label>JSON Editor</label>
         <button onClick={this.onClickEditResume}>
           {!this.props.showResumeEditor ? 'Open Editor' : 'Close Editor'}
         </button>
