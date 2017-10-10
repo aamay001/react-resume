@@ -28,6 +28,10 @@ export class TechnicalSkills extends Component {
   }
 }
 
+TechnicalSkills.defaultProps = {
+  techSkills: []
+};
+
 const mapStateToProps = state => ({
   techSkills: state.resume.technicalSkills
 });

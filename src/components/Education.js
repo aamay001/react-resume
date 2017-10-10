@@ -22,6 +22,10 @@ export class Education extends Component{
   }
 }
 
+Education.defaultProps = {
+  education: []
+}
+
 const mapStateToProps = state => ({
   education: state.resume.education
 });

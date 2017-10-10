@@ -3,9 +3,11 @@ import {
     CHANGE_FONT,
     TOGGLE_SHOW_ITEM,
     CHANGE_RESUME_ORDER,
-    OPEN_RESUME_EDITOR
+    OPEN_RESUME_EDITOR,
+    UPDATE_EDITOR_STATUS
 } from '../actions';
 import resumeOrder from '../components/tools/resumeOrder';
+import {WAITING} from '../components/tools/ResumeEditorStatus';
 
 const initialState = {
     showTools : true,
@@ -20,7 +22,8 @@ const initialState = {
     showEducation: true,
     showExperience: true,
     showResumeEditor: false,
-    showLinkedIn: false
+    showLinkedIn: false,
+    editorStatus: WAITING
 };
 
 function toggleTools(state) {
@@ -58,6 +61,13 @@ function openResumeEditor(state, action) {
     }
 }
 
+function updateResumeEditorStatus(state, action){
+    return {
+        ...state,
+        editorStatus: action.status
+    }
+}
+
 function getItemToToggle(state, action){
     switch(action.item) {
         case 'showAddress':
@@ -86,15 +96,17 @@ function getItemToToggle(state, action){
 export default (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_TOOLS:
-            return toggleTools(state)
+            return toggleTools(state);
         case CHANGE_FONT:
-            return changeFont(state,action)
+            return changeFont(state,action);
         case TOGGLE_SHOW_ITEM:
             return toggleShowItem(state, action);
         case CHANGE_RESUME_ORDER:
             return changeResumeOrder(state,action);
         case OPEN_RESUME_EDITOR:
             return openResumeEditor(state);
+        case UPDATE_EDITOR_STATUS:
+            return updateResumeEditorStatus(state, action);
         default:
             return state;
     }

@@ -31,6 +31,10 @@ export class Experience extends Component{
   }
 }
 
+Experience.defaultProps = {
+  experience: []
+}
+
 const mapStateToProps = state => ({
   experience: state.resume.experience
 });

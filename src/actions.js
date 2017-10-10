@@ -37,4 +37,10 @@ export const updateResume = resume => ({
   resume
 });
 
+export const UPDATE_EDITOR_STATUS = 'UPDATE_RESUME_STAUS';
+export const updateResumeEditorStatus = status => ({
+  type: UPDATE_EDITOR_STATUS,
+  status
+})
+
 
