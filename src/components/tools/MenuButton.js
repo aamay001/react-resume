@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import '../../styles/MenuButton.css'
 
-import {toggleTools} from '../../actions';
+import {toggleTools, openResumeEditor} from '../../actions';
 
 export class MenuButton extends Component {
   onMenuButtonClick = e => {
     this.props.dispatch(toggleTools());
+    if(this.props.showEditor){
+      this.props.dispatch(openResumeEditor());
+    }
   }
 
   render() {
@@ -22,7 +25,8 @@ export class MenuButton extends Component {
 }
 
 const mapStateToProps = state => ({
-  showTools: state.tools.showTools
+  showTools: state.tools.showTools,
+  showEditor: state.tools.showResumeEditor
 })
 
 const ConnectedMenuButton = connect(mapStateToProps)(MenuButton);

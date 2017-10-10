@@ -4,8 +4,6 @@ import AceEditor from 'react-ace';
 
 import {
   updateResume,
-  openResumeEditor,
-  toggleTools,
   updateResumeEditorStatus
 } from '../../actions';
 import 'brace/mode/json';
@@ -18,12 +16,9 @@ import ResumeEditorStatus, {
   VALIDATING
 } from './ResumeEditorStatus';
 
-export class ResumeEditor extends Component {
+import ResumeEditorCloseButton from './ResumeEditorCloseButton';
 
-  onClickCloseResume = e => {
-      this.props.dispatch(openResumeEditor());
-      this.props.dispatch(toggleTools());
-  }
+export class ResumeEditor extends Component {
 
   onResumeChange = data => {
     this.props.dispatch(updateResumeEditorStatus(VALIDATING));
@@ -99,17 +94,14 @@ export class ResumeEditor extends Component {
     return(
         <div className="resume-edit-panel"
           style={{top: this.props.showResumeEditor ? '0' : '-102%'}} >
-          <button onClick={this.onClickCloseResume}>{'<'}</button>
           <label htmlFor="resume-js-editor" >JSON Editor</label>
+          <ResumeEditorCloseButton />
           <ResumeEditorStatus />
           <AceEditor
             mode= "json"
             theme="tomorrow"
             name="resume-js-editor"
             value={editorValue}
-            height="91%"
-            width="99%"
-            fontSize="16px"
             showLineNumber={true}
             showPrintMargin={false}
             tabSize={3}
