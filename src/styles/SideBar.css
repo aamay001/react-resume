@@ -160,22 +160,19 @@ input[type=checkbox]:checked {
   font-family: Cutivo Mono, monospace;
 }
 
-.resume-edit-panel button {
+.resume-edit-panel a {
   float:right;
-  background-color: white;
-  outline:none;
-  border: none;
-  height: 65px;
-  width: 65px;
-  font-size: 70px;
-  font-weight: 400;
-  line-height: 50px;
-  margin-top: -15px;
+
 }
 
+#resume-js-editor textarea,
 #resume-js-editor {
   border: 1px solid black;
   font-family: Source Code Pro, monospace;
+  height: 90% !important;
+  width: 97% !important;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -186,8 +183,14 @@ input[type=checkbox]:checked {
 
   .resume-edit-panel {
     width: 75%;
-    left: 13%;
+    left: 20%;
     margin-left:auto;
     margin-right: auto;
+  }
+
+  #resume-js-editor textarea,
+  #resume-js-editor {
+    height: 93% !important;
+    width: 99% !important;
   }
 }
