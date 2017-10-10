@@ -81,6 +81,10 @@ export class OrderChanger extends Component {
   }
 }
 
+OrderChanger.defaultProps = {
+  resumeOrder: []
+}
+
 const mapStateToProps = state => ({
   resumeOrder: state.tools.resumeOrder
 });

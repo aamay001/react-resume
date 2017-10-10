@@ -29,6 +29,10 @@ export class Projects extends Component{
   }
 }
 
+Projects.defaultProps = {
+  projects: []
+}
+
 const mapStateToProps = state => ({
   projects: state.resume.projects
 });

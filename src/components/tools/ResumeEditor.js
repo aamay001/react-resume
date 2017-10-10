@@ -2,10 +2,21 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AceEditor from 'react-ace';
 
-import {updateResume, openResumeEditor, toggleTools} from '../../actions';
+import {
+  updateResume,
+  openResumeEditor,
+  toggleTools,
+  updateResumeEditorStatus
+} from '../../actions';
 import 'brace/mode/json';
 import 'brace/theme/tomorrow';
 import 'brace/ext/language_tools';
+
+import ResumeEditorStatus, {
+  ERROR,
+  UPDATED,
+  VALIDATING
+} from './ResumeEditorStatus';
 
 export class ResumeEditor extends Component {
 
@@ -15,10 +26,15 @@ export class ResumeEditor extends Component {
   }
 
   onResumeChange = data => {
+    this.props.dispatch(updateResumeEditorStatus(VALIDATING));
     const updatedResume = this.isValidJSON(data);
     if(updatedResume) {
       this.props.dispatch(updateResume(updatedResume))
+      this.props.dispatch(updateResumeEditorStatus(UPDATED));
+      return;
     }
+
+    this.props.dispatch(updateResumeEditorStatus(ERROR));
   }
 
   isValidJSON = data => {
@@ -85,6 +101,7 @@ export class ResumeEditor extends Component {
           style={{top: this.props.showResumeEditor ? '0' : '-102%'}} >
           <button onClick={this.onClickCloseResume}>{'<'}</button>
           <label htmlFor="resume-js-editor" >JSON Editor</label>
+          <ResumeEditorStatus />
           <AceEditor
             mode= "json"
             theme="tomorrow"

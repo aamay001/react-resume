@@ -8,10 +8,6 @@ import OrderChanger from './OrderChanger';
 import MenuButton from './MenuButton';
 
 export class SideBar extends Component {
-  componentDidMount() {
-    this.sidebar.focus();
-  }
-
   render() {
     return(
       <div className="resume-tools-bar"
