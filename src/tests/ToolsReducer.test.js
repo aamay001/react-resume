@@ -3,7 +3,9 @@ import {
   toggleTools,
   changeFont,
   toggleShowItem,
-  changeResumeOrder
+  changeResumeOrder,
+  openResumeEditor,
+  updateResumeEditorStatus
 } from '../actions';
 
 describe('ToolsReducer', () => {
@@ -144,6 +146,33 @@ describe('ToolsReducer', () => {
       const action2 = changeResumeOrder(newOrder2);
       state = ToolsReducer(state, action2);
       expect(state.resumeOrder).toEqual(newOrder2);
+    });
+  });
+
+  describe('OPEN_RESUME_EDITOR', () => {
+    it('Should open and close the resume json editor', () => {
+      let state = {
+        showResumeEditor : false
+      };
+      const action = openResumeEditor();
+      state = ToolsReducer(state, action);
+      expect(state.showResumeEditor).toEqual(true);
+      state = ToolsReducer(state, action);
+      expect(state.showResumeEditor).toEqual(false);
+    });
+  });
+
+  describe('UPDATE_EDITOR_STATUS', () => {
+    it('Should change the resume editor status to specified status', () => {
+      let state = {
+        editorStatus: 'initial status'
+      };
+      let action = updateResumeEditorStatus('new status');
+      state = ToolsReducer(state, action);
+      expect(state.editorStatus).toEqual('new status');
+      action = updateResumeEditorStatus('next status');
+      state = ToolsReducer(state, action);
+      expect(state.editorStatus).toEqual('next status');
     });
   });
 });

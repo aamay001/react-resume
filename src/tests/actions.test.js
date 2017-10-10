@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import resume from '../resume-data';
 
 describe('NEW_RESUME', () => {
   it('Should return the new resume action', () => {
@@ -40,3 +41,26 @@ describe('CHANGE_RESUME_ORDER', () => {
     expect(action.order).toEqual(testOrder);
   });
 });
+
+describe('OPEN_RESUME_EDITOR', () => {
+  it('Should return the open resume editor action', () => {
+    const action = actions.openResumeEditor();
+    expect(action.type).toEqual(actions.OPEN_RESUME_EDITOR);
+  })
+})
+
+describe('UPDATE_RESUME', () => {
+  it('Should return update resume action', () => {
+    const action = actions.updateResume(resume);
+    expect(action.type).toEqual(actions.UPDATE_RESUME);
+    expect(action.resume).toEqual(resume);
+  });
+});
+
+describe('UPDATE_EDITOR_STATUS', () => {
+  it('Should return the update editor status action', () => {
+    const action = actions.updateResumeEditorStatus('status update');
+    expect(action.type).toEqual(actions.UPDATE_EDITOR_STATUS);
+    expect(action.status).toEqual('status update');
+  });
+})
