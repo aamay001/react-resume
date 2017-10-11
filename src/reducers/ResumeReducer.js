@@ -3,6 +3,7 @@ import {
   UPDATE_RESUME
 } from '../actions';
 import Resume from '../resume-data';
+import {notify} from 'react-notify-toast';
 
 const initialState = {};
 const savedState = JSON.parse(localStorage.getItem('state.resume'));
@@ -25,6 +26,7 @@ function updateResume(state, action) {
     ...action.resume
   };
   saveState(newState);
+  notify.show( "saved to localStorage... 💾", 'success', 4000)
   return newState;
 }
 

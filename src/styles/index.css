@@ -179,4 +179,10 @@ body {
   }
 }
 
+#notification-wrapper div.toast-notification {
+  font-family: Roboto, sans-serif;
+  border-radius: 0;
+  font-size: 18px;
+}
+
 

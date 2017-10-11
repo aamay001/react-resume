@@ -17,6 +17,7 @@ import {
   EXPERIENCE
 }
 from './components/tools/resumeOrder'
+import Notifications from 'react-notify-toast';
 
 class App extends Component {
   componentWillMount() {
@@ -40,6 +41,7 @@ class App extends Component {
     });
     return (
       <div className="react-resume">
+        <Notifications />
         <ResumeTools />
         <div className="resume"
           style={{
