@@ -20,7 +20,7 @@ export class SideBar extends Component {
             fontWeight: 100,
             marginBottom: 0
           }}>
-          📃resumeJS
+          <span role="img" aria-label="curly page emoji">📃</span>resumeJS
           </h1>
           <em style={{
             fontFamily: 'Cutive Mono, monospace',
