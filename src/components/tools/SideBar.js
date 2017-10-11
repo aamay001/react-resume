@@ -20,7 +20,7 @@ export class SideBar extends Component {
             fontWeight: 100,
             marginBottom: 0
           }}>
-            resumeJS
+          📃resumeJS
           </h1>
           <em style={{
             fontFamily: 'Cutive Mono, monospace',
