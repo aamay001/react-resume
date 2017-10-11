@@ -3,4 +3,4 @@
 This is a small side project to create my resume in react. Still under development.
 
 ## Live Demo
-[React Resume](http://resumejs.netlify.com/)
+[React Resume](https://resumejs.netlify.com/)
