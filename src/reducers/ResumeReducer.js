@@ -31,7 +31,13 @@ function updateResume(state, action) {
 }
 
 function saveState(state){
-  localStorage.setItem('state.resume', JSON.stringify(state));
+  try {
+    localStorage.setItem('state.resume', JSON.stringify(state));
+  }
+  catch (err) {
+    console.log(err);
+    notify.show('error accessing local storage... 😞', 'error', 5000);
+  }
 }
 
 export default (state = savedState || initialState, action) => {

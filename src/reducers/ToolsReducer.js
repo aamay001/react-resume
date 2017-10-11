@@ -101,7 +101,12 @@ function getItemToToggle(state, action){
 }
 
 function saveState(state){
-    localStorage.setItem('state.tools', JSON.stringify(state));
+    try {
+        localStorage.setItem('state.tools', JSON.stringify(state));
+    }
+    catch(err) {
+        console.log(err);
+    }
 }
 
 export default (state = savedState || initialState, action) => {
