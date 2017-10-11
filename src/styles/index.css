@@ -180,12 +180,21 @@ body {
   .github-corner {
     display: none;
   }
+  #notification-wrapper div.toast-notification {
+    display: none;
+  }
 }
 
 #notification-wrapper div.toast-notification {
   font-family: Roboto, sans-serif;
   border-radius: 0;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+  #notification-wrapper div.toast-notification {
+    display:none;
+  }
 }
 
 
