@@ -93,7 +93,7 @@ export class ResumeEditor extends Component {
     let editorValue = JSON.stringify(this.props.resume, null, '\t');
     return(
         <div className="resume-edit-panel"
-          style={{top: this.props.showResumeEditor ? '0' : '-102%'}} >
+          style={{top: this.props.showResumeEditor ? '0' : '-120%'}} >
           <label htmlFor="resume-js-editor" >JSON Editor</label>
           <ResumeEditorCloseButton />
           <ResumeEditorStatus />

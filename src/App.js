@@ -40,7 +40,7 @@ class App extends Component {
     });
     return (
       <div className="react-resume">
-        <ResumeTools ref={tools => this.resumeTools = tools}/>
+        <ResumeTools />
         <div className="resume"
           style={{
             fontFamily: this.props.font

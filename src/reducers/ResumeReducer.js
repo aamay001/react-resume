@@ -4,23 +4,35 @@ import {
 } from '../actions';
 import Resume from '../resume-data';
 
-const initialState = {}
+const initialState = {};
+const savedState = JSON.parse(localStorage.getItem('state.resume'));
 
 function newResume(state) {
+  if (!savedState) {
+    return {
+      ...state ,
+      ...Resume
+    };
+  }
   return {
-    ...state,
-    ...Resume
-  };
-}
-
-function updateResume(state, action) {
-  return {
-    ...state,
-    ...action.resume
+    ...state
   }
 }
 
-export default (state = initialState, action) => {
+function updateResume(state, action) {
+  const newState = {
+    ...state,
+    ...action.resume
+  };
+  saveState(newState);
+  return newState;
+}
+
+function saveState(state){
+  localStorage.setItem('state.resume', JSON.stringify(state));
+}
+
+export default (state = savedState || initialState, action) => {
   switch (action.type) {
     case NEW_RESUME:
       return newResume(state)

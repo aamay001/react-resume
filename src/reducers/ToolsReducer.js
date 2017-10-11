@@ -25,6 +25,7 @@ const initialState = {
     showLinkedIn: false,
     editorStatus: WAITING
 };
+const savedState = JSON.parse(localStorage.getItem('state.tools'));
 
 function toggleTools(state) {
     return {
@@ -34,38 +35,44 @@ function toggleTools(state) {
 }
 
 function changeFont(state, action) {
-    return {
+    const newState = {
         ...state,
         font: action.font
     };
+    saveState(newState);
+    return newState;
 }
 
 function toggleShowItem(state, action) {
-    return {
+    const newState = {
         ...state,
         ...getItemToToggle(state, action)
     };
+    saveState(newState);
+    return newState;
 }
 
 function changeResumeOrder(state, action) {
-    return {
+    const newState = {
         ...state,
         resumeOrder: action.order
-    }
+    };
+    saveState(newState);
+    return newState;
 }
 
 function openResumeEditor(state, action) {
     return {
         ...state,
         showResumeEditor: !state.showResumeEditor
-    }
+    };
 }
 
 function updateResumeEditorStatus(state, action){
     return {
         ...state,
         editorStatus: action.status
-    }
+    };
 }
 
 function getItemToToggle(state, action){
@@ -93,7 +100,11 @@ function getItemToToggle(state, action){
     }
 }
 
-export default (state = initialState, action) => {
+function saveState(state){
+    localStorage.setItem('state.tools', JSON.stringify(state));
+}
+
+export default (state = savedState || initialState, action) => {
     switch (action.type) {
         case TOGGLE_TOOLS:
             return toggleTools(state);
