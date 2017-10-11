@@ -6,6 +6,7 @@ import FontSelector from './FontSelector';
 import VisibilityChanger from './VisibilityChanger';
 import OrderChanger from './OrderChanger';
 import MenuButton from './MenuButton';
+import PrintButton from './PrintButton';
 
 export class SideBar extends Component {
   render() {
@@ -29,6 +30,7 @@ export class SideBar extends Component {
           <hr/>
           <br/>
           <h1>Tools</h1>
+          <PrintButton />
           <ResumeEditorOpener />
           <FontSelector />
           <VisibilityChanger />

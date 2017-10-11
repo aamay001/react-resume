@@ -79,6 +79,7 @@ input[type=checkbox]:checked {
   -moz-border-radiu: 0;
   -webkit-border-radius: 0;
   -webkit-appearance: listbox;
+  -moz-appearance: none;
   padding-left: 13px;
   background: url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png) no-repeat right center;
   background-size: 45px 45px;
@@ -124,6 +125,7 @@ input[type=checkbox]:checked {
   cursor: grab;
 }
 
+.resume-tools-print-button button,
 .resume-tools-resume-editor button {
   border:none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -131,6 +133,7 @@ input[type=checkbox]:checked {
   outline:none
 }
 
+.resume-tools-print-button button:hover,
 .resume-tools-resume-editor button:hover {
   box-shadow: 0 5px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 }
