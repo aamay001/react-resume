@@ -39,7 +39,7 @@ function changeFont(state, action) {
         ...state,
         font: action.font
     };
-    saveState(newState);
+
     return newState;
 }
 
@@ -48,7 +48,7 @@ function toggleShowItem(state, action) {
         ...state,
         ...getItemToToggle(state, action)
     };
-    saveState(newState);
+
     return newState;
 }
 
@@ -57,7 +57,7 @@ function changeResumeOrder(state, action) {
         ...state,
         resumeOrder: action.order
     };
-    saveState(newState);
+
     return newState;
 }
 
@@ -100,14 +100,6 @@ function getItemToToggle(state, action){
     }
 }
 
-function saveState(state){
-    try {
-        localStorage.setItem('state.tools', JSON.stringify(state));
-    }
-    catch(err) {
-        console.log(err);
-    }
-}
 
 export default (state = savedState || initialState, action) => {
     switch (action.type) {

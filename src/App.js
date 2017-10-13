@@ -20,9 +20,6 @@ from './components/tools/resumeOrder'
 import Notifications from 'react-notify-toast';
 
 class App extends Component {
-  componentWillMount() {
-    this.props.dispatch(newResume());
-  }
 
   render() {
     const resume = this.props.resumeOrder.map( (item, index) => {

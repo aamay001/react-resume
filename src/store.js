@@ -1,5 +1,13 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import reducer from './reducers';
 import {createLogger} from 'redux-logger';
-export default createStore(reducer, applyMiddleware(...[createLogger()]));
+import {autoRehydrate} from 'redux-persist';
 
+export default createStore(
+  reducer,
+  undefined,
+  compose(
+  applyMiddleware(...[createLogger()]),
+  autoRehydrate()
+  )
+);

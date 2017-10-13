@@ -5,18 +5,13 @@ import {
 import Resume from '../resume-data';
 import {notify} from 'react-notify-toast';
 
-const initialState = {};
-const savedState = JSON.parse(localStorage.getItem('state.resume'));
+const initialState = {
+  ...Resume
+};
 
 function newResume(state) {
-  if (!savedState) {
-    return {
-      ...state ,
-      ...Resume
-    };
-  }
   return {
-    ...state
+    ...initialState
   }
 }
 
@@ -25,22 +20,11 @@ function updateResume(state, action) {
     ...state,
     ...action.resume
   };
-  saveState(newState);
   notify.show( "saved to localStorage... 💾", 'success', 4000)
   return newState;
 }
 
-function saveState(state){
-  try {
-    localStorage.setItem('state.resume', JSON.stringify(state));
-  }
-  catch (err) {
-    console.log(err);
-    notify.show('error accessing local storage... 😞', 'error', 5000);
-  }
-}
-
-export default (state = savedState || initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case NEW_RESUME:
       return newResume(state)
