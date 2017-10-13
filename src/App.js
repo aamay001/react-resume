@@ -8,7 +8,7 @@ import TechnicalSkills from './components/TechnicalSkills';
 import Projects from './components/Projects';
 import ResumeTools from './components/ResumeTools';
 import ResumeEditor from './components/tools/ResumeEditor';
-import {newResume} from './actions';
+//import {newResume} from './actions';
 
 import {
   EDUCATION,
