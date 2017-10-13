@@ -170,6 +170,14 @@ body {
   }
 }
 
+.resume-tools {
+  z-index: 5;
+}
+
+.resume-edit-panel {
+  z-index: 10;
+}
+
 @media print {
   .resume-tools {
     display: none;
