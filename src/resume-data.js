@@ -93,7 +93,7 @@ const Resume = {
       details: [
         'Detail 1',
         'Detail 2',
-        'Detail 3'
+        'http://projectLink.com'
       ]
     },
     {
@@ -104,7 +104,8 @@ const Resume = {
       details: [
         'Detail 1',
         'Detail 2',
-        'Detail 3'
+        'Detail 3',
+        'https://google.com'
       ]
     },
     {

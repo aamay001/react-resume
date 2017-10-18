@@ -12,7 +12,7 @@ export class Projects extends Component{
         <ul>
           {
             project.details.map( (detail, detailIndex) => {
-              return <li key={detailIndex}>{detail}</li>
+              return <li key={detailIndex}>{detail.search('http') > -1 ? <a href={detail} target="_blank">{detail}</a> : detail }</li>
             })
           }
         </ul>
