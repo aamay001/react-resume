@@ -19,10 +19,14 @@ export class Header extends Component {
               <li>
                 <a href={this.props.header.github} target='_new'>{this.props.header.github}</a>
               </li> : '' }
-              { this.props.showLinkedIn ?
-                <li>
-                  <a href={this.props.header.linkedin} target='_new'>{this.props.header.linkedin}</a>
-                </li> : '' }
+            { this.props.showLinkedIn ?
+              <li>
+                <a href={this.props.header.linkedin} target='_new'>{this.props.header.linkedin}</a>
+              </li> : '' }
+            { this.props.showWebsite ?
+              <li>
+                <a href={this.props.header.website} target='_new'>{this.props.header.website}</a>
+              </li> : '' }
           </ul>
           {this.props.showAddress ?
           <ul>
@@ -52,7 +56,8 @@ const mapStateToProps = state => ({
   showEmail: state.tools.showEmail,
   showPhone: state.tools.showPhone,
   showGithub: state.tools.showGithub,
-  showLinkedIn: state.tools.showLinkedIn
+  showLinkedIn: state.tools.showLinkedIn,
+  showWebsite: state.tools.showWebsite
 });
 
 const ConnectedHeader = connect(mapStateToProps)(Header);

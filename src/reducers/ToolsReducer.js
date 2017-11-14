@@ -23,6 +23,7 @@ const initialState = {
     showExperience: true,
     showResumeEditor: false,
     showLinkedIn: false,
+    showWebsite: false,
     editorStatus: WAITING
 };
 const savedState = JSON.parse(localStorage.getItem('state.tools'));
@@ -95,6 +96,8 @@ function getItemToToggle(state, action){
             return { showExperience: !state.showExperience }
         case 'showLinkedIn' :
             return { showLinkedIn: !state.showLinkedIn }
+        case 'showWebsite' :
+            return { showWebsite: !state.showWebsite}
         default:
             return {}
     }

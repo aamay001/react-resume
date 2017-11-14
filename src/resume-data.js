@@ -6,6 +6,7 @@ const Resume = {
     github: 'https://github.com/xxxxxxx',
     linkedin: 'https://linkedin.com/in/xxxxxx',
     address: '123 Main Street',
+    website: "https://website.com",
     city: 'City',
     state: 'CA',
     zip: '00000',

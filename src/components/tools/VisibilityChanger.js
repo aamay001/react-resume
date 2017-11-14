@@ -103,7 +103,19 @@ export class VisibilityChanger extends Component {
             data-toggle="showExperience"/> Show Experience
           </label>
         </div>
+
+        <div className="check-box-container" >
+          <label htmlFor="website-visibility">
+          <input id="website-visibility"
+            type="checkbox"
+            checked={this.props.showWebsite}
+            onChange={this.handleCheckBoxChange}
+            data-toggle="showWebsite"/> Show Website
+          </label>
+        </div>
       </div>
+
+
     );
   }
 }
@@ -117,7 +129,8 @@ const mapStateToProps = state => ({
   showProjects: state.tools.showProjects,
   showEducation: state.tools.showEducation,
   showExperience: state.tools.showExperience,
-  showLinkedIn: state.tools.showLinkedIn
+  showLinkedIn: state.tools.showLinkedIn,
+  showWebsite: state.tools.showWebsite
 });
 
 const ConnectedVisibilityChanger = connect(mapStateToProps)(VisibilityChanger);
