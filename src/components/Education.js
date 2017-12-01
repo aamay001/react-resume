@@ -7,7 +7,7 @@ export class Education extends Component{
       return(
         <li key={index}>
           <h3>{ed.site}</h3>
-          <h3>{`${ed.dateFrom}-${ed.dateTo}`}</h3>
+          { ed.dateFrom ? <h3>{`${ed.dateFrom}-${ed.dateTo}`}</h3> : '' }
           <em>{ed.studyDegree}</em>
         </li>
       )
