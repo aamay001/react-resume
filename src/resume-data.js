@@ -89,6 +89,7 @@ const Resume = {
     {
       name: 'Project 1',
       dateFrom: 'XX/XXXX',
+      link: 'http://website.com',
       dateTo: 'XX/XXXX',
       teamBrief: '1-person project',
       details: [
@@ -99,6 +100,7 @@ const Resume = {
     },
     {
       name: 'Project 2',
+      link: 'http://website.com',
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
       teamBrief: '1-person project',
@@ -112,6 +114,7 @@ const Resume = {
     {
       name: 'Project 3',
       dateFrom: 'XX/XXXX',
+      link: 'http://website.com',
       dateTo: 'XX/XXXX',
       teamBrief: '1-person project',
       details: [
