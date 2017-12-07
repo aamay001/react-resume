@@ -24,7 +24,6 @@ h2 {
 h3 {
   font-size: 13px;
   margin: 0;
-  font-weight: 500;
 }
 
 body {
@@ -117,7 +116,7 @@ body {
   text-align: right;
   vertical-align: top;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .resume-experience em
