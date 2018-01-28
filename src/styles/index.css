@@ -190,12 +190,21 @@ body {
   #notification-wrapper div.toast-notification {
     display: none;
   }
+
+  div.ad-area  {
+    display: none;
+    margin-top: 75px;
+  }
 }
 
 #notification-wrapper div.toast-notification {
   font-family: Roboto, sans-serif;
   border-radius: 0;
   font-size: 18px;
+}
+
+div.ad-area  {
+  margin-top: 45px;
 }
 
 @media only screen and (max-width: 768px) {
