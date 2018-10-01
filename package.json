@@ -8,7 +8,7 @@
     "react-dom": "^15.6.2",
     "react-notify-toast": "^0.3.2",
     "react-redux": "^5.0.6",
-    "react-scripts": "1.0.14",
+    "react-scripts": "^2.0.2",
     "redux": "^3.7.2",
     "redux-persist": "^4.10.1",
     "sortablejs": "^1.6.1"
@@ -24,5 +24,11 @@
     "enzyme-adapter-react-15": "^1.0.1",
     "react-test-renderer": "^15.6.2",
     "redux-logger": "^3.0.6"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
