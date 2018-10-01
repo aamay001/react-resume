@@ -6,13 +6,13 @@ export class Projects extends Component{
     const projs = this.props.projects.map( (project, index) => {
       return (
         <li key={index}>
-        <h3>{project.link ? <a href={project.link} target="_blank">{project.name}</a> : project.name }</h3>
+        <h3>{project.link ? <a href={project.link} target="_blank" rel="noopener noreferrer">{project.name}</a> : project.name }</h3>
         <h3>{`${project.dateFrom}-${project.dateTo}`}</h3>
         <em>{project.teamBrief}</em>
         <ul>
           {
             project.details.map( (detail, detailIndex) => {
-              return <li key={detailIndex}>{detail.search('http') > -1 ? <a href={detail} target="_blank">{detail}</a> : detail }</li>
+              return <li key={detailIndex}>{detail.search('http') > -1 ? <a href={detail} target="_blank" rel="noopener noreferrer">{detail}</a> : detail }</li>
             })
           }
         </ul>
