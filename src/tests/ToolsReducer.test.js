@@ -87,6 +87,17 @@ describe('ToolsReducer', () => {
       expect(state.showGithub).toEqual(false);
     });
 
+    it('Should toggle the visibility of the summary resume element', () => {
+      let state = {
+        showSummary: false
+      };
+      let action = toggleShowItem('showSummary');
+      state = ToolsReducer(state, action);
+      expect(state.showSummary).toEqual(true);
+      state = ToolsReducer(state, action);
+      expect(state.showSummary).toEqual(false);
+    });
+
     it('Should toggle the visibility of the technical skills resume elements', () => {
       let state = {
         showTechSkills: false

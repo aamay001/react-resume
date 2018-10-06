@@ -45,6 +45,16 @@ export class VisibilityChanger extends Component {
         </div>
 
         <div className="check-box-container" >
+          <label htmlFor="summary-visibility">
+            <input id="summary-visibility"
+              type="checkbox"
+              checked={this.props.showSummary}
+              onChange={this.handleCheckBoxChange}
+              data-toggle="showSummary"/> Show Summary
+          </label>
+        </div>
+
+        <div className="check-box-container" >
           <label htmlFor="github-visibility">
             <input id="github-visibility"
               type="checkbox"
@@ -124,6 +134,7 @@ const mapStateToProps = state => ({
   showAddress: state.tools.showAddress,
   showEmail: state.tools.showEmail,
   showPhone: state.tools.showPhone,
+  showSummary: state.tools.showSummary,
   showGithub: state.tools.showGithub,
   showTechSkills: state.tools.showTechSkills,
   showProjects: state.tools.showProjects,

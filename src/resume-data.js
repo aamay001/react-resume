@@ -21,10 +21,10 @@ const Resume = {
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
       primaryWorkBrief: 'Brief description of your main tasks.',
-      impact1: 'Something awesome you did 1.',
-      impact2: 'Something awesome you did 2.',
-      impact3: 'Something awesome you did 3.',
-      impact4: 'Something awesome you did 4.'
+      impact1: 'Mention any special awards, recognitions or accolades.',
+      impact2: 'Something awesome you did 1.',
+      impact3: 'Something awesome you did 2.',
+      impact4: 'Something awesome you did 3.'
     },
     {
       company: 'Experience 2',
@@ -34,10 +34,10 @@ const Resume = {
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
       primaryWorkBrief: 'Brief description of your main tasks.',
-      impact1: 'Something awesome you did 1.',
-      impact2: 'Something awesome you did 2.',
-      impact3: 'Something awesome you did 3.',
-      impact4: 'Something awesome you did 4.'
+      impact1: 'Mention any special awards, recognitions or accolades.',
+      impact2: 'Something awesome you did 1.',
+      impact3: 'Something awesome you did 2.',
+      impact4: 'Something awesome you did 3.'
     },
     {
       company: 'Experience 3',
@@ -47,10 +47,10 @@ const Resume = {
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
       primaryWorkBrief: 'Brief description of your main tasks.',
-      impact1: 'Something awesome you did 1.',
-      impact2: 'Something awesome you did 2.',
-      impact3: 'Something awesome you did 3.',
-      impact4: 'Something awesome you did 4.'
+      impact1: 'Mention any special awards, recognitions or accolades.',
+      impact2: 'Something awesome you did 1.',
+      impact3: 'Something awesome you did 2.',
+      impact4: 'Something awesome you did 3.'
     },
 
   ],
@@ -120,11 +120,13 @@ const Resume = {
       details: [
         'Detail 1',
         'Detail 2',
-        'Detail 3'
+        'Detail 3',
+        'https://github.com'
       ]
     },
 
-  ]
+  ],
+  summary: 'This is a personal summary. Include this short paragraph summarizing your professional progression, making sure to highlight workplace achievements and notable skills.'
 };
 
 export default Resume;

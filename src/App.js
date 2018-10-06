@@ -8,6 +8,7 @@ import TechnicalSkills from './components/TechnicalSkills';
 import Projects from './components/Projects';
 import ResumeTools from './components/ResumeTools';
 import ResumeEditor from './components/tools/ResumeEditor';
+import Summary from './components/Summary';
 //import {newResume} from './actions';
 
 import {
@@ -45,6 +46,9 @@ class App extends Component {
             fontFamily: this.props.font
           }}>
           <Header />
+          <br />
+          {this.props.showSummary && <Summary />}
+          <br />
           {resume}
         </div>
         <ResumeEditor />
@@ -60,6 +64,7 @@ const mapStateToProps = state => ({
   showProjects: state.tools.showProjects,
   showEducation: state.tools.showEducation,
   showExperience: state.tools.showExperience,
-  showTools: state.tools.showTools
+  showTools: state.tools.showTools,
+  showSummary: state.tools.showSummary
 });
 export default connect(mapStateToProps)(App);
