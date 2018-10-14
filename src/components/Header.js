@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-
+import photo from '../images/me.jpg'
 export class Header extends Component {
   render() {
     return (
       <header className="resume-header">
+        <img src={photo} className="header__image" />
         <h1>{this.props.header.name}</h1>
           <ul>
             { this.props.showEmail ?
