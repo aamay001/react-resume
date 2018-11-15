@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import {changeResumeOrder} from '../../actions';
+import { changeResumeOrder } from "../../actions";
 import {
   EDUCATION,
   TECH_SKILLS,
   PROJECTS,
-  EXPERIENCE
-}
-from './resumeOrder'
+  EXPERIENCE,
+  CERTIFICATION
+} from "./resumeOrder";
 
-import Sortable from 'sortablejs'
+import Sortable from "sortablejs";
 
 export class OrderChanger extends Component {
   componentDidMount() {
@@ -20,41 +20,44 @@ export class OrderChanger extends Component {
   createSortableList() {
     Sortable.create(this.orderList, {
       animation: 100,
-      dataIdAttr: 'data-id',
+      dataIdAttr: "data-id",
       sort: true,
       onUpdate: this.onOrderChange
     });
   }
 
-  shouldComponentUpdate(nextProps,nextState){
+  shouldComponentUpdate(nextProps, nextState) {
     return nextProps === this.props;
   }
 
   onOrderChange = e => {
-    const newResumeOrder = Array.from(e.to.children).map( item => {
-      return parseInt(item.getAttribute('data-id'), 10);
+    const newResumeOrder = Array.from(e.to.children).map(item => {
+      return parseInt(item.getAttribute("data-id"), 10);
     });
     this.props.dispatch(changeResumeOrder(newResumeOrder));
-  }
+  };
 
-  getResumeOrderHandles(){
-    let resumeSection = '';
-    return this.props.resumeOrder.map( (item, index) => {
-      switch(item) {
+  getResumeOrderHandles() {
+    let resumeSection = "";
+    return this.props.resumeOrder.map((item, index) => {
+      switch (item) {
         case EDUCATION:
-          resumeSection = 'Education'
+          resumeSection = "Education";
           break;
         case TECH_SKILLS:
-          resumeSection = 'Technical Skills'
+          resumeSection = "Technical Skills";
           break;
         case PROJECTS:
-          resumeSection = 'Projects'
+          resumeSection = "Projects";
           break;
         case EXPERIENCE:
-          resumeSection = 'Experience'
+          resumeSection = "Experience";
+          break;
+        case CERTIFICATION:
+          resumeSection = "Certification";
           break;
         default:
-          resumeSection = 'Unknown Section'
+          resumeSection = "Unknown Section";
           break;
       }
       return (
@@ -73,7 +76,12 @@ export class OrderChanger extends Component {
     return (
       <div className="resume-tools-order-changer">
         <label htmlFor="resume-order-changer">Resume Order</label>
-        <ul id="#resume-order-changer" ref={list => {this.orderList = list;}} >
+        <ul
+          id="#resume-order-changer"
+          ref={list => {
+            this.orderList = list;
+          }}
+        >
           {currentOrder}
         </ul>
       </div>
@@ -83,7 +91,7 @@ export class OrderChanger extends Component {
 
 OrderChanger.defaultProps = {
   resumeOrder: []
-}
+};
 
 const mapStateToProps = state => ({
   resumeOrder: state.tools.resumeOrder
