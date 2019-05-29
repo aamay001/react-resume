@@ -1,5 +1,3 @@
-import Board from '../models/board';
-import Card from '../models/card';
 import {  } from '../actions/app.actions';
 
 const initialState = {
