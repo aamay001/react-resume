@@ -1,65 +1,29 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
+import { Route, Switch, Router} from 'react-router';
+import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
+import store from './store';
+import { constants } from './config/';
+import routes from './routes/'
+import './styles/App.css';
 
-import Header from './components/Header';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import TechnicalSkills from './components/TechnicalSkills';
-import Projects from './components/Projects';
-import ResumeTools from './components/ResumeTools';
-import ResumeEditor from './components/tools/ResumeEditor';
-//import {newResume} from './actions';
+const history = createBrowserHistory();
+const { ROUTES } = constants;
+const { Home } = routes;
 
-import {
-  EDUCATION,
-  TECH_SKILLS,
-  PROJECTS,
-  EXPERIENCE
-}
-from './components/tools/resumeOrder'
-import Notifications from 'react-notify-toast';
-
-class App extends Component {
-
-  render() {
-    const resume = this.props.resumeOrder.map( (item, index) => {
-      switch(item) {
-        case EDUCATION:
-          return this.props.showEducation ? <Education key={index}/> : ''
-        case TECH_SKILLS:
-          return this.props.showTechSkills ? <TechnicalSkills key={index}/> : ''
-        case PROJECTS:
-          return this.props.showProjects ? <Projects key={index}/> : ''
-        case EXPERIENCE:
-          return this.props.showExperience ? <Experience key={index}/> : ''
-        default:
-          return <p>Error with order.</p>
-      }
-    });
-    return (
-      <div className="react-resume">
-        <Notifications />
-        <ResumeTools />
-        <div className="resume"
-          style={{
-            fontFamily: this.props.font
-          }}>
-          <Header />
-          {resume}
-        </div>
-        <ResumeEditor />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Router history={history}>
+        <Provider store={store} >
+          <Switch>
+            <Route exact path={ROUTES.HOME.PATH} component={Home} />
+            <Route component={Home} />
+          </Switch>
+        </Provider>
+      </Router>
+    </div>
+  );
 }
 
-const mapStateToProps = state => ({
-  font: state.tools.font,
-  resumeOrder: state.tools.resumeOrder,
-  showTechSkills: state.tools.showTechSkills,
-  showProjects: state.tools.showProjects,
-  showEducation: state.tools.showEducation,
-  showExperience: state.tools.showExperience,
-  showTools: state.tools.showTools
-});
-export default connect(mapStateToProps)(App);
+export default App;

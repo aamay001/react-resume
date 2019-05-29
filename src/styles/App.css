@@ -1,0 +1,21 @@
+.App {
+  padding-top: 50px;
+  height: 100vh;
+}
+
+.kanban-board-column {
+  margin: 0 12.5px 0 12.5px !important;
+  padding: 0 !important;
+}
+
+div.kanban-board-column:first-of-type {
+  margin-left: 25px !important;
+}
+
+div.kanban-board-column:last-of-type {
+  margin-right: 25px !important;
+}
+
+div.kanban-board-column > div:nth-child(1) > div > div {
+  color: white !important;
+}

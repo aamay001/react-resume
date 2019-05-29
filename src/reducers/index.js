@@ -1,7 +1,6 @@
-import {combineReducers} from 'redux';
-import resumeReducer from './ResumeReducer';
-import toolsReducer from './ToolsReducer';
+import { combineReducers } from 'redux';
+import app from './app.reducer';
+
 export default combineReducers({
-    resume: resumeReducer,
-    tools: toolsReducer
+  app,
 });
