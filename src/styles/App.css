@@ -1,21 +1,53 @@
+*:not(#json-resume-editor, #json-resume-editor *){
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto, sans-serif;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
 .App {
-  padding-top: 50px;
-  height: 100vh;
+  max-height: 100vh;
 }
 
-.kanban-board-column {
-  margin: 0 12.5px 0 12.5px !important;
-  padding: 0 !important;
+.json-resume-tool {
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-div.kanban-board-column:first-of-type {
-  margin-left: 25px !important;
+.json-resume-tool > div {
+  border: none !important;
+  font-weight: 400 !important;
+  background-color: transparent !important;
 }
 
-div.kanban-board-column:last-of-type {
-  margin-right: 25px !important;
+.json-resume-tool button {
+  border-radius: 0 !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.23) !important;
+  font-weight: 100 !important;
 }
 
-div.kanban-board-column > div:nth-child(1) > div > div {
-  color: white !important;
+.json-resume-tool button:hover {
+  background-color: rgba(211, 211, 211, 0.493) !important;
+}
+
+.json-resume-tool button:active {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+
+#json-resume-editor {
+  font-family: monospace;
+  font-size: 16px;
+  width: 100% !important;
+  height: 100% !important;
+  border: 1px solid black;
+}
+
+#root > div > div.ui.scale.down.right.very.wide.visible.sidebar > div.ui.massive.borderless.top.attached.menu > div:nth-child(1) {
+  margin-right: 0 !important;
+}
+
+#root > div > div.ui.scale.down.right.very.wide.visible.sidebar > div.ui.massive.borderless.top.attached.menu > div:nth-child(2) {
+  font-family: monospace;
+  font-style: italic;
+  font-size: 14px;
 }
