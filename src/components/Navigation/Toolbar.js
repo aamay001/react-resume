@@ -9,7 +9,7 @@ import {
   VisibilityChanger,
   FontSelector,
   OrderChanger,
-} from '../Tools';
+} from '../tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
 const Toolbar = ({ toolbarOpen, dispatch }) => (

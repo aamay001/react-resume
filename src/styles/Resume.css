@@ -1,14 +1,3 @@
-<<<<<<< HEAD:src/styles/index.css
-* {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
-}
-
-.resume {
-  font-size: 11px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-=======
 .react-resume {
   max-width: 8.5in;
   min-height: 11in;
@@ -18,7 +7,6 @@
   margin-top: 5px;
   margin-bottom: 5px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
->>>>>>> development:src/styles/Resume.css
 }
 
 .react-resume h1 {
@@ -39,13 +27,8 @@
 }
 
 .resume {
-<<<<<<< HEAD:src/styles/index.css
-  margin-left: 0.25in;
-  margin-right: 0.25in;
-=======
   font-size: 11px;
   padding: 0.5in;
->>>>>>> development:src/styles/Resume.css
 }
 
 .resume-header {
@@ -197,21 +180,6 @@
     margin-top: 75px;
   }
 
-<<<<<<< HEAD:src/styles/index.css
-#notification-wrapper div.toast-notification {
-  font-family: Roboto, sans-serif;
-  border-radius: 0;
-  font-size: 18px;
-}
-
-div.ad-area {
-  margin-top: 45px;
-}
-
-@media only screen and (max-width: 768px) {
-  #notification-wrapper div.toast-notification {
-    display: none;
-=======
   aside, #root > div > div.ui.massive.top.attached.menu {
     display: none;
   }
@@ -220,6 +188,5 @@ div.ad-area {
     margin: 0 !important;
     padding: 0 !important;
     box-shadow: none;
->>>>>>> development:src/styles/Resume.css
   }
 }
