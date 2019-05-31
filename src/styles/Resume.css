@@ -1,0 +1,225 @@
+<<<<<<< HEAD:src/styles/index.css
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
+.resume {
+  font-size: 11px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+=======
+.react-resume {
+  max-width: 8.5in;
+  min-height: 11in;
+  max-height: 11in;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+>>>>>>> development:src/styles/Resume.css
+}
+
+.react-resume h1 {
+  font-size: 22px;
+  margin-top: 0;
+}
+
+.react-resume h2 {
+  font-size: 15px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.react-resume h3 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.resume {
+<<<<<<< HEAD:src/styles/index.css
+  margin-left: 0.25in;
+  margin-right: 0.25in;
+=======
+  font-size: 11px;
+  padding: 0.5in;
+>>>>>>> development:src/styles/Resume.css
+}
+
+.resume-header {
+  text-align: center;
+}
+
+.resume-header h1 {
+  margin-bottom: 0;
+}
+
+.resume-header hr:nth-of-type(1) {
+  height: 1px;
+  background-color: black;
+}
+
+.resume-header ul {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.resume-header li {
+  list-style: none;
+  display: inline;
+  font-size: 13px;
+}
+
+.resume-header ul:first-of-type li::after {
+  content: " | ";
+  font-weight: bold;
+}
+
+.resume-header ul:first-of-type li:last-child::after {
+  content: "";
+}
+
+.resume-header ul:nth-of-type(2) li::after {
+  content: ", ";
+}
+
+.resume-header ul:nth-of-type(2) li:last-of-type::after {
+  content: "";
+}
+
+.resume-experience {
+  text-align: left;
+}
+
+.resume-experience > ul,
+.resume-education > ul,
+.resume-projects > ul,
+.resume-certification > ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.resume-experience > ul > li,
+.resume-education > ul > li,
+.resume-projects > ul > li,
+.resume-certification > ul > li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.resume-experience h3:first-of-type,
+.resume-education h3:first-of-type,
+.resume-projects h3:first-of-type,
+.resume-certification h3:first-of-type {
+  display: inline-block;
+  width: 70%;
+}
+
+.resume-experience h3:nth-of-type(2),
+.resume-education h3:nth-of-type(2),
+.resume-projects h3:nth-of-type(2),
+.resume-certification h3:nth-of-type(2) {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+  vertical-align: top;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.resume-experience em,
+.resume-experience i {
+  display: block;
+}
+
+.resume-experience i {
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.resume-experience em {
+  margin-bottom: 5px;
+}
+
+.resume-tech-skills h3 {
+  margin-bottom: 5px;
+}
+
+.resume-tech-skills .grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 50%;
+}
+
+.resume-tech-skills .grid-column-1,
+.resume-tech-skills .grid-column-2 {
+  grid-column-start: 1;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 500px) {
+  .resume-tech-skills .grid-container {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+  }
+
+  .resume-tech-skills .grid-column-1 {
+    grid-column-start: 1;
+  }
+
+  .resume-tech-skills .grid-column-2 {
+    grid-column-start: 2;
+  }
+
+  .resume-tech-skills .grid-column-1,
+  .resume-tech-skills .grid-column-2 {
+    margin-bottom: 0;
+  }
+}
+
+@media print {
+  .resume-tools {
+    display: none;
+  }
+
+  .resume-edit-panel {
+    display: none;
+  }
+
+  div.ad-area {
+    display: none;
+    margin-top: 75px;
+  }
+
+<<<<<<< HEAD:src/styles/index.css
+#notification-wrapper div.toast-notification {
+  font-family: Roboto, sans-serif;
+  border-radius: 0;
+  font-size: 18px;
+}
+
+div.ad-area {
+  margin-top: 45px;
+}
+
+@media only screen and (max-width: 768px) {
+  #notification-wrapper div.toast-notification {
+    display: none;
+=======
+  aside, #root > div > div.ui.massive.top.attached.menu {
+    display: none;
+  }
+
+  #root > .App .react-resume, #root > .App .react-resume > .resume {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none;
+>>>>>>> development:src/styles/Resume.css
+  }
+}

@@ -1,8 +1,9 @@
 {
-  "name": "resume",
+  "name": "react-resume",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "react": "^15.6.2",
     "react-ace": "^5.2.2",
     "react-dom": "^15.6.2",
@@ -12,17 +13,58 @@
     "redux": "^3.7.2",
     "redux-persist": "^4.10.1",
     "sortablejs": "^1.6.1"
+=======
+    "axios": "^0.18.0",
+    "date-fns": "^1.30.1",
+    "history": "^4.9.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-ace": "^7.0.1",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-toastify": "^5.2.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.87.1",
+    "sortablejs": "^1.9.0",
+    "uuid": "^3.3.2"
+>>>>>>> development
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "rules": {
+      "react/jsx-filename-extension": 0,
+      "operator-linebreak": 0,
+      "react/jsx-wrap-multilines": 0
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-15": "^1.0.1",
-    "react-test-renderer": "^15.6.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
     "redux-logger": "^3.0.6"
   },
   "browserslist": [
