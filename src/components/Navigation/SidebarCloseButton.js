@@ -9,6 +9,7 @@ const SidebarCloseButton = ({
   titleIcon,
   backgroundColor,
   statusMessage,
+  statusMessageColor,
 }) => (
   <Menu
     attached="top"
@@ -19,7 +20,7 @@ const SidebarCloseButton = ({
     {title
       && <Menu.Item position="left" content={title} icon={titleIcon} />}
     {statusMessage
-      && <Menu.Item position="left" content={statusMessage} />}
+      && <Menu.Item position="left" content={statusMessage} style={{ color: statusMessageColor }} />}
     <Menu.Item
       position="right"
       icon={toolbarOpen ? 'x' : 'angle left'}
@@ -38,6 +39,7 @@ SidebarCloseButton.defaultProps = {
   titleIcon: undefined,
   backgroundColor: undefined,
   statusMessage: undefined,
+  statusMessageColor: undefined,
 };
 
 SidebarCloseButton.propTypes = {
@@ -47,6 +49,7 @@ SidebarCloseButton.propTypes = {
   titleIcon: PropTypes.string,
   backgroundColor: PropTypes.string,
   statusMessage: PropTypes.string,
+  statusMessageColor: PropTypes.string,
 };
 
 export default SidebarCloseButton;

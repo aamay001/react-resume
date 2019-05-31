@@ -11,7 +11,11 @@ const Education = ({ education }) => (
       {education.map(ed => (
         <li key={uuid()}>
           <h3>{ed.site}</h3>
-          { ed.dateFrom ? <h3>{`${ed.dateFrom}-${ed.dateTo}`}</h3> : <h3> </h3> }
+          {ed.dateFrom
+            &&
+              <h3>
+                {`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}
+              </h3>}
           <em>{ed.studyDegree}</em>
         </li>
       ))}

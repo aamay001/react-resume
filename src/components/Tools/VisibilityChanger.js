@@ -42,7 +42,7 @@ class VisibilityChanger extends Component {
         <ItemToggleButton onToggle={this.handleToggle} name="showLinkedIn" label="Show LinkedIn" status={showLinkedIn} />
         <ItemToggleButton onToggle={this.handleToggle} name="showWebsite" label="Show Website" status={showWebsite} />
         <ItemToggleButton onToggle={this.handleToggle} name="showAddress" label="Show Address" status={showAddress} />
-        <ItemToggleButton onToggle={this.handleToggle} name="showCertification" label="Show Certification" status={showCertification} />
+        <ItemToggleButton onToggle={this.handleToggle} name="showCertification" label="Show Certifications" status={showCertification} />
         <ItemToggleButton onToggle={this.handleToggle} name="showEducation" label="Show Education" status={showEducation} />
         <ItemToggleButton onToggle={this.handleToggle} name="showExperience" label="Show Experience" status={showExperience} />
         <ItemToggleButton onToggle={this.handleToggle} name="showProjects" label="Show Projects" status={showProjects} />

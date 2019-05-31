@@ -15,10 +15,14 @@ const Projects = ({ projects }) => (
               ? <a href={project.link} target="_blank" rel="noopener noreferrer">{project.name}</a>
               : project.name}
           </h3>
-          <h3>{`${project.dateFrom}-${project.dateTo}`}</h3>
+          {project.dateFrom
+            &&
+              <h3>
+                {`${project.dateFrom}${project.dateTo ? ` - ${project.dateTo}` : ''}`}
+              </h3>}
           <em>{project.teamBrief}</em>
           <ul>
-            {project.details.map(detail => (
+            {project.details.map(detail => (detail &&
               <li key={uuid()}>
                 {detail.search('http') > -1
                   ? <a href={detail} target="_blank" rel="noopener noreferrer">{detail}</a>

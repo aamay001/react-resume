@@ -1,9 +1,12 @@
 .react-resume {
   max-width: 8.5in;
+  min-height: 11in;
   max-height: 11in;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .react-resume h1 {
@@ -25,9 +28,7 @@
 
 .resume {
   font-size: 11px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  margin-left: 0.25in;
-  margin-right: 0.25in;
+  padding: 0.5in;
 }
 
 .resume-header {
@@ -165,25 +166,12 @@
   }
 }
 
-.resume-tools {
-  z-index: 5;
-}
-
-.resume-edit-panel {
-  z-index: 10;
-}
-
 @media print {
   .resume-tools {
     display: none;
   }
+
   .resume-edit-panel {
-    display: none;
-  }
-  .github-corner {
-    display: none;
-  }
-  #notification-wrapper div.toast-notification {
     display: none;
   }
 
@@ -194,5 +182,11 @@
 
   aside, #root > div > div.ui.massive.top.attached.menu {
     display: none;
+  }
+
+  #root > .App .react-resume, #root > .App .react-resume > .resume {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none;
   }
 }

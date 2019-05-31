@@ -8,7 +8,8 @@ const TechnicalSkills = ({ techSkills }) => (
     <h2>Technical Skills</h2>
     <hr />
     <div className="grid-container">
-      {techSkills.map((skill, index) => (
+      {techSkills.map((skill, index) => (index < 2
+      && (
         <div key={uuid()} className={`grid-column-${index + 1}`}>
           <h3>{skill.category}</h3>
           {skill.keywords.map((kw, skillIndex) => (
@@ -17,7 +18,7 @@ const TechnicalSkills = ({ techSkills }) => (
               : `${kw}, `
           ))}
         </div>
-      ))}
+      )))}
     </div>
   </section>
 );

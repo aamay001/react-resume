@@ -7,6 +7,8 @@ import {
   EditorButton,
   PrintButton,
   VisibilityChanger,
+  FontSelector,
+  OrderChanger,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
@@ -17,7 +19,7 @@ const Toolbar = ({ toolbarOpen, dispatch }) => (
       visible={toolbarOpen}
       width="wide"
       onHide={() => toolbarOpen && dispatch(toggleToolbar())}
-      style={{ overflowX: 'hidden', backgroundColor: '#fcfcfc' }}
+      style={{ overflowX: 'hidden', backgroundColor: '#fcfcfc', paddingBottom: 25 }}
     >
       <SidebarCloseButton
         closeToolbar={() => dispatch(toggleToolbar())}
@@ -26,7 +28,9 @@ const Toolbar = ({ toolbarOpen, dispatch }) => (
       <ToolbarHeader />
       <PrintButton />
       <EditorButton dispatch={dispatch} />
+      <FontSelector />
       <VisibilityChanger />
+      <OrderChanger />
     </Sidebar>
   </aside>
 );

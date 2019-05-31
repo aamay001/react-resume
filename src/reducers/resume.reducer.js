@@ -3,23 +3,24 @@ import {
   UPDATE_RESUME,
 } from '../actions/app.actions';
 import Resume from '../resume-data';
-// import {notify} from 'react-notify-toast';
+import { saveResume, loadResume } from '../helpers/resume.helper';
 
+const storedResume = loadResume();
 const initialState = {
   ...Resume,
 };
 
-const newResume = () => initialState;
+const newResume = () => ({ ...Resume });
 
 const updateResume = (state, action) => {
-  // notify.show( "saved to localStorage... 💾", 'success', 4000)
+  saveResume(action.resume);
   return {
     ...state,
     ...action.resume,
   };
 };
 
-export default (state = initialState, action) => {
+export default (state = storedResume || initialState, action) => {
   switch (action.type) {
     case NEW_RESUME:
       return newResume(state);

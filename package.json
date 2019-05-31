@@ -13,6 +13,7 @@
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-scripts": "3.0.1",
+    "react-toastify": "^5.2.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
@@ -29,7 +30,9 @@
   "eslintConfig": {
     "extends": "airbnb",
     "rules": {
-      "react/jsx-filename-extension": 0
+      "react/jsx-filename-extension": 0,
+      "operator-linebreak": 0,
+      "react/jsx-wrap-multilines": 0
     }
   },
   "browserslist": {

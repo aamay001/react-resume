@@ -11,7 +11,11 @@ const Experience = ({ experience }) => (
       {experience.map(exp => (
         <li key={uuid()}>
           <h3>{exp.position}</h3>
-          <h3>{`${exp.dateFrom}-${exp.dateTo}`}</h3>
+          {exp.dateFrom
+            &&
+              <h3>
+                {`${exp.dateFrom}${exp.dateTo ? ` - ${exp.dateTo}` : ''}`}
+              </h3>}
           <em>
             {`${exp.company}, ${exp.city}, ${exp.state}`}
           </em>

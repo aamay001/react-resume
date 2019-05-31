@@ -9,12 +9,12 @@ import ResumeHeader from './Header';
 import Projects from './Projects';
 import TechnicalSkills from './TechnicalSkills';
 import {
-  resumeOrder,
   EDUCATION,
   TECH_SKILLS,
   PROJECTS,
   EXPERIENCE,
   CERTIFICATION,
+  defaultResumeOrder,
 } from '../../helpers/resume.helper';
 import '../../styles/Resume.css';
 
@@ -25,16 +25,15 @@ const Resume = ({
   showProjects,
   showExperience,
   showCertification,
+  order,
 }) => (
   <div className="react-resume">
     <div
       className="resume"
-      style={{
-        fontFamily: font,
-      }}
+      style={{ fontFamily: font }}
     >
       <ResumeHeader />
-      {resumeOrder.map((item) => {
+      {order.map((item) => {
         switch (item) {
           case EDUCATION:
             return showEducation
@@ -66,6 +65,7 @@ Resume.defaultProps = {
   showProjects: true,
   showExperience: true,
   showCertification: true,
+  order: defaultResumeOrder,
 };
 
 Resume.propTypes = {
@@ -75,6 +75,7 @@ Resume.propTypes = {
   showProjects: PropTypes.bool,
   showExperience: PropTypes.bool,
   showCertification: PropTypes.bool,
+  order: PropTypes.arrayOf(PropTypes.number),
 };
 
 const mapStateToProps = state => ({
@@ -83,6 +84,8 @@ const mapStateToProps = state => ({
   showProjects: state.tools.showProjects,
   showExperience: state.tools.showExperience,
   showCertification: state.tools.showCertification,
+  font: state.tools.font,
+  order: state.tools.order,
 });
 
 export default connect(mapStateToProps)(Resume);

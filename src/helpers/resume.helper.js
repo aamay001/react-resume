@@ -1,3 +1,7 @@
+import { toast } from 'react-toastify';
+import { debounce } from './app.helper';
+import ls from './localstorage.helper';
+
 export const isValidJSON = (data) => {
   let cleanedResume;
   try {
@@ -68,4 +72,22 @@ export const PROJECTS = 2;
 export const EXPERIENCE = 3;
 export const CERTIFICATION = 4;
 
-export const resumeOrder = [EDUCATION, TECH_SKILLS, PROJECTS, EXPERIENCE, CERTIFICATION];
+export const defaultResumeOrder = [EDUCATION, TECH_SKILLS, PROJECTS, EXPERIENCE, CERTIFICATION];
+
+export const STORED_RESUME_KEY = 'rr-ls-resume-key';
+
+export const saveResume = (resume) => {
+  if (ls.setItem(STORED_RESUME_KEY, resume)) {
+    debounce(() => toast(' 💾 saved to localStorage...', { toastId: 'rrtresumesaved' }),
+      500,
+      false,
+      'rrtresumesaved');
+  } else {
+    debounce(() => toast(' ⚠️ error saving to localStorage...', { toastId: 'rrterrorsaveresume' }),
+      500,
+      false,
+      'rrterrorsaveresume');
+  }
+};
+
+export const loadResume = () => ls.getItem(STORED_RESUME_KEY);

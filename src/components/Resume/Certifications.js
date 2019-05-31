@@ -12,8 +12,11 @@ const Certifications = ({ certification }) => (
         <li key={uuid()}>
           <h3>{cert.issuedBy}</h3>
           {cert.dateFrom
-            ? <h3>{`${cert.dateFrom}-${cert.dateTo}`}</h3>
-            : <h3> </h3>}
+            &&
+              <h3>
+                {`${cert.dateFrom}${cert.dateTo ? ` - ${cert.dateTo}` : ''}`}
+              </h3>}
+          <p>{cert.id}</p>
         </li>
       ))}
     </ul>

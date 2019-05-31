@@ -43,6 +43,7 @@ class CodeEditor extends Component {
       statusMessage,
     } = this.props;
     const editorValue = JSON.stringify(resume, null, '\t');
+    const statusColor = getStatusColor(statusMessage);
     return (
       <Sidebar
         animation="scale down"
@@ -52,6 +53,7 @@ class CodeEditor extends Component {
         style={{
           width: '100vw',
           maxWidth: '100vw',
+          maxHeight: '100vh',
           overflowX: 'hidden',
           backgroundColor: 'white',
         }}
@@ -60,23 +62,24 @@ class CodeEditor extends Component {
           title="Code Editor"
           titleIcon="edit"
           statusMessage={statusMessage}
+          statusMessageColor={statusColor}
           closeToolbar={() => dispatch(toggleEditor())}
           toolbarOpen={editorOpen}
           backgroundColor="white"
         />
         <div
           style={{
-            paddingTop: 30,
-            paddingLeft: 10,
-            paddingRight: 10,
+            paddingTop: 10,
+            paddingLeft: 20,
+            paddingRight: 20,
             paddingBottom: 20,
-            height: '91%',
+            height: '92%',
             overflowX: 'hidden',
           }}
         >
           <Segment
             style={{ height: '100%', width: '100%' }}
-            color={getStatusColor(statusMessage)}
+            color={statusColor}
           >
             <AceEditor
               mode="json"

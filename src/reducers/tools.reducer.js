@@ -3,58 +3,33 @@ import {
   TOGGLE_SHOW_ITEM,
   CHANGE_RESUME_ORDER,
   UPDATE_EDITOR_STATUS,
+  TOGGLE_EDITOR,
 } from '../actions/app.actions';
-import { EDITOR_STATUS } from '../helpers/tools.helper';
-import { resumeOrder } from '../helpers/resume.helper';
-import ls from '../helpers/localstorage.helper';
+import { EDITOR_STATUS, saveTools, loadTools } from '../helpers/tools.helper';
+import { defaultResumeOrder } from '../helpers/resume.helper';
 
+
+const storedTools = loadTools();
 const initialState = {
-  font: 'Source Code Pro, monospace',
+  font: 'Open Sans, sans-serif',
   showAddress: true,
   showEmail: true,
   showPhone: true,
-  showGithub: true,
-  resumeOrder,
+  showGithub: false,
+  order: defaultResumeOrder,
   showTechSkills: true,
   showProjects: true,
   showEducation: true,
   showCertification: true,
   showExperience: true,
-  showLinkedIn: true,
+  showLinkedIn: false,
   showWebsite: true,
   editorStatus: EDITOR_STATUS.WAITING,
 };
 
-const savedState = JSON.parse(ls.getItem('state.tools'));
-
-const getItemToToggle = (state, action) => {
-  switch (action.item) {
-    case 'showAddress':
-      return { showAddress: !state.showAddress };
-    case 'showEmail':
-      return { showEmail: !state.showEmail };
-    case 'showPhone':
-      return { showPhone: !state.showPhone };
-    case 'showGithub':
-      return { showGithub: !state.showGithub };
-    case 'showTechSkills':
-      return { showTechSkills: !state.showTechSkills };
-    case 'showProjects':
-      return { showProjects: !state.showProjects };
-    case 'showEducation':
-      return { showEducation: !state.showEducation };
-    case 'showCertification':
-      return { showCertification: !state.showCertification };
-    case 'showExperience':
-      return { showExperience: !state.showExperience };
-    case 'showLinkedIn':
-      return { showLinkedIn: !state.showLinkedIn };
-    case 'showWebsite':
-      return { showWebsite: !state.showWebsite };
-    default:
-      return {};
-  }
-};
+const getItemToToggle = (state, action) => ({
+  [action.item]: !state[action.item],
+});
 
 const changeFont = (state, action) => ({
   ...state,
@@ -68,7 +43,7 @@ const toggleShowItem = (state, action) => ({
 
 const changeResumeOrder = (state, action) => ({
   ...state,
-  resumeOrder: action.order,
+  order: action.order,
 });
 
 const updateResumeEditorStatus = (state, action) => ({
@@ -76,16 +51,23 @@ const updateResumeEditorStatus = (state, action) => ({
   editorStatus: action.status,
 });
 
-export default (state = savedState || initialState, action) => {
+const toggleEditor = state => ({
+  ...state,
+  editorStatus: EDITOR_STATUS.WAITING,
+});
+
+export default (state = storedTools || initialState, action) => {
   switch (action.type) {
     case CHANGE_FONT:
-      return changeFont(state, action);
+      return saveTools(changeFont(state, action));
     case TOGGLE_SHOW_ITEM:
-      return toggleShowItem(state, action);
+      return saveTools(toggleShowItem(state, action));
     case CHANGE_RESUME_ORDER:
-      return changeResumeOrder(state, action);
+      return saveTools(changeResumeOrder(state, action));
     case UPDATE_EDITOR_STATUS:
       return updateResumeEditorStatus(state, action);
+    case TOGGLE_EDITOR:
+      return toggleEditor(state);
     default:
       return state;
   }
