@@ -4,24 +4,24 @@ import {
   CHANGE_RESUME_ORDER,
   UPDATE_EDITOR_STATUS,
 } from '../actions/app.actions';
-// import resumeOrder from '../components/tools/resumeOrder';
 import { EDITOR_STATUS } from '../helpers/tools.helper';
+import { resumeOrder } from '../helpers/resume.helper';
 import ls from '../helpers/localstorage.helper';
 
 const initialState = {
   font: 'Source Code Pro, monospace',
-  showAddress: false,
+  showAddress: true,
   showEmail: true,
   showPhone: true,
   showGithub: true,
-  // resumeOrder: resumeOrder,
+  resumeOrder,
   showTechSkills: true,
   showProjects: true,
   showEducation: true,
   showCertification: true,
   showExperience: true,
-  showLinkedIn: false,
-  showWebsite: false,
+  showLinkedIn: true,
+  showWebsite: true,
   editorStatus: EDITOR_STATUS.WAITING,
 };
 

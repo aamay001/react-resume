@@ -1,9 +1,9 @@
 import TopNavigation from './Navigation/TopNavigation';
-import Toolbar from './Navigation/Toolbar';
 import CodeEditor from './Tools/CodeEditor';
+import Toolbar from './Navigation/Toolbar';
 
 export {
   TopNavigation,
-  Toolbar,
   CodeEditor,
+  Toolbar,
 };

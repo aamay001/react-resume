@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import uuid from 'uuid/v4';
 
 const Certifications = ({ certification }) => (
   <section className="resume-certification">
-    <h2>Certification</h2>
+    <h2>Certifications</h2>
     <hr />
     <ul>
       {certification.map(cert => (
-        <li key={Symbol(cert.issuedBy)}>
+        <li key={uuid()}>
           <h3>{cert.issuedBy}</h3>
           {cert.dateFrom
             ? <h3>{`${cert.dateFrom}-${cert.dateTo}`}</h3>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import uuid from 'uuid/v4';
 
 const Experience = ({ experience }) => (
   <section className="resume-experience">
@@ -8,7 +9,7 @@ const Experience = ({ experience }) => (
     <hr />
     <ul>
       {experience.map(exp => (
-        <li key={Symbol(exp.position)}>
+        <li key={uuid()}>
           <h3>{exp.position}</h3>
           <h3>{`${exp.dateFrom}-${exp.dateTo}`}</h3>
           <em>

@@ -2,10 +2,15 @@
   -webkit-font-smoothing: antialiased;
   font-family: Roboto, sans-serif;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  color: black !important;
+}
+
+* a:visited, * a {
+  color: black !important;
 }
 
 .App {
-  max-height: 100vh;
+  max-height: 100%;
 }
 
 .json-resume-tool {
@@ -22,8 +27,13 @@
 
 .json-resume-tool button {
   border-radius: 0 !important;
+  border-top: 0.45px solid rgba(0,0,0,0.25) !important;
   box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.23) !important;
   font-weight: 100 !important;
+}
+
+.json-resume-tool button label {
+  font-size: 16px !important;
 }
 
 .json-resume-tool button:hover {
@@ -44,6 +54,19 @@
 
 #root > div > div.ui.scale.down.right.very.wide.visible.sidebar > div.ui.massive.borderless.top.attached.menu > div:nth-child(1) {
   margin-right: 0 !important;
+}
+
+#root > div > div.ui.massive.top.attached.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 52px;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+#root > div > div.ui.massive.top.attached.menu > a {
+  border-bottom: 1px solid rgb(212, 212, 213);
 }
 
 #root > div > div.ui.scale.down.right.very.wide.visible.sidebar > div.ui.massive.borderless.top.attached.menu > div:nth-child(2) {

@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Sidebar } from 'semantic-ui-react';
-import { SidebarCloseButton, SidebarHeader } from '.';
+import { SidebarCloseButton, ToolbarHeader } from '.';
 import {
   EditorButton,
   PrintButton,
-} from '../Tools/Buttons';
+  VisibilityChanger,
+} from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
 const Toolbar = ({ toolbarOpen, dispatch }) => (
@@ -22,9 +23,10 @@ const Toolbar = ({ toolbarOpen, dispatch }) => (
         closeToolbar={() => dispatch(toggleToolbar())}
         toolbarOpen={toolbarOpen}
       />
-      <SidebarHeader />
+      <ToolbarHeader />
       <PrintButton />
       <EditorButton dispatch={dispatch} />
+      <VisibilityChanger />
     </Sidebar>
   </aside>
 );

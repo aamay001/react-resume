@@ -1,11 +1,11 @@
 import React from 'react';
 import { Header, Icon } from 'semantic-ui-react';
 
-const SidebarHeader = () => (
+const ToolbarHeader = () => (
   <div
     style={{
       paddingRight: 20,
-      paddingTop: 20,
+      paddingTop: 0,
       textAlign: 'center',
       marginBottom: 10,
     }}
@@ -36,4 +36,4 @@ const SidebarHeader = () => (
   </div>
 );
 
-export default SidebarHeader;
+export default ToolbarHeader;

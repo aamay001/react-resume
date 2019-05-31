@@ -1,30 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import {
   CodeEditor,
   TopNavigation,
   Toolbar,
 } from '../components';
+import Resume from '../components/Resume';
 
-const Home = ({ dispatch }) => (
+const Home = () => (
   <>
     <TopNavigation />
+    <Resume />
     <Toolbar />
     <CodeEditor />
   </>
 );
 
 Home.defaultProps = {
-  dispatch: () => {},
 };
 
 Home.propTypes = {
-  dispatch: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;

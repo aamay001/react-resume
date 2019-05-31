@@ -10,7 +10,7 @@ const PrintButton = () => (
     </Label>
     <Button
       content="Print"
-      size="huge"
+      size="large"
       fluid
       onClick={() => window.print()}
       style={{

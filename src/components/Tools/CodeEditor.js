@@ -53,6 +53,7 @@ class CodeEditor extends Component {
           width: '100vw',
           maxWidth: '100vw',
           overflowX: 'hidden',
+          backgroundColor: 'white',
         }}
       >
         <SidebarCloseButton

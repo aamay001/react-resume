@@ -1,4 +1,4 @@
-const isValidJSON = (data) => {
+export const isValidJSON = (data) => {
   let cleanedResume;
   try {
     const newResume = JSON.parse(data);
@@ -62,6 +62,10 @@ const isValidJSON = (data) => {
   return cleanedResume;
 };
 
-export {
-  isValidJSON,
-};
+export const EDUCATION = 0;
+export const TECH_SKILLS = 1;
+export const PROJECTS = 2;
+export const EXPERIENCE = 3;
+export const CERTIFICATION = 4;
+
+export const resumeOrder = [EDUCATION, TECH_SKILLS, PROJECTS, EXPERIENCE, CERTIFICATION];

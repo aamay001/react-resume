@@ -4,7 +4,7 @@ import {
 } from '../actions/app.actions';
 
 const initialState = {
-  toolbarOpen: false,
+  toolbarOpen: true,
   editorOpen: false,
 };
 

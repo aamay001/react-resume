@@ -11,7 +11,7 @@ const EditorButton = ({ dispatch }) => (
     </Label>
     <Button
       content="Code Editor"
-      size="huge"
+      size="large"
       fluid
       onClick={() => dispatch(toggleEditor())}
       style={{

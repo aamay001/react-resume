@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import uuid from 'uuid/v4';
 
 const Education = ({ education }) => (
   <section className="resume-education">
@@ -8,7 +9,7 @@ const Education = ({ education }) => (
     <hr />
     <ul>
       {education.map(ed => (
-        <li key={Symbol(ed.site)}>
+        <li key={uuid()}>
           <h3>{ed.site}</h3>
           { ed.dateFrom ? <h3>{`${ed.dateFrom}-${ed.dateTo}`}</h3> : <h3> </h3> }
           <em>{ed.studyDegree}</em>
