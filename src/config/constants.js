@@ -2,9 +2,8 @@ import { APP } from './settings';
 
 const CONSTANTS = {
   APP: {
-    NAME: 'App Template',
-    ICON: 'mobile',
-    COMPANY: 'Eastern Municipal Water District',
+    NAME: 'JSON Resume',
+    COMPANY: 'Andy Amaya',
   },
   ENVIRONMENT: {
     TEST: 'TEST',
