@@ -1,13 +1,15 @@
 .react-resume {
-  max-width: 8.5in;
-  min-width: 8.5in;
-  min-height: 11in;
-  max-height: 11in;
+  max-width: 8.5in !important;
+  min-width: 8.5in !important;
+  min-height: 11in !important;
+  max-height: 11in !important;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
   margin-bottom: 5px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 0.20in 0.5in 0.5in 0.5in;
+  box-sizing: content-box;
 }
 
 .react-resume h1 {
@@ -29,9 +31,8 @@
 
 .resume {
   font-size: 11px;
-  padding-left: 0.5in;
-  padding-right: 0.5in;
-  padding-top: 0.25in;
+  padding: 0;
+  margin: 0;
 }
 
 .resume-header {
@@ -191,5 +192,9 @@
     margin: 0 !important;
     padding: 0 !important;
     box-shadow: none;
+  }
+
+  #root > div > p {
+    display: none;
   }
 }
