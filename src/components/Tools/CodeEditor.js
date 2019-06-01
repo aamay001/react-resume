@@ -20,11 +20,17 @@ import 'brace/ext/language_tools';
 class CodeEditor extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      editorValue: JSON.stringify(props.resume, null, '\t'),
+    };
     this.onResumeChange = this.onResumeChange.bind(this);
   }
 
   onResumeChange(data) {
     const { dispatch } = this.props;
+    this.setState({
+      editorValue: data,
+    });
     dispatch(updateResumeEditorStatus(EDITOR_STATUS.VALIDATING));
     const updatedResume = isValidJSON(data);
     if (updatedResume) {
@@ -37,12 +43,11 @@ class CodeEditor extends Component {
 
   render() {
     const {
-      resume,
       editorOpen,
       dispatch,
       statusMessage,
     } = this.props;
-    const editorValue = JSON.stringify(resume, null, '\t');
+    const { editorValue } = this.state;
     const statusColor = getStatusColor(statusMessage);
     return (
       <Sidebar
