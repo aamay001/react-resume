@@ -69,19 +69,19 @@ const Resume = {
   ],
   certification: [
     {
-      issuedBy: 'Issuer 1',
+      issuedBy: 'Issuer 1/Cert Name',
       id: '#12345',
       dateFrom: 'XX/XXXX',
       dateTo: '',
     },
     {
-      issuedBy: 'Issuer 2',
+      issuedBy: 'Issuer 2/Cert Name',
       id: '#12345',
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
     },
     {
-      issuedBy: 'Issuer 3',
+      issuedBy: 'Issuer 3/Cert Name',
       id: '#12345',
       dateFrom: '',
       dateTo: '',
