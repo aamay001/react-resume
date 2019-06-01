@@ -8,8 +8,9 @@
   margin-top: 5px;
   margin-bottom: 5px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  padding: 0.20in 0.5in 0.5in 0.5in;
+  padding: 0.39in 0.38in 0.38in 0.39in;
   box-sizing: content-box;
+  background-color: rgba(51, 47, 47, 0);
 }
 
 .react-resume h1 {
@@ -196,5 +197,9 @@
 
   #root > div > p {
     display: none;
+  }
+
+  @page {
+    size: letter;
   }
 }
