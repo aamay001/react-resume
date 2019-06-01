@@ -27,35 +27,50 @@ const Resume = ({
   showCertification,
   order,
 }) => (
-  <div className="react-resume">
-    <div
-      className="resume"
-      style={{ fontFamily: font }}
-    >
-      <ResumeHeader />
-      {order.map((item) => {
-        switch (item) {
-          case EDUCATION:
-            return showEducation
-              && <Education key={uuid()} />;
-          case TECH_SKILLS:
-            return showTechSkills
-              && <TechnicalSkills key={uuid()} />;
-          case PROJECTS:
-            return showProjects
-              && <Projects key={uuid()} />;
-          case EXPERIENCE:
-            return showExperience
-              && <Experience key={uuid()} />;
-          case CERTIFICATION:
-            return showCertification
-              && <Certifications key={uuid()} />;
-          default:
-            return <p>Error with order.</p>;
-        }
-      })}
+  <>
+    <div className="react-resume">
+      <div
+        className="resume"
+        style={{ fontFamily: font }}
+      >
+        <ResumeHeader />
+        {order.map((item) => {
+          switch (item) {
+            case EDUCATION:
+              return showEducation
+                && <Education key={uuid()} />;
+            case TECH_SKILLS:
+              return showTechSkills
+                && <TechnicalSkills key={uuid()} />;
+            case PROJECTS:
+              return showProjects
+                && <Projects key={uuid()} />;
+            case EXPERIENCE:
+              return showExperience
+                && <Experience key={uuid()} />;
+            case CERTIFICATION:
+              return showCertification
+                && <Certifications key={uuid()} />;
+            default:
+              return <p>Error with order.</p>;
+          }
+        })}
+      </div>
     </div>
-  </div>
+    <p
+      style={{
+        color: 'red',
+        textAlign: 'center',
+        position: 'absolute',
+        width: '100vw',
+        marginTop: 5,
+      }}
+    >
+      <span role="img" aria-label="img"> ⬆ ️</span>
+      bottom limit of  letter size page
+      <span role="img" aria-label="img"> ⬆ ️</span>
+    </p>
+  </>
 );
 
 Resume.defaultProps = {
