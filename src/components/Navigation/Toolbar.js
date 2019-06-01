@@ -9,10 +9,11 @@ import {
   VisibilityChanger,
   FontSelector,
   OrderChanger,
+  DownloadButton,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
-const Toolbar = ({ toolbarOpen, dispatch }) => (
+const Toolbar = ({ toolbarOpen, dispatch, resume }) => (
   <aside>
     <Sidebar
       animation="scale down"
@@ -31,6 +32,7 @@ const Toolbar = ({ toolbarOpen, dispatch }) => (
       <FontSelector />
       <VisibilityChanger />
       <OrderChanger />
+      <DownloadButton resume={resume} />
     </Sidebar>
   </aside>
 );
@@ -38,15 +40,18 @@ const Toolbar = ({ toolbarOpen, dispatch }) => (
 Toolbar.defaultProps = {
   dispatch: () => {},
   toolbarOpen: false,
+  resume: {},
 };
 
 Toolbar.propTypes = {
   dispatch: PropTypes.func,
   toolbarOpen: PropTypes.bool,
+  resume: PropTypes.shape({}),
 };
 
 const mapStateToProps = state => ({
   toolbarOpen: state.app.toolbarOpen,
+  resume: state.resume,
 });
 
 export default connect(mapStateToProps)(Toolbar);
