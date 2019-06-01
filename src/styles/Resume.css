@@ -29,7 +29,9 @@
 
 .resume {
   font-size: 11px;
-  padding: 0.5in;
+  padding-left: 0.5in;
+  padding-right: 0.5in;
+  padding-top: 0.25in;
 }
 
 .resume-header {
