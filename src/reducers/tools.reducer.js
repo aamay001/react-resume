@@ -76,7 +76,7 @@ export default (state = storedTools || initialState, action) => {
     case CHANGE_RESUME_ORDER:
       return (state.autoSave
         ? saveTools(changeResumeOrder(state, action))
-        : changeResumeOrder(state, action))
+        : changeResumeOrder(state, action));
     case UPDATE_EDITOR_STATUS:
       return updateResumeEditorStatus(state, action);
     case TOGGLE_EDITOR:
