@@ -32,13 +32,19 @@ export const changeResumeOrder = order => ({
 });
 
 export const UPDATE_RESUME = 'UPDATE_RESIME';
-export const updateResume = resume => ({
+export const updateResume = (resume, autoSave) => ({
   type: UPDATE_RESUME,
   resume,
+  autoSave,
 });
 
 export const UPDATE_EDITOR_STATUS = 'UPDATE_RESUME_STAUS';
 export const updateResumeEditorStatus = status => ({
   type: UPDATE_EDITOR_STATUS,
   status,
+});
+
+export const TOGGLE_AUTO_SAVE = 'TOGGLE_AUTO_SAVE';
+export const toggleAutoSave = () => ({
+  type: TOGGLE_AUTO_SAVE,
 });

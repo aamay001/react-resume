@@ -1,10 +1,10 @@
 const SETTINGS = {
   API: {
     URL: process.env.REACT_APP_API_URL,
-  },
-  ROUTES: {
-    ANIMATION: 'fade right',
-    ANIMATION_SPEED: 500,
+    SAVE: key => `save?code=${key}`,
+    FILE: (id, js, key) => `file?code=${key}&id=${id}&js=${js}`,
+    SAVE_KEY: process.env.REACT_APP_SAVE_KEY,
+    FILE_KEY: process.env.REACT_APP_FILE_KEY,
   },
 };
 

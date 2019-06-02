@@ -27,14 +27,14 @@ class CodeEditor extends Component {
   }
 
   onResumeChange(data) {
-    const { dispatch } = this.props;
+    const { dispatch, autoSave } = this.props;
     this.setState({
       editorValue: data,
     });
     dispatch(updateResumeEditorStatus(EDITOR_STATUS.VALIDATING));
     const updatedResume = isValidJSON(data);
     if (updatedResume) {
-      dispatch(updateResume(updatedResume));
+      dispatch(updateResume(updatedResume, autoSave));
       dispatch(updateResumeEditorStatus(EDITOR_STATUS.UPDATED));
       return;
     }
@@ -110,6 +110,7 @@ CodeEditor.defaultProps = {
   editorOpen: false,
   resume: {},
   statusMessage: EDITOR_STATUS.WAITING,
+  autoSave: false,
 };
 
 CodeEditor.propTypes = {
@@ -117,12 +118,14 @@ CodeEditor.propTypes = {
   editorOpen: PropTypes.bool,
   resume: PropTypes.shape({}),
   statusMessage: PropTypes.string,
+  autoSave: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   editorOpen: state.app.editorOpen,
   resume: state.resume,
   statusMessage: state.tools.editorStatus,
+  autoSave: state.tools.autoSave,
 });
 
 export default connect(mapStateToProps)(CodeEditor);

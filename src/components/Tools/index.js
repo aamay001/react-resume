@@ -1,4 +1,10 @@
-import { EditorButton, PrintButton } from './Buttons';
+import {
+  EditorButton,
+  PrintButton,
+  DownloadButton,
+  SaveToCloudButtons,
+  LocalStorageToggle,
+} from './Buttons';
 import VisibilityChanger from './VisibilityChanger';
 import FontSelector from './FontSelector';
 import OrderChanger from './OrderChanger';
@@ -9,4 +15,7 @@ export {
   PrintButton,
   VisibilityChanger,
   OrderChanger,
+  DownloadButton,
+  SaveToCloudButtons,
+  LocalStorageToggle,
 };
