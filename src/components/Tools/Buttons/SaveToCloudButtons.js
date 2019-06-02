@@ -185,6 +185,7 @@ class SaveToCloudButtons extends Component {
             icon="google drive"
             size="big"
             title="Google Drive"
+            style={{ marginLeft: 5, marginRight: 5 }}
             onClick={() => this.prepareFile(CLOUDS.GOOGLE)}
           />
           <Button
@@ -192,6 +193,7 @@ class SaveToCloudButtons extends Component {
             icon="dropbox"
             size="big"
             title="Dropbox"
+            style={{ marginLeft: 5, marginRight: 5 }}
             onClick={() => this.prepareFile(CLOUDS.DROPBOX)}
           />
           <Button
@@ -199,6 +201,7 @@ class SaveToCloudButtons extends Component {
             icon="cloud"
             size="big"
             title="OneDrive"
+            style={{ marginLeft: 5, marginRight: 5 }}
             onClick={() => this.prepareFile(CLOUDS.ONEDRIVE)}
           />
         </div>
