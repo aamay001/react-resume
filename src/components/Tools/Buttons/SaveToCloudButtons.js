@@ -181,7 +181,6 @@ class SaveToCloudButtons extends Component {
         </Label>
         <div style={{ textAlign: 'center' }}>
           <Button
-            circular
             color="yellow"
             icon="google drive"
             size="big"
@@ -189,7 +188,6 @@ class SaveToCloudButtons extends Component {
             onClick={() => this.prepareFile(CLOUDS.GOOGLE)}
           />
           <Button
-            circular
             color="twitter"
             icon="dropbox"
             size="big"
@@ -197,7 +195,6 @@ class SaveToCloudButtons extends Component {
             onClick={() => this.prepareFile(CLOUDS.DROPBOX)}
           />
           <Button
-            circular
             color="facebook"
             icon="cloud"
             size="big"
