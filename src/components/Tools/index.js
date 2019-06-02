@@ -2,6 +2,7 @@ import {
   EditorButton,
   PrintButton,
   DownloadButton,
+  SaveToCloudButtons,
 } from './Buttons';
 import VisibilityChanger from './VisibilityChanger';
 import FontSelector from './FontSelector';
@@ -14,4 +15,5 @@ export {
   VisibilityChanger,
   OrderChanger,
   DownloadButton,
+  SaveToCloudButtons,
 };

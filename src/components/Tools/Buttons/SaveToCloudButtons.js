@@ -1,0 +1,313 @@
+/* global gapi Dropbox OneDrive */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {
+  Label,
+  Icon,
+  Button,
+  Modal,
+  Segment,
+  Dimmer,
+  Loader,
+} from 'semantic-ui-react';
+import axios from 'axios';
+import uuid from 'uuid/v4';
+import { toast } from 'react-toastify';
+import settings from '../../../config/settings';
+import { toggleToolbar } from '../../../actions/app.actions';
+
+const { API } = settings;
+const { SAVE_KEY, FILE_KEY } = API;
+
+const CLOUDS = {
+  GOOGLE: 'gd',
+  DROPBOX: 'db',
+  ONEDRIVE: 'od',
+};
+
+class SaveToCloudButtons extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      preparingFile: false,
+      fileReady: false,
+      cloudSelection: undefined,
+      fileSource: undefined,
+      savingToCloud: false,
+      saveComplete: false,
+    };
+    this.prepareFile = this.prepareFile.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
+    this.onSaveToDropBox = this.onSaveToDropBox.bind(this);
+    this.onSaveToOneDrive = this.onSaveToOneDrive.bind(this);
+  }
+
+  onCloseModal() {
+    this.setState({
+      preparingFile: false,
+      fileReady: false,
+      cloudSelection: undefined,
+      fileSource: undefined,
+      savingToCloud: false,
+      saveComplete: false,
+    });
+  }
+
+  onSaveToDropBox() {
+    const { fileSource } = this.state;
+    this.setState({
+      savingToCloud: true,
+    });
+    Dropbox.save(
+      fileSource,
+      'resume.json',
+      {
+        success: () => {
+          this.setState({
+            savingToCloud: false,
+            saveComplete: true,
+          });
+          toast('🙌 Resume saved to Dropbox!');
+        },
+        cancel: () => {
+          this.setState({
+            savingToCloud: false,
+            saveComplete: false,
+          });
+          toast('✋ Save to Dropbox was cancelled!', { autoClose: 5000 });
+        },
+        error: () => {
+          this.setState({
+            savingToCloud: false,
+            saveComplete: false,
+          });
+          toast('😟 Something went wrong while saving to Dropbox!', { autoClose: false });
+        },
+      },
+    );
+  }
+
+  onSaveToOneDrive() {
+    const { fileSource } = this.state;
+    this.setState({
+      savingToCloud: true,
+    });
+    const odOptions = {
+      clientId: 'f95c8ea4-b187-408f-9778-912af37c3b74',
+      action: 'save',
+      sourceUri: fileSource,
+      fileName: 'resume.json',
+      openInNewWindow: true,
+      viewType: 'folders',
+      success: () => {
+        this.setState({
+          savingToCloud: false,
+          saveComplete: true,
+        });
+        toast('🙌 Resume saved to OneDrive!');
+      },
+      cancel: () => {
+        this.setState({
+          savingToCloud: false,
+          saveComplete: false,
+        });
+        toast('✋ Save to OneDrive was cancelled!', { autoClose: 5000 });
+      },
+      error: () => {
+        this.setState({
+          savingToCloud: false,
+          saveComplete: false,
+        });
+        toast('😟 Something went wrong while saving to OneDrive!', { autoClose: false });
+      },
+    };
+    OneDrive.save(odOptions);
+  }
+
+  prepareFile(selection) {
+    const { resume, dispatch } = this.props;
+    dispatch(toggleToolbar());
+    this.setState({
+      preparingFile: true,
+      fileReady: false,
+      cloudSelection: selection,
+    });
+    const dataId = uuid();
+    axios.post(API.URL + API.SAVE(SAVE_KEY), { content: resume, jsId: dataId })
+      .then((response) => {
+        const { data } = response;
+        const fileSource = API.URL + API.FILE(data, dataId, FILE_KEY);
+        this.setState({
+          preparingFile: false,
+          fileReady: true,
+          fileSource,
+        }, () => {
+          if (selection === CLOUDS.GOOGLE) {
+            gapi.savetodrive.render(
+              'gdrive-container',
+              {
+                src: fileSource,
+                filename: 'resume.json',
+                sitename: 'JSON Resume',
+              },
+            );
+          }
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          preparingFile: false,
+        });
+        // eslint-disable-next-line no-console
+        console.log(error);
+        toast('⚠️ Error preparing file, Try again later!', { toastId: 'rrterrprepfile', autoClose: false });
+      });
+  }
+
+  render() {
+    const {
+      preparingFile,
+      fileReady,
+      cloudSelection,
+      savingToCloud,
+      saveComplete,
+    } = this.state;
+    return (
+      <div className="json-resume-tool">
+        <Label size="big" basic>
+          <Icon name="cloud upload" />
+          Save
+        </Label>
+        <div style={{ textAlign: 'center' }}>
+          <Button
+            circular
+            color="yellow"
+            icon="google drive"
+            size="large"
+            title="Google Drive"
+            onClick={() => this.prepareFile(CLOUDS.GOOGLE)}
+          />
+          <Button
+            circular
+            color="twitter"
+            icon="dropbox"
+            size="large"
+            title="Dropbox"
+            onClick={() => this.prepareFile(CLOUDS.DROPBOX)}
+          />
+          <Button
+            circular
+            color="facebook"
+            icon="cloud"
+            size="large"
+            title="OneDrive"
+            onClick={() => this.prepareFile(CLOUDS.ONEDRIVE)}
+          />
+        </div>
+        <Modal open={preparingFile || fileReady} size="tiny" centered={false}>
+          <Modal.Content>
+            <Segment style={{ height: 300 }} basic clearing>
+              {preparingFile &&
+              <Dimmer active inverted>
+                <Loader inverted content="Preparing your  resume file..." />
+              </Dimmer>}
+              {fileReady && cloudSelection === CLOUDS.GOOGLE &&
+                <div>
+                  <p>
+                    Your file is ready to save to Google Drive. Click the button below to save.
+                  </p>
+                  <Button
+                    id="gdrive-container"
+                    // eslint-disable-next-line no-nested-ternary
+                    icon={savingToCloud
+                      ? 'spinner'
+                      : saveComplete
+                        ? 'check'
+                        : 'google drive'}
+                    loading={savingToCloud}
+                    disabled={savingToCloud || saveComplete}
+                    color="yellow"
+                    size="big"
+                    style={{ marginTop: 100 }}
+                    fluid
+                    content="Save to Google Drive"
+                  />
+                </div>}
+              {fileReady && cloudSelection === CLOUDS.DROPBOX &&
+                <div>
+                  <p>
+                    Your file is ready to save to Dropbox. Click the button below to save.
+                  </p>
+                  <Button
+                    // eslint-disable-next-line no-nested-ternary
+                    icon={savingToCloud
+                      ? 'spinner'
+                      : saveComplete
+                        ? 'check'
+                        : 'dropbox'}
+                    loading={savingToCloud}
+                    disabled={savingToCloud || saveComplete}
+                    color="twitter"
+                    size="big"
+                    style={{ marginTop: 100 }}
+                    fluid
+                    onClick={this.onSaveToDropBox}
+                    content="Save to Dropbox"
+                  />
+                </div>}
+              {fileReady && cloudSelection === CLOUDS.ONEDRIVE &&
+                <div>
+                  <p>
+                    Your file is ready to save to OneDrive. Click the button below to save.
+                  </p>
+                  <Button
+                    // eslint-disable-next-line no-nested-ternary
+                    icon={savingToCloud
+                      ? 'spinner'
+                      : saveComplete
+                        ? 'check'
+                        : 'cloud'}
+                    loading={savingToCloud}
+                    disabled={savingToCloud || saveComplete}
+                    color="facebook"
+                    size="big"
+                    style={{ marginTop: 100 }}
+                    fluid
+                    onClick={this.onSaveToOneDrive}
+                    content="Save to OneDrive"
+                  />
+                </div>}
+            </Segment>
+          </Modal.Content>
+          {fileReady &&
+            <Modal.Actions>
+              <Button
+                content="Done"
+                onClick={this.onCloseModal}
+                icon="check"
+                size="large"
+                disabled={savingToCloud}
+              />
+            </Modal.Actions>}
+        </Modal>
+      </div>
+    );
+  }
+}
+
+SaveToCloudButtons.defaultProps = {
+  dispatch: () => {},
+  resume: {},
+};
+
+SaveToCloudButtons.propTypes = {
+  dispatch: PropTypes.func,
+  resume: PropTypes.shape({}),
+};
+
+const mapStateToProps = state => ({
+  resume: state.resume,
+});
+
+export default connect(mapStateToProps)(SaveToCloudButtons);

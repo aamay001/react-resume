@@ -10,6 +10,7 @@ import {
   FontSelector,
   OrderChanger,
   DownloadButton,
+  SaveToCloudButtons,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
@@ -27,6 +28,7 @@ const Toolbar = ({ toolbarOpen, dispatch, resume }) => (
         toolbarOpen={toolbarOpen}
       />
       <ToolbarHeader />
+      <SaveToCloudButtons />
       <PrintButton />
       <EditorButton dispatch={dispatch} />
       <FontSelector />
