@@ -27,14 +27,19 @@ export const getStatusColor = (status) => {
 const STORED_TOOLS_KEY = 'rr-ls-tools-key';
 
 export const saveTools = (tools) => {
+  if (!tools.autoSave) {
+    toast(' ⚠️ Auto save to local storage is now off!', { toastId: 'rrtrlsoff', position: 'top-right', autoClose: false });
+  } else {
+    toast(' 💾 Auto save to local storage is now on!', { toastId: 'rrtrlson', position: 'top-right' });
+  }
   if (ls.setItem(STORED_TOOLS_KEY, tools)) {
     debounce(() => toast(' 💾 saved to localStorage...', { toastId: 'rrtresumesaved', position: 'top-right' }),
-      200,
+      100,
       false,
       'rrtresumesaved');
   } else {
     debounce(() => toast(' ⚠️ error saving to localStorage...', { toastId: 'rrterrorsaveresume', position: 'top-right' }),
-      200,
+      100,
       false,
       'rrterrorsaveresume');
   }

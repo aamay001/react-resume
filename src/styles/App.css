@@ -20,7 +20,7 @@ body {
   background-color: transparent !important;
 }
 
-.json-resume-tool button,
+.json-resume-tool button:not(.circular),
 .json-resume-tool a {
   border-radius: 0 !important;
   border-top: 0.25px solid rgba(0,0,0,0.25) !important;

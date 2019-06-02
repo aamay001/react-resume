@@ -13,7 +13,9 @@ const initialState = {
 const newResume = () => ({ ...Resume });
 
 const updateResume = (state, action) => {
-  saveResume(action.resume);
+  if (action.autoSave) {
+    saveResume(action.resume);
+  }
   return {
     ...state,
     ...action.resume,

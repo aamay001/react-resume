@@ -177,14 +177,14 @@ class SaveToCloudButtons extends Component {
       <div className="json-resume-tool">
         <Label size="big" basic>
           <Icon name="cloud upload" />
-          Save
+          Cloud Save
         </Label>
         <div style={{ textAlign: 'center' }}>
           <Button
             circular
             color="yellow"
             icon="google drive"
-            size="large"
+            size="big"
             title="Google Drive"
             onClick={() => this.prepareFile(CLOUDS.GOOGLE)}
           />
@@ -192,7 +192,7 @@ class SaveToCloudButtons extends Component {
             circular
             color="twitter"
             icon="dropbox"
-            size="large"
+            size="big"
             title="Dropbox"
             onClick={() => this.prepareFile(CLOUDS.DROPBOX)}
           />
@@ -200,7 +200,7 @@ class SaveToCloudButtons extends Component {
             circular
             color="facebook"
             icon="cloud"
-            size="large"
+            size="big"
             title="OneDrive"
             onClick={() => this.prepareFile(CLOUDS.ONEDRIVE)}
           />

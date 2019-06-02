@@ -11,10 +11,11 @@ import {
   OrderChanger,
   DownloadButton,
   SaveToCloudButtons,
+  LocalStorageToggle,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
-const Toolbar = ({ toolbarOpen, dispatch, resume }) => (
+const Toolbar = ({ toolbarOpen, dispatch, resume, autoSave }) => (
   <aside>
     <Sidebar
       animation="scale down"
@@ -29,12 +30,16 @@ const Toolbar = ({ toolbarOpen, dispatch, resume }) => (
       />
       <ToolbarHeader />
       <SaveToCloudButtons />
-      <PrintButton />
       <EditorButton dispatch={dispatch} />
       <FontSelector />
       <VisibilityChanger />
       <OrderChanger />
+      <PrintButton />
       <DownloadButton resume={resume} />
+      <LocalStorageToggle
+        dispatch={dispatch}
+        status={autoSave}
+      />
     </Sidebar>
   </aside>
 );
@@ -43,17 +48,20 @@ Toolbar.defaultProps = {
   dispatch: () => {},
   toolbarOpen: false,
   resume: {},
+  autoSave: false,
 };
 
 Toolbar.propTypes = {
   dispatch: PropTypes.func,
   toolbarOpen: PropTypes.bool,
   resume: PropTypes.shape({}),
+  autoSave: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   toolbarOpen: state.app.toolbarOpen,
   resume: state.resume,
+  autoSave: state.tools.autoSave,
 });
 
 export default connect(mapStateToProps)(Toolbar);

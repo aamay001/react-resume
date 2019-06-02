@@ -4,6 +4,7 @@ import {
   CHANGE_RESUME_ORDER,
   UPDATE_EDITOR_STATUS,
   TOGGLE_EDITOR,
+  TOGGLE_AUTO_SAVE,
 } from '../actions/app.actions';
 import { EDITOR_STATUS, saveTools, loadTools } from '../helpers/tools.helper';
 import { defaultResumeOrder } from '../helpers/resume.helper';
@@ -25,6 +26,7 @@ const initialState = {
   showLinkedIn: false,
   showWebsite: true,
   editorStatus: EDITOR_STATUS.WAITING,
+  autoSave: false,
 };
 
 const getItemToToggle = (state, action) => ({
@@ -56,18 +58,31 @@ const toggleEditor = state => ({
   editorStatus: EDITOR_STATUS.WAITING,
 });
 
+const toggleAutoSave = state => ({
+  ...state,
+  autoSave: !state.autoSave,
+});
+
 export default (state = storedTools || initialState, action) => {
   switch (action.type) {
     case CHANGE_FONT:
-      return saveTools(changeFont(state, action));
+      return (state.autoSave
+        ? saveTools(changeFont(state, action))
+        : changeFont(state, action));
     case TOGGLE_SHOW_ITEM:
-      return saveTools(toggleShowItem(state, action));
+      return (state.autoSave
+        ? saveTools(toggleShowItem(state, action))
+        : toggleShowItem(state, action));
     case CHANGE_RESUME_ORDER:
-      return saveTools(changeResumeOrder(state, action));
+      return (state.autoSave
+        ? saveTools(changeResumeOrder(state, action))
+        : changeResumeOrder(state, action))
     case UPDATE_EDITOR_STATUS:
       return updateResumeEditorStatus(state, action);
     case TOGGLE_EDITOR:
       return toggleEditor(state);
+    case TOGGLE_AUTO_SAVE:
+      return saveTools(toggleAutoSave(state));
     default:
       return state;
   }

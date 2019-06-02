@@ -3,6 +3,7 @@ import {
   PrintButton,
   DownloadButton,
   SaveToCloudButtons,
+  LocalStorageToggle,
 } from './Buttons';
 import VisibilityChanger from './VisibilityChanger';
 import FontSelector from './FontSelector';
@@ -16,4 +17,5 @@ export {
   OrderChanger,
   DownloadButton,
   SaveToCloudButtons,
+  LocalStorageToggle,
 };

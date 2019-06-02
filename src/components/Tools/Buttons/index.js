@@ -3,6 +3,7 @@ import PrintButton from './PrintButton';
 import ItemToggleButton from './ItemToggleButton';
 import DownloadButton from './DownloadButton';
 import SaveToCloudButtons from './SaveToCloudButtons';
+import LocalStorageToggle from './LocalStorageToggle';
 
 export {
   EditorButton,
@@ -10,4 +11,5 @@ export {
   ItemToggleButton,
   DownloadButton,
   SaveToCloudButtons,
+  LocalStorageToggle,
 };
