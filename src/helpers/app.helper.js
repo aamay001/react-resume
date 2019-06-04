@@ -4,7 +4,19 @@ import PropTypes from 'prop-types';
 export const FocusTrap = ({ enabled }) => (
   enabled &&
     <style>
-      {'html { overflow: hidden }'}
+      {
+        `html {
+          overflow: hidden !important;
+          maxWidth: 100vw !important;
+          maxHeight: 100vh !important;
+        }
+
+        @media only screen and (max-width: 500px) {
+          body {
+            overflow: hidden !important;
+          }
+        }
+      `}
     </style>
 );
 
