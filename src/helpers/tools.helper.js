@@ -44,16 +44,19 @@ export const saveTools = (tools) => {
   if (!tools.autoSave && prevLocalStorageState) {
     toast(' ⚠️ Auto save to local storage is now off!', { toastId: 'rrtrlsoff', position: 'top-right', autoClose: false });
   } else if (tools.autoSave && !prevLocalStorageState) {
+    toast.dismiss('rrtrlsoffinit');
+    toast.dismiss('rrtrlsoff');
     toast(' 💾 Auto save to local storage is now on!', { toastId: 'rrtrlson', position: 'top-right', autoClose: 10000 });
   }
   prevLocalStorageState = tools.autoSave;
   if (ls.setItem(STORED_TOOLS_KEY, tools)) {
-    debounce(() => toast(' 💾 saved to localStorage...', { toastId: 'rrtresumesaved', position: 'top-right' }),
+    toast.dismiss('rrterrorsaveresume');
+    debounce(() => toast(' 💾 saved to local storage...', { toastId: 'rrtresumesaved', position: 'top-right' }),
       100,
       false,
       'rrtresumesaved');
   } else {
-    debounce(() => toast(' ⚠️ error saving to localStorage...', { toastId: 'rrterrorsaveresume', position: 'top-right' }),
+    debounce(() => toast(' ⚠️ error saving to local storage...', { toastId: 'rrterrorsaveresume', position: 'top-right' }),
       100,
       false,
       'rrterrorsaveresume');
