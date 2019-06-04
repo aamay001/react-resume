@@ -15,7 +15,12 @@ import {
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
-const Toolbar = ({ toolbarOpen, dispatch, resume, autoSave }) => (
+const Toolbar = ({
+  toolbarOpen,
+  dispatch,
+  resume,
+  autoSave,
+}) => (
   <aside>
     <Sidebar
       animation="scale down"

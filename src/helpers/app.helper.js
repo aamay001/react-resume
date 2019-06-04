@@ -1,31 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const FocusTrap = ({ enabled }) => (
-  enabled &&
-    <style>
-      {
-        `html {
-          overflow: hidden !important;
-          maxWidth: 100vw !important;
-          maxHeight: 100vh !important;
-        }
-
-        @media only screen and (max-width: 500px) {
+export const FocusTrap = ({ full, mobile }) => (
+  <>
+    {mobile &&
+      <style>
+        {`@media only screen and (max-width: 500px) {
           body {
             overflow: hidden !important;
           }
-        }
-      `}
-    </style>
+
+          html, body {
+            overflow: hidden !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+          }
+        }`}
+      </style>}
+    {full &&
+      <style>
+        {`
+          html, body {
+            overflow: hidden !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+          }
+        `}
+      </style>}
+  </>
 );
 
 FocusTrap.defaultProps = {
-  enabled: false,
+  full: false,
+  mobile: false,
 };
 
 FocusTrap.propTypes = {
-  enabled: PropTypes.bool,
+  full: PropTypes.bool,
+  mobile: PropTypes.bool,
 };
 
 export const debounceMap = new Map();
