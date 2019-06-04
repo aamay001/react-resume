@@ -16,6 +16,7 @@ import uuid from 'uuid/v4';
 import { toast } from 'react-toastify';
 import settings from '../../../config/settings';
 import { toggleToolbar } from '../../../actions/app.actions';
+import { FocusTrap } from '../../../helpers/app.helper';
 
 const { API } = settings;
 const { SAVE_KEY, FILE_KEY } = API;
@@ -291,6 +292,7 @@ class SaveToCloudButtons extends Component {
               />
             </Modal.Actions>}
         </Modal>
+        <FocusTrap enabled={preparingFile || fileReady} />
       </div>
     );
   }
