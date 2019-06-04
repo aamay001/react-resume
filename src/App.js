@@ -12,7 +12,7 @@ const history = createBrowserHistory();
 const { ROUTES } = constants;
 const { Home } = routes;
 
-const App = ({ editorOpen }) => (
+const App = ({ editorOpen, toolbarOpen }) => (
   <div className="App">
     <Router history={history}>
       <Switch>
@@ -20,20 +20,23 @@ const App = ({ editorOpen }) => (
         <Route component={Home} />
       </Switch>
     </Router>
-    <FocusTrap enabled={editorOpen} />
+    <FocusTrap enabled={editorOpen || toolbarOpen} />
   </div>
 );
 
 App.defaultProps = {
   editorOpen: false,
+  toolbarOpen: false,
 };
 
 App.propTypes = {
   editorOpen: PropTypes.bool,
+  toolbarOpen: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   editorOpen: state.app.editorOpen,
+  toolbarOpen: state.app.toolbarOpen,
 });
 
 export default connect(mapStateToProps)(App);
