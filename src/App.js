@@ -20,7 +20,7 @@ const App = ({ editorOpen, toolbarOpen }) => (
         <Route component={Home} />
       </Switch>
     </Router>
-    <FocusTrap enabled={editorOpen || toolbarOpen} />
+    <FocusTrap full={editorOpen} mobile={toolbarOpen} />
   </div>
 );
 
