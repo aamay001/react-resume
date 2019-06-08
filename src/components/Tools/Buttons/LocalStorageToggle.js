@@ -37,6 +37,7 @@ const LocalStorageToggle = ({ dispatch, status }) => {
       <Confirm
         open={confirm}
         onCancel={() => setConfirm(false)}
+        centered={false}
         onConfirm={() => {
           setConfirm(false);
           ls.clear();
