@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
+import classNames from 'classnames';
 import Certifications from './Certifications';
 import Education from './Education';
 import Experience from './Experience';
@@ -28,7 +29,7 @@ const Resume = ({
   order,
 }) => (
   <>
-    <div className="react-resume">
+    <div className={classNames('react-resume', 'letter')}>
       <div
         className="resume"
         style={{ fontFamily: font }}

@@ -1,8 +1,4 @@
 .react-resume {
-  max-width: 8.5in !important;
-  min-width: 8.5in !important;
-  min-height: 11in !important;
-  max-height: 11in !important;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
@@ -11,6 +7,20 @@
   padding: 0.39in 0.38in 0.38in 0.39in;
   box-sizing: content-box;
   background-color: rgba(51, 47, 47, 0);
+}
+
+.letter {
+  max-width: 8.5in !important;
+  min-width: 8.5in !important;
+  min-height: 11in !important;
+  max-height: 11in !important;
+}
+
+.a4 {
+  max-width: 210mm !important;
+  min-width: 210mm !important;
+  min-height: 297mm !important;
+  max-height: 297mm !important;
 }
 
 .react-resume h1 {
