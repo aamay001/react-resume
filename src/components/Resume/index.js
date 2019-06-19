@@ -9,6 +9,7 @@ import Experience from './Experience';
 import ResumeHeader from './Header';
 import Projects from './Projects';
 import TechnicalSkills from './TechnicalSkills';
+import { paperSizes } from '../Tools/PaperSize';
 import {
   EDUCATION,
   TECH_SKILLS,
@@ -27,9 +28,10 @@ const Resume = ({
   showExperience,
   showCertification,
   order,
+  paperSize,
 }) => (
   <>
-    <div className={classNames('react-resume', 'letter')}>
+    <div className={classNames('react-resume', paperSize.tag)}>
       <div
         className="resume"
         style={{ fontFamily: font }}
@@ -68,7 +70,7 @@ const Resume = ({
       }}
     >
       <span role="img" aria-label="img"> ⬆ ️</span>
-      bottom limit of  letter size page
+      {`bottom limit of ${paperSize.name} size page`}
       <span role="img" aria-label="img"> ⬆ ️</span>
     </p>
   </>
@@ -82,6 +84,7 @@ Resume.defaultProps = {
   showExperience: true,
   showCertification: true,
   order: defaultResumeOrder,
+  paperSize: paperSizes[0].tag,
 };
 
 Resume.propTypes = {
@@ -92,6 +95,7 @@ Resume.propTypes = {
   showExperience: PropTypes.bool,
   showCertification: PropTypes.bool,
   order: PropTypes.arrayOf(PropTypes.number),
+  paperSize: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
@@ -102,6 +106,7 @@ const mapStateToProps = state => ({
   showCertification: state.tools.showCertification,
   font: state.tools.font,
   order: state.tools.order,
+  paperSize: paperSizes.find(size => size.tag === state.tools.paperSize),
 });
 
 export default connect(mapStateToProps)(Resume);
