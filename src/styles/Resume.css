@@ -23,6 +23,13 @@
   max-height: 297mm !important;
 }
 
+.legal {
+  max-width: 8.5in !important;
+  min-width: 8.5in !important;
+  min-height: 14in !important;
+  max-height: 14in !important;
+}
+
 .react-resume h1 {
   font-size: 22px;
   margin-top: 0;

@@ -9,6 +9,7 @@ import { changePaperSize } from '../../actions/app.actions';
 export const paperSizes = [
   { tag: 'letter', name: 'Letter (8.5" x 11")' },
   { tag: 'a4', name: 'A4 (210mm × 297mm)' },
+  { tag: 'legal', name: 'Legal (8.5" x 14")' },
 ];
 
 class PaperSize extends Component {
