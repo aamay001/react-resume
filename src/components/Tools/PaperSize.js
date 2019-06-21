@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Label, Icon, Button } from 'semantic-ui-react';
 import uuid from 'uuid/v4';
 import { changePaperSize } from '../../actions/app.actions';
-// import fonts from '../../helpers/font.helper';
 
 export const paperSizes = [
   { tag: 'letter', name: 'Letter (8.5" x 11")' },
@@ -31,7 +30,7 @@ class PaperSize extends Component {
     return (
       <div className="json-resume-tool font-selector">
         <Label size="big" basic>
-          <Icon name="font" />
+          <Icon name="file text outline" />
           Paper Size
         </Label>
         <Button
@@ -44,7 +43,7 @@ class PaperSize extends Component {
           }}
         >
           <select
-            id="font-selector"
+            className="options-selector"
             onChange={this.handlePaperSizeChange}
             value={paperSize}
           >

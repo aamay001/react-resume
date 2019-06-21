@@ -37,7 +37,7 @@ class FontSelector extends Component {
           }}
         >
           <select
-            id="font-selector"
+            className="options-selector"
             onChange={this.handleFontChange}
             value={selectedFont}
           >
