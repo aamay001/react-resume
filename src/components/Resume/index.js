@@ -28,10 +28,10 @@ const Resume = ({
   showExperience,
   showCertification,
   order,
-  paperSize,
+  paperSizeObj,
 }) => (
   <>
-    <div className={classNames('react-resume', paperSize.tag)}>
+    <div className={classNames('react-resume', paperSizeObj.tag)}>
       <div
         className="resume"
         style={{ fontFamily: font }}
@@ -70,7 +70,7 @@ const Resume = ({
       }}
     >
       <span role="img" aria-label="img"> ⬆ ️</span>
-      {`bottom limit of ${paperSize.name} size page`}
+      {`bottom limit of ${paperSizeObj.name} size page`}
       <span role="img" aria-label="img"> ⬆ ️</span>
     </p>
   </>
@@ -84,7 +84,7 @@ Resume.defaultProps = {
   showExperience: true,
   showCertification: true,
   order: defaultResumeOrder,
-  paperSize: paperSizes[0].tag,
+  paperSizeObj: paperSizes[0],
 };
 
 Resume.propTypes = {
@@ -95,7 +95,10 @@ Resume.propTypes = {
   showExperience: PropTypes.bool,
   showCertification: PropTypes.bool,
   order: PropTypes.arrayOf(PropTypes.number),
-  paperSize: PropTypes.string,
+  paperSizeObj: PropTypes.shape({
+    name: PropTypes.string,
+    tag: PropTypes.string,
+  }),
 };
 
 const mapStateToProps = state => ({
@@ -106,7 +109,7 @@ const mapStateToProps = state => ({
   showCertification: state.tools.showCertification,
   font: state.tools.font,
   order: state.tools.order,
-  paperSize: paperSizes.find(size => size.tag === state.tools.paperSize),
+  paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
 });
 
 export default connect(mapStateToProps)(Resume);
