@@ -92,7 +92,9 @@ export default (state = storedTools || initialState, action) => {
     case TOGGLE_AUTO_SAVE:
       return saveTools(toggleAutoSave(state));
     case CHANGE_PAPER_SIZE:
-      return saveTools(choosePaperSize(state, action.paperSize));
+      return (state.autoSave
+        ? saveTools(choosePaperSize(state, action.paperSize))
+        : choosePaperSize(state, action.paperSize));
     default:
       return state;
   }
