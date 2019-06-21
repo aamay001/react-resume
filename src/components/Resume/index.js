@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
+import classNames from 'classnames';
 import Certifications from './Certifications';
 import Education from './Education';
 import Experience from './Experience';
 import ResumeHeader from './Header';
 import Projects from './Projects';
 import TechnicalSkills from './TechnicalSkills';
+import { paperSizes } from '../Tools/PaperSize';
 import {
   EDUCATION,
   TECH_SKILLS,
@@ -26,9 +28,10 @@ const Resume = ({
   showExperience,
   showCertification,
   order,
+  paperSizeObj,
 }) => (
   <>
-    <div className="react-resume">
+    <div className={classNames('react-resume', paperSizeObj.tag)}>
       <div
         className="resume"
         style={{ fontFamily: font }}
@@ -67,7 +70,7 @@ const Resume = ({
       }}
     >
       <span role="img" aria-label="img"> ⬆ ️</span>
-      bottom limit of  letter size page
+      {`bottom limit of ${paperSizeObj.name} size page`}
       <span role="img" aria-label="img"> ⬆ ️</span>
     </p>
   </>
@@ -81,6 +84,7 @@ Resume.defaultProps = {
   showExperience: true,
   showCertification: true,
   order: defaultResumeOrder,
+  paperSizeObj: paperSizes[0],
 };
 
 Resume.propTypes = {
@@ -91,6 +95,10 @@ Resume.propTypes = {
   showExperience: PropTypes.bool,
   showCertification: PropTypes.bool,
   order: PropTypes.arrayOf(PropTypes.number),
+  paperSizeObj: PropTypes.shape({
+    name: PropTypes.string,
+    tag: PropTypes.string,
+  }),
 };
 
 const mapStateToProps = state => ({
@@ -101,6 +109,7 @@ const mapStateToProps = state => ({
   showCertification: state.tools.showCertification,
   font: state.tools.font,
   order: state.tools.order,
+  paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
 });
 
 export default connect(mapStateToProps)(Resume);

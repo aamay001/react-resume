@@ -29,11 +29,6 @@ body {
   font-weight: 100 !important;
 }
 
-#font-selector {
-  font-weight: 100;
-  -webkit-font-smoothing: antialiased;
-}
-
 .json-resume-tool button label {
   font-size: 16px !important;
 }
@@ -86,7 +81,9 @@ body {
   font-size: 14px;
 }
 
-#font-selector {
+.options-selector {
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
   border: none;
   display: inline-block;
   border-radius: 0;

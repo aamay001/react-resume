@@ -5,6 +5,7 @@ import {
   UPDATE_EDITOR_STATUS,
   TOGGLE_EDITOR,
   TOGGLE_AUTO_SAVE,
+  CHANGE_PAPER_SIZE,
 } from '../actions/app.actions';
 import { EDITOR_STATUS, saveTools, loadTools } from '../helpers/tools.helper';
 import { defaultResumeOrder } from '../helpers/resume.helper';
@@ -27,6 +28,7 @@ const initialState = {
   showWebsite: true,
   editorStatus: EDITOR_STATUS.WAITING,
   autoSave: false,
+  paperSize: 'letter',
 };
 
 const getItemToToggle = (state, action) => ({
@@ -63,6 +65,12 @@ const toggleAutoSave = state => ({
   autoSave: !state.autoSave,
 });
 
+const choosePaperSize = (state, paperSize) => ({
+  ...state,
+  paperSize,
+});
+
+
 export default (state = storedTools || initialState, action) => {
   switch (action.type) {
     case CHANGE_FONT:
@@ -83,6 +91,10 @@ export default (state = storedTools || initialState, action) => {
       return toggleEditor(state);
     case TOGGLE_AUTO_SAVE:
       return saveTools(toggleAutoSave(state));
+    case CHANGE_PAPER_SIZE:
+      return (state.autoSave
+        ? saveTools(choosePaperSize(state, action.paperSize))
+        : choosePaperSize(state, action.paperSize));
     default:
       return state;
   }

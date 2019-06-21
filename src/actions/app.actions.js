@@ -48,3 +48,9 @@ export const TOGGLE_AUTO_SAVE = 'TOGGLE_AUTO_SAVE';
 export const toggleAutoSave = () => ({
   type: TOGGLE_AUTO_SAVE,
 });
+
+export const CHANGE_PAPER_SIZE = 'CHANGE_PAPER_SIZE';
+export const changePaperSize = paperSize => ({
+  type: CHANGE_PAPER_SIZE,
+  paperSize,
+});

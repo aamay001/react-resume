@@ -12,6 +12,7 @@ import {
   DownloadButton,
   SaveToCloudButtons,
   LocalStorageToggle,
+  PaperSize,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
@@ -41,6 +42,7 @@ const Toolbar = ({
       <OrderChanger />
       <PrintButton />
       <DownloadButton resume={resume} />
+      <PaperSize />
       <LocalStorageToggle
         dispatch={dispatch}
         status={autoSave}
