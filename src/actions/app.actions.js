@@ -54,3 +54,9 @@ export const changePaperSize = paperSize => ({
   type: CHANGE_PAPER_SIZE,
   paperSize,
 });
+
+export const CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE';
+export const changeFontSize = fontSize => ({
+  type: CHANGE_FONT_SIZE,
+  fontSize,
+});

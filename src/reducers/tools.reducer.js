@@ -6,6 +6,7 @@ import {
   TOGGLE_EDITOR,
   TOGGLE_AUTO_SAVE,
   CHANGE_PAPER_SIZE,
+  CHANGE_FONT_SIZE,
 } from '../actions/app.actions';
 import { EDITOR_STATUS, saveTools, loadTools } from '../helpers/tools.helper';
 import { defaultResumeOrder } from '../helpers/resume.helper';
@@ -14,6 +15,7 @@ import { defaultResumeOrder } from '../helpers/resume.helper';
 const storedTools = loadTools();
 const initialState = {
   font: 'Open Sans, sans-serif',
+  fontSize: 16,
   showAddress: true,
   showEmail: true,
   showPhone: true,
@@ -70,6 +72,10 @@ const choosePaperSize = (state, paperSize) => ({
   paperSize,
 });
 
+const changeFontSize = (state, fontSize) => ({
+  ...state,
+  fontSize,
+});
 
 export default (state = storedTools || initialState, action) => {
   switch (action.type) {
@@ -77,6 +83,11 @@ export default (state = storedTools || initialState, action) => {
       return (state.autoSave
         ? saveTools(changeFont(state, action))
         : changeFont(state, action));
+    case CHANGE_FONT_SIZE:
+      console.log(CHANGE_FONT_SIZE);
+      return (state.autoSave
+        ? saveTools(changeFontSize(state, action.fontSize))
+        : changeFontSize(state, action.fontSize));
     case TOGGLE_SHOW_ITEM:
       return (state.autoSave
         ? saveTools(toggleShowItem(state, action))

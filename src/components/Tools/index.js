@@ -9,7 +9,7 @@ import VisibilityChanger from './VisibilityChanger';
 import FontSelector from './FontSelector';
 import OrderChanger from './OrderChanger';
 import PaperSize from './PaperSize';
-
+import FontSizeInput from './FontSizeInput';
 export {
   EditorButton,
   FontSelector,
@@ -20,4 +20,5 @@ export {
   SaveToCloudButtons,
   LocalStorageToggle,
   PaperSize,
+  FontSizeInput,
 };

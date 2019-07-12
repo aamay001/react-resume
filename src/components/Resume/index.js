@@ -29,12 +29,13 @@ const Resume = ({
   showCertification,
   order,
   paperSizeObj,
+  fontSize,
 }) => (
   <>
     <div className={classNames('react-resume', paperSizeObj.tag)}>
       <div
         className="resume"
-        style={{ fontFamily: font }}
+        style={{ fontFamily: font, fontSize }}
       >
         <ResumeHeader />
         {order.map((item) => {
@@ -85,6 +86,7 @@ Resume.defaultProps = {
   showCertification: true,
   order: defaultResumeOrder,
   paperSizeObj: paperSizes[0],
+  fontSize: 16,
 };
 
 Resume.propTypes = {
@@ -99,6 +101,7 @@ Resume.propTypes = {
     name: PropTypes.string,
     tag: PropTypes.string,
   }),
+  fontSize: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
@@ -108,6 +111,7 @@ const mapStateToProps = state => ({
   showExperience: state.tools.showExperience,
   showCertification: state.tools.showCertification,
   font: state.tools.font,
+  fontSize: state.tools.fontSize,
   order: state.tools.order,
   paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
 });

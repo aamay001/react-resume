@@ -13,6 +13,7 @@ import {
   SaveToCloudButtons,
   LocalStorageToggle,
   PaperSize,
+  FontSizeInput,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
@@ -38,6 +39,7 @@ const Toolbar = ({
       <SaveToCloudButtons />
       <EditorButton dispatch={dispatch} />
       <FontSelector />
+      <FontSizeInput />
       <VisibilityChanger />
       <OrderChanger />
       <PrintButton />
