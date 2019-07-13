@@ -84,7 +84,6 @@ export default (state = storedTools || initialState, action) => {
         ? saveTools(changeFont(state, action))
         : changeFont(state, action));
     case CHANGE_FONT_SIZE:
-      console.log(CHANGE_FONT_SIZE);
       return (state.autoSave
         ? saveTools(changeFontSize(state, action.fontSize))
         : changeFontSize(state, action.fontSize));
