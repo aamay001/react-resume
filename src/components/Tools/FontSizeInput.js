@@ -19,13 +19,14 @@ class FontSizeInput extends Component {
   render() {
     const { fontSize } = this.props;
     return (
-      <div className="json-resume-tool font-selector">
+      <div className="json-resume-tool">
         <Label size="big" basic>
           <Icon name="font" />
           FontSize
         </Label>
 
         <Input
+          className="font-size-input"
           type="number"
           onChange={this.handleFontSizeChange}
           value={fontSize}
