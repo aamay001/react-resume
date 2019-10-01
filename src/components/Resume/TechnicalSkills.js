@@ -13,17 +13,16 @@ const TechnicalSkills = ({ techSkills }) => (
         && (
           <div key={uuid()} className={`grid-column-${index + 1}`}>
             <h3>{skill.category}</h3>
-            {skill.keywords.map((kw, skillIndex) => (
+            {skill.keywords.map(kw => (
               <div className="tech-skills-keyword" key={uuid()}>
                 <div className="keyword-name">{kw.name}</div>
                 <Stars lev={kw.level} />
-                {console.log(kw)}
               </div>
             ))}
           </div>
         )))}
     </div>
-  </section >
+  </section>
 );
 
 TechnicalSkills.defaultProps = {
