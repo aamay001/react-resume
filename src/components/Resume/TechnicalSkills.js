@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
 import Stars from './Stars';
 
+const defaultLevel = 4;
+
+const retString = kw => ((typeof kw === 'string') ? kw : kw.name);
+const retObject = kw => ((typeof kw === 'string') ? { name: kw, level: defaultLevel } : kw);
+
 const TechnicalSkills = ({ techSkills, showSkillLevel }) => (
   <section className="resume-tech-skills">
     <h2>Technical Skills</h2>
@@ -15,13 +20,13 @@ const TechnicalSkills = ({ techSkills, showSkillLevel }) => (
             <h3>{skill.category}</h3>
             {showSkillLevel ? (skill.keywords.map(kw => (
               <div className="tech-skills-keyword" key={uuid()}>
-                <div className="keyword-name">{kw.name}</div>
-                <Stars lev={kw.level} />
+                <div className="keyword-name">{retObject(kw).name}</div>
+                <Stars lev={retObject(kw).level} />
               </div>
             ))) : (skill.keywords.map((kw, skillIndex) => (
               skillIndex === skill.keywords.length - 1
-                ? kw.name
-                : `${kw.name}, `
+                ? retString(kw)
+                : `${retString(kw)}, `
             )))}
           </div>
         )))}
