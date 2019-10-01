@@ -168,6 +168,29 @@
   margin-bottom: 15px;
 }
 
+.tech-skills-keyword{
+  width: 100%;
+  height: 1.4em;
+  padding: 0.1em 0;
+  box-sizing: border-box;
+}
+
+.tech-skills-keyword .keyword-name{
+  width: 60%;
+  display: inline-block;
+}
+
+.tech-skills-keyword .keyword-level{
+  width: 40%;
+  display: inline-block;
+}
+
+.tech-skills-keyword .keyword-level img{
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 0.2em;
+}
+
 @media (min-width: 500px) {
   .resume-tech-skills .grid-container {
     grid-template-columns: 50% 50%;
