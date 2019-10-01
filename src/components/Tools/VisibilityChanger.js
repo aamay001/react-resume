@@ -11,9 +11,11 @@ class VisibilityChanger extends Component {
     this.handleToggle = this.handleToggle.bind(this);
   }
 
-  handleToggle(item) {
+  handleToggle(item, disabled) {
     const { dispatch } = this.props;
-    dispatch(toggleShowItem(item));
+    if (!disabled) {
+      dispatch(toggleShowItem(item));
+    }
   }
 
   render() {
@@ -29,6 +31,7 @@ class VisibilityChanger extends Component {
       showExperience,
       showLinkedIn,
       showWebsite,
+      showSkillLevel,
     } = this.props;
     return (
       <div className="json-resume-tool">
@@ -47,18 +50,20 @@ class VisibilityChanger extends Component {
         <ItemToggleButton onToggle={this.handleToggle} name="showExperience" label="Show Experience" status={showExperience} />
         <ItemToggleButton onToggle={this.handleToggle} name="showProjects" label="Show Projects" status={showProjects} />
         <ItemToggleButton onToggle={this.handleToggle} name="showTechSkills" label="Show Technical Skills" status={showTechSkills} />
+        <ItemToggleButton onToggle={this.handleToggle} name="showSkillLevel" label="Show Skill Level" status={showSkillLevel} disabled={!showTechSkills} />
       </div>
     );
   }
 }
 
 VisibilityChanger.defaultProps = {
-  dispatch: () => {},
+  dispatch: () => { },
   showAddress: true,
   showEmail: true,
   showPhone: true,
   showGithub: true,
   showTechSkills: true,
+  showSkillLevel: false,
   showProjects: true,
   showEducation: true,
   showCertification: true,
@@ -74,6 +79,7 @@ VisibilityChanger.propTypes = {
   showPhone: PropTypes.bool,
   showGithub: PropTypes.bool,
   showTechSkills: PropTypes.bool,
+  showSkillLevel: PropTypes.bool,
   showProjects: PropTypes.bool,
   showEducation: PropTypes.bool,
   showCertification: PropTypes.bool,
@@ -88,6 +94,7 @@ const mapStateToProps = state => ({
   showPhone: state.tools.showPhone,
   showGithub: state.tools.showGithub,
   showTechSkills: state.tools.showTechSkills,
+  showSkillLevel: state.tools.showSkillLevel,
   showProjects: state.tools.showProjects,
   showEducation: state.tools.showEducation,
   showCertification: state.tools.showCertification,

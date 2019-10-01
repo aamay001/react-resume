@@ -1,5 +1,3 @@
 import app from './app.actions';
 
-export {
-  app,
-};
+export default app;

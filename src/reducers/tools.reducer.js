@@ -20,6 +20,7 @@ const initialState = {
   showGithub: false,
   order: defaultResumeOrder,
   showTechSkills: true,
+  showSkillLevel: false,
   showProjects: true,
   showEducation: true,
   showCertification: true,
