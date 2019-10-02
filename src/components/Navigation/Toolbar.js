@@ -10,6 +10,7 @@ import {
   FontSelector,
   OrderChanger,
   DownloadButton,
+  LoadFromFileButton,
   SaveToCloudButtons,
   LocalStorageToggle,
   PaperSize,
@@ -42,6 +43,10 @@ const Toolbar = ({
       <OrderChanger />
       <PrintButton />
       <DownloadButton resume={resume} />
+      <LoadFromFileButton 
+        dispatch={dispatch}
+        autoSave={autoSave}
+      />
       <PaperSize />
       <LocalStorageToggle
         dispatch={dispatch}
