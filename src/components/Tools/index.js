@@ -2,6 +2,7 @@ import {
   EditorButton,
   PrintButton,
   DownloadButton,
+  LoadFromFileButton,
   SaveToCloudButtons,
   LocalStorageToggle,
 } from './Buttons';
@@ -17,6 +18,7 @@ export {
   VisibilityChanger,
   OrderChanger,
   DownloadButton,
+  LoadFromFileButton,
   SaveToCloudButtons,
   LocalStorageToggle,
   PaperSize,
