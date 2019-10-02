@@ -8,21 +8,20 @@ const Certifications = ({ certification }) => (
     <h2>Certifications</h2>
     <hr />
     <ul>
-      {certification.map(cert => (
+      {certification.map(
+        cert => cert.isVisible && (
         <li key={uuid()}>
           <h3>{cert.issuedBy}</h3>
-          {cert.dateFrom
-            &&
-              <h3>
-                {`${cert.dateFrom}${cert.dateTo ? ` - ${cert.dateTo}` : ''}`}
-              </h3>}
+          {cert.dateFrom && (
+          <h3>{`${cert.dateFrom}${cert.dateTo ? ` - ${cert.dateTo}` : ''}`}</h3>
+          )}
           <p>{cert.id}</p>
         </li>
-      ))}
+        ),
+      )}
     </ul>
   </section>
 );
-
 
 Certifications.defaultProps = {
   certification: [],

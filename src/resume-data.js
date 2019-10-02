@@ -25,6 +25,7 @@ const Resume = {
       impact2: 'Something awesome you did 2.',
       impact3: '',
       impact4: '',
+      isVisible: true,
     },
     {
       company: 'Experience 2',
@@ -38,6 +39,7 @@ const Resume = {
       impact2: 'Something awesome you did 2.',
       impact3: '',
       impact4: '',
+      isVisible: true,
     },
     {
       company: 'Experience 3',
@@ -51,6 +53,7 @@ const Resume = {
       impact2: 'Something awesome you did 2.',
       impact3: '',
       impact4: '',
+      isVisible: false,
     },
   ],
   education: [
@@ -59,12 +62,14 @@ const Resume = {
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
       studyDegree: 'Subject, Degree/Certificate',
+      isVisible: true,
     },
     {
       site: 'School 2',
       dateFrom: 'XX/XXXX',
       dateTo: '',
       studyDegree: 'Subject, Degree/Certificate',
+      isVisible: true,
     },
   ],
   certification: [
@@ -73,24 +78,32 @@ const Resume = {
       id: '#12345',
       dateFrom: 'XX/XXXX',
       dateTo: '',
+      isVisible: true,
     },
     {
       issuedBy: 'Issuer 2/Cert Name',
       id: '#12345',
       dateFrom: 'XX/XXXX',
       dateTo: 'XX/XXXX',
+      isVisible: true,
     },
     {
       issuedBy: 'Issuer 3/Cert Name',
       id: '#12345',
       dateFrom: '',
       dateTo: '',
+      isVisible: true,
     },
   ],
   technicalSkills: [
     {
       category: 'Development Languages',
-      keywords: [{ name: 'JavaScript', level: 3 }, { name: 'HTML', level: 4 }, { name: 'CSS', level: 4 }],
+      keywords: [
+        { name: 'JavaScript', level: 3 },
+        { name: 'HTML', level: 4 },
+        { name: 'CSS', level: 4 },
+      ],
+      isVisible: true,
     },
     {
       category: 'Technologies',
@@ -108,6 +121,7 @@ const Resume = {
         { name: 'GitHub', level: 4 },
         'Gatsby',
       ],
+      isVisible: true,
     },
   ],
   projects: [
@@ -118,6 +132,7 @@ const Resume = {
       link: 'http://website.com',
       teamBrief: '1-person project',
       details: ['Detail 1', 'Detail 2', 'http://projectLink.com'],
+      isVisible: true,
     },
     {
       name: 'Project 2',
@@ -126,6 +141,7 @@ const Resume = {
       dateTo: 'XX/XXXX',
       teamBrief: '1-person project',
       details: ['Detail 1', 'Detail 2', 'https://google.com'],
+      isVisible: false,
     },
   ],
 };

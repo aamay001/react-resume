@@ -8,17 +8,15 @@ const Education = ({ education }) => (
     <h2>Education</h2>
     <hr />
     <ul>
-      {education.map(ed => (
+      {education.map(
+        ed => ed.isVisible && (
         <li key={uuid()}>
           <h3>{ed.site}</h3>
-          {ed.dateFrom
-            &&
-              <h3>
-                {`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}
-              </h3>}
+          {ed.dateFrom && <h3>{`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}</h3>}
           <em>{ed.studyDegree}</em>
         </li>
-      ))}
+        ),
+      )}
     </ul>
   </section>
 );
