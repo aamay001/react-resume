@@ -7,11 +7,12 @@ const ItemToggleButton = ({
   status,
   name,
   label,
+  disabled,
 }) => (
   <Button
     size="large"
     fluid
-    onClick={() => onToggle(name)}
+    onClick={() => onToggle(name, disabled)}
     style={{
       display: 'block',
       backgroundColor: 'white',
@@ -32,6 +33,7 @@ ItemToggleButton.defaultProps = {
   status: false,
   name: '',
   label: 'No Label Set',
+  disabled: false,
 };
 
 ItemToggleButton.propTypes = {
@@ -39,6 +41,7 @@ ItemToggleButton.propTypes = {
   status: PropTypes.bool,
   name: PropTypes.string,
   label: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default ItemToggleButton;
