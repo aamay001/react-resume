@@ -8,17 +8,13 @@ const Experience = ({ experience }) => (
     <h2>Experience</h2>
     <hr />
     <ul>
-      {experience.map(exp => (
+      {experience.map(
+        exp => exp.isVisible !== false && (
         <li key={uuid()}>
+          {' '}
           <h3>{exp.position}</h3>
-          {exp.dateFrom
-            &&
-              <h3>
-                {`${exp.dateFrom}${exp.dateTo ? ` - ${exp.dateTo}` : ''}`}
-              </h3>}
-          <em>
-            {`${exp.company}, ${exp.city}, ${exp.state}`}
-          </em>
+          {exp.dateFrom && <h3>{`${exp.dateFrom}${exp.dateTo ? ` - ${exp.dateTo}` : ''}`}</h3>}
+          <em>{`${exp.company}, ${exp.city}, ${exp.state}`}</em>
           <ul>
             <li>{exp.primaryWorkBrief}</li>
             {exp.impact1 && <li>{exp.impact1}</li>}
@@ -28,7 +24,8 @@ const Experience = ({ experience }) => (
             {exp.impact5 && <li>{exp.impact5}</li>}
           </ul>
         </li>
-      ))}
+        ),
+      )}
     </ul>
   </section>
 );

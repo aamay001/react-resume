@@ -8,30 +8,40 @@ const Projects = ({ projects }) => (
     <h2>Projects</h2>
     <hr />
     <ul>
-      {projects.map(project => (
+      {projects.map(
+        project => project.isVisible !== false && (
         <li key={uuid()}>
           <h3>
-            {project.link
-              ? <a href={project.link} target="_blank" rel="noopener noreferrer">{project.name}</a>
-              : project.name}
+            {project.link ? (
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                {project.name}
+              </a>
+            ) : (
+              project.name
+            )}
           </h3>
-          {project.dateFrom
-            &&
-              <h3>
-                {`${project.dateFrom}${project.dateTo ? ` - ${project.dateTo}` : ''}`}
-              </h3>}
+          {project.dateFrom && (
+          <h3>{`${project.dateFrom}${project.dateTo ? ` - ${project.dateTo}` : ''}`}</h3>
+          )}
           <em>{project.teamBrief}</em>
           <ul>
-            {project.details.map(detail => (detail &&
+            {project.details.map(
+              detail => detail && (
               <li key={uuid()}>
-                {detail.search('http') > -1
-                  ? <a href={detail} target="_blank" rel="noopener noreferrer">{detail}</a>
-                  : detail}
+                {detail.search('http') > -1 ? (
+                  <a href={detail} target="_blank" rel="noopener noreferrer">
+                    {detail}
+                  </a>
+                ) : (
+                  detail
+                )}
               </li>
-            ))}
+              ),
+            )}
           </ul>
         </li>
-      ))}
+        ),
+      )}
     </ul>
   </section>
 );
