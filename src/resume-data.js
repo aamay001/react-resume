@@ -53,7 +53,7 @@ const Resume = {
       impact2: 'Something awesome you did 2.',
       impact3: '',
       impact4: '',
-      isVisible: false,
+      isVisible: true,
     },
   ],
   education: [
@@ -141,7 +141,7 @@ const Resume = {
       dateTo: 'XX/XXXX',
       teamBrief: '1-person project',
       details: ['Detail 1', 'Detail 2', 'https://google.com'],
-      isVisible: false,
+      isVisible: true,
     },
   ],
 };

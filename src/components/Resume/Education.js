@@ -9,7 +9,7 @@ const Education = ({ education }) => (
     <hr />
     <ul>
       {education.map(
-        ed => ed.isVisible && (
+        ed => ed.isVisible !== false && (
         <li key={uuid()}>
           <h3>{ed.site}</h3>
           {ed.dateFrom && <h3>{`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}</h3>}

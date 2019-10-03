@@ -9,7 +9,7 @@ const Certifications = ({ certification }) => (
     <hr />
     <ul>
       {certification.map(
-        cert => cert.isVisible && (
+        cert => cert.isVisible !== false && (
         <li key={uuid()}>
           <h3>{cert.issuedBy}</h3>
           {cert.dateFrom && (

@@ -9,7 +9,7 @@ const Experience = ({ experience }) => (
     <hr />
     <ul>
       {experience.map(
-        exp => exp.isVisible && (
+        exp => exp.isVisible !== false && (
         <li key={uuid()}>
           {' '}
           <h3>{exp.position}</h3>

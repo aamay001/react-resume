@@ -9,7 +9,7 @@ const Projects = ({ projects }) => (
     <hr />
     <ul>
       {projects.map(
-        project => project.isVisible && (
+        project => project.isVisible !== false && (
         <li key={uuid()}>
           <h3>
             {project.link ? (

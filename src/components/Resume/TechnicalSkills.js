@@ -15,7 +15,7 @@ const TechnicalSkills = ({ techSkills, showSkillLevel }) => (
     <hr />
     <div className="grid-container">
       {techSkills.map(
-        (skill, index) => skill.isVisble &&
+        (skill, index) => skill.isVisble !== false &&
           (index < 2 && (
             <div key={uuid()} className={`grid-column-${index + 1}`}>
               <h3>{skill.category}</h3>
