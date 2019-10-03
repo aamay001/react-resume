@@ -86,6 +86,11 @@
   font-weight: bold;
 }
 
+.resume-header ul:first-of-type li:nth-of-type(3)::after {
+  content: "";
+  display: block;
+}
+
 .resume-header ul:first-of-type li:last-child::after {
   content: "";
 }
@@ -96,6 +101,14 @@
 
 .resume-header ul:nth-of-type(2) li:last-of-type::after {
   content: "";
+}
+
+.resume-header .header-icon{
+  position: relative;
+  top: 0.2em;
+  width: 1.2em;
+  height: 1.2em;
+  padding: 0 0.4em;
 }
 
 .resume-experience {

@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import linkedinIcon from '../../icons/linkedin.svg';
+import mailIcon from '../../icons/mail.svg';
+import phoneIcon from '../../icons/phone.svg';
+import websiteIcon from '../../icons/internet.svg';
+import githubIcon from '../../icons/github.svg';
+
 export const Header = ({
   header,
   showEmail,
@@ -18,6 +24,7 @@ export const Header = ({
         && (
           <li>
             <a href={`mailto:${header.email}?subject=Interview%20Request`}>
+              <img src={mailIcon} className="header-icon" alt="Mail Icon" />
               {header.email}
             </a>
           </li>
@@ -26,6 +33,7 @@ export const Header = ({
         && (
           <li>
             <a href={`tel:${header.phone}`}>
+              <img src={phoneIcon} className="header-icon" alt="Mail Icon" />
               {header.phone}
             </a>
           </li>
@@ -34,6 +42,7 @@ export const Header = ({
         && (
           <li>
             <a href={header.github} target="_new">
+              <img src={githubIcon} className="header-icon" alt="Mail Icon" />
               {header.github}
             </a>
           </li>
@@ -42,6 +51,7 @@ export const Header = ({
         && (
           <li>
             <a href={header.linkedin} target="_new">
+              <img src={linkedinIcon} className="header-icon" alt="Mail Icon" />
               {header.linkedin}
             </a>
           </li>
@@ -50,6 +60,7 @@ export const Header = ({
         && (
           <li>
             <a href={header.website} target="_new">
+              <img src={websiteIcon} className="header-icon" alt="Mail Icon" />
               {header.website}
             </a>
           </li>
