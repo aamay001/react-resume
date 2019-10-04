@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
 
-const Education = ({ education }) => (
+const Education = ({ education, font }) => (
   <section className="resume-education">
-    <h2>Education</h2>
+    <h2 style={{ fontFamily: font }}>Education</h2>
     <hr />
     <ul>
       {education.map(
         ed => ed.isVisible !== false && (
         <li key={uuid()}>
-          <h3>{ed.site}</h3>
-          {ed.dateFrom && <h3>{`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}</h3>}
+          <h3 style={{ fontFamily: font }}>{ed.site}</h3>
+          {ed.dateFrom &&
+            <h3 style={{ fontFamily: font }}>
+              {`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}
+            </h3>}
           <em>{ed.studyDegree}</em>
         </li>
         ),
@@ -27,10 +30,12 @@ Education.defaultProps = {
 
 Education.propTypes = {
   education: PropTypes.arrayOf(PropTypes.shape({})),
+  font: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   education: state.resume.education,
+  font: state.tools.font,
 });
 
 export default connect(mapStateToProps)(Education);

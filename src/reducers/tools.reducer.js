@@ -13,7 +13,7 @@ import { defaultResumeOrder } from '../helpers/resume.helper';
 
 const storedTools = loadTools();
 const initialState = {
-  font: 'Open Sans, sans-serif',
+  font: 'Source Code Pro, monospace',
   showAddress: true,
   showEmail: true,
   showPhone: true,

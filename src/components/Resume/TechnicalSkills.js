@@ -9,16 +9,20 @@ const defaultLevel = 4;
 const retString = kw => (typeof kw === 'string' ? kw : kw.name);
 const retObject = kw => (typeof kw === 'string' ? { name: kw, level: defaultLevel } : kw);
 
-const TechnicalSkills = ({ techSkills, showSkillLevel }) => (
+const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
   <section className="resume-tech-skills">
-    <h2>Technical Skills</h2>
+    <h2 style={{ fontFamily: font }}>
+      Technical Skills
+    </h2>
     <hr />
     <div className="grid-container">
       {techSkills.map(
         (skill, index) => skill.isVisble !== false &&
           (index < 2 && (
             <div key={uuid()} className={`grid-column-${index + 1}`}>
-              <h3>{skill.category}</h3>
+              <h3 style={{ fontFamily: font }}>
+                {skill.category}
+              </h3>
               {showSkillLevel
                 ? skill.keywords.map(kw => (
                   <div className="tech-skills-keyword" key={uuid()}>
@@ -42,11 +46,13 @@ TechnicalSkills.defaultProps = {
 TechnicalSkills.propTypes = {
   techSkills: PropTypes.arrayOf(PropTypes.shape({})),
   showSkillLevel: PropTypes.bool,
+  font: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   techSkills: state.resume.technicalSkills,
   showSkillLevel: state.tools.showSkillLevel,
+  font: state.tools.font,
 });
 
 export default connect(mapStateToProps)(TechnicalSkills);

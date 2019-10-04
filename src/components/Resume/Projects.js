@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
 
-const Projects = ({ projects }) => (
+const Projects = ({ projects, font }) => (
   <section className="resume-projects">
-    <h2>Projects</h2>
+    <h2 style={{ fontFamily: font }}>
+      Projects
+    </h2>
     <hr />
     <ul>
       {projects.map(
         project => project.isVisible !== false && (
         <li key={uuid()}>
-          <h3>
+          <h3 style={{ fontFamily: font }}>
             {project.link ? (
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 {project.name}
@@ -21,7 +23,9 @@ const Projects = ({ projects }) => (
             )}
           </h3>
           {project.dateFrom && (
-          <h3>{`${project.dateFrom}${project.dateTo ? ` - ${project.dateTo}` : ''}`}</h3>
+          <h3 style={{ fontFamily: font }}>
+            {`${project.dateFrom}${project.dateTo ? ` - ${project.dateTo}` : ''}`}
+          </h3>
           )}
           <em>{project.teamBrief}</em>
           <ul>
@@ -52,10 +56,12 @@ Projects.defaultProps = {
 
 Projects.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.shape({})),
+  font: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   projects: state.resume.projects,
+  font: state.tools.font,
 });
 
 export default connect(mapStateToProps)(Projects);
