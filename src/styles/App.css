@@ -121,6 +121,10 @@ body {
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 
+.ui.attached.menu {
+  margin: 0 !important;
+}
+
 @media only screen and (max-width: 500px) {
   #root > div > aside > div {
     width: 100vw;
@@ -129,5 +133,13 @@ body {
   #root > div > div.ui.scale.down.right.very.wide.visible.sidebar > div:nth-child(2) {
     padding-left: 5px !important;
     padding-right: 5px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.modal>.header {
+    padding: 0 !important;
+    padding-right: 0 !important;
+    margin: 0;
   }
 }
