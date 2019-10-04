@@ -54,3 +54,8 @@ export const changePaperSize = paperSize => ({
   type: CHANGE_PAPER_SIZE,
   paperSize,
 });
+
+export const TOGGLE_MORE_VISIBILITY = 'TOGGLE_MORE_VISIBILITY';
+export const toggleMoreVisibility = () => ({
+  type: TOGGLE_MORE_VISIBILITY,
+});
