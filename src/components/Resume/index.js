@@ -110,6 +110,7 @@ const mapStateToProps = state => ({
   font: state.tools.font,
   order: state.tools.order,
   paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
+  resume: state.resume,
 });
 
 export default connect(mapStateToProps)(Resume);

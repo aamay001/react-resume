@@ -5,6 +5,7 @@ import DownloadButton from './DownloadButton';
 import LoadFromFileButton from './LoadFromFileButton';
 import SaveToCloudButtons from './SaveToCloudButtons';
 import LocalStorageToggle from './LocalStorageToggle';
+import MoreVisibilityButton from './MoreVisibilityButton';
 
 export {
   EditorButton,
@@ -14,4 +15,5 @@ export {
   LoadFromFileButton,
   SaveToCloudButtons,
   LocalStorageToggle,
+  MoreVisibilityButton,
 };

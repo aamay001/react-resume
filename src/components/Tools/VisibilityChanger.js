@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Label, Icon } from 'semantic-ui-react';
 import { toggleShowItem } from '../../actions/app.actions';
-import { ItemToggleButton } from './Buttons';
+import { ItemToggleButton, MoreVisibilityButton } from './Buttons';
 
 class VisibilityChanger extends Component {
   constructor(props) {
@@ -51,6 +51,7 @@ class VisibilityChanger extends Component {
         <ItemToggleButton onToggle={this.handleToggle} name="showProjects" label="Show Projects" status={showProjects} />
         <ItemToggleButton onToggle={this.handleToggle} name="showTechSkills" label="Show Technical Skills" status={showTechSkills} />
         <ItemToggleButton onToggle={this.handleToggle} name="showSkillLevel" label="Show Skill Level" status={showSkillLevel} disabled={!showTechSkills} />
+        <MoreVisibilityButton />
       </div>
     );
   }
