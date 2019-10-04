@@ -26,6 +26,16 @@ class CodeEditor extends Component {
     this.onResumeChange = this.onResumeChange.bind(this);
   }
 
+  componentDidUpdate() {
+    const { editorValue } = this.state;
+    const { resume, editorOpen } = this.props;
+    const resumeValue = JSON.stringify(resume, null, '\t');
+    if (!editorOpen && editorValue !== resumeValue) {
+      // eslint-disable-next-line
+      this.setState({ editorValue: resumeValue });
+    }
+  }
+
   onResumeChange(data) {
     const { dispatch, autoSave } = this.props;
     this.setState({
