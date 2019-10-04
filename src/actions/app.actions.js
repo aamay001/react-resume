@@ -31,7 +31,7 @@ export const changeResumeOrder = order => ({
   order,
 });
 
-export const UPDATE_RESUME = 'UPDATE_RESIME';
+export const UPDATE_RESUME = 'UPDATE_RESUME';
 export const updateResume = (resume, autoSave) => ({
   type: UPDATE_RESUME,
   resume,
