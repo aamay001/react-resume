@@ -32,6 +32,7 @@ class VisibilityChanger extends Component {
       showLinkedIn,
       showWebsite,
       showSkillLevel,
+      showIcon,
     } = this.props;
     return (
       <div className="json-resume-tool">
@@ -44,6 +45,7 @@ class VisibilityChanger extends Component {
         <ItemToggleButton onToggle={this.handleToggle} name="showGithub" label="Show Github" status={showGithub} />
         <ItemToggleButton onToggle={this.handleToggle} name="showLinkedIn" label="Show LinkedIn" status={showLinkedIn} />
         <ItemToggleButton onToggle={this.handleToggle} name="showWebsite" label="Show Website" status={showWebsite} />
+        <ItemToggleButton onToggle={this.handleToggle} name="showIcon" label="Show Icons" status={showIcon} />
         <ItemToggleButton onToggle={this.handleToggle} name="showAddress" label="Show Address" status={showAddress} />
         <ItemToggleButton onToggle={this.handleToggle} name="showCertification" label="Show Certifications" status={showCertification} />
         <ItemToggleButton onToggle={this.handleToggle} name="showEducation" label="Show Education" status={showEducation} />
@@ -71,6 +73,7 @@ VisibilityChanger.defaultProps = {
   showExperience: true,
   showLinkedIn: true,
   showWebsite: true,
+  showIcon: true,
 };
 
 VisibilityChanger.propTypes = {
@@ -87,6 +90,7 @@ VisibilityChanger.propTypes = {
   showExperience: PropTypes.bool,
   showLinkedIn: PropTypes.bool,
   showWebsite: PropTypes.bool,
+  showIcon: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
@@ -102,6 +106,7 @@ const mapStateToProps = state => ({
   showExperience: state.tools.showExperience,
   showLinkedIn: state.tools.showLinkedIn,
   showWebsite: state.tools.showWebsite,
+  showIcon: state.tools.showIcon,
 });
 
 export default connect(mapStateToProps)(VisibilityChanger);
