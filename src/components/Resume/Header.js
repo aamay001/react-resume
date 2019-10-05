@@ -17,6 +17,7 @@ export const Header = ({
   showWebsite,
   showAddress,
   font,
+  showIcon,
 }) => (
   <header className="resume-header" style={{ fontFamily: font }}>
     <h1 style={{ fontFamily: font }}>{header.name}</h1>
@@ -25,7 +26,7 @@ export const Header = ({
         && (
           <li>
             <a href={`mailto:${header.email}?subject=Interview%20Request`}>
-              <img src={mailIcon} className="header-icon" alt="Mail Icon" />
+              { showIcon ? <img src={mailIcon} className="header-icon" alt="Mail Icon" /> : '' }
               {header.email}
             </a>
           </li>
@@ -34,7 +35,7 @@ export const Header = ({
         && (
           <li>
             <a href={`tel:${header.phone}`}>
-              <img src={phoneIcon} className="header-icon" alt="Mail Icon" />
+              { showIcon ? <img src={phoneIcon} className="header-icon" alt="Phone Icon" /> : '' }
               {header.phone}
             </a>
           </li>
@@ -43,7 +44,7 @@ export const Header = ({
         && (
           <li>
             <a href={header.github} target="_new">
-              <img src={githubIcon} className="header-icon" alt="Mail Icon" />
+              { showIcon ? <img src={githubIcon} className="header-icon" alt="Github Icon" /> : '' }
               {header.github}
             </a>
           </li>
@@ -52,7 +53,7 @@ export const Header = ({
         && (
           <li>
             <a href={header.linkedin} target="_new">
-              <img src={linkedinIcon} className="header-icon" alt="Mail Icon" />
+              { showIcon ? <img src={linkedinIcon} className="header-icon" alt="LinkedIn Icon" /> : '' }
               {header.linkedin}
             </a>
           </li>
@@ -61,7 +62,7 @@ export const Header = ({
         && (
           <li>
             <a href={header.website} target="_new">
-              <img src={websiteIcon} className="header-icon" alt="Mail Icon" />
+              { showIcon ? <img src={websiteIcon} className="header-icon" alt="Website Icon" /> : '' }
               {header.website}
             </a>
           </li>
@@ -87,6 +88,7 @@ Header.defaultProps = {
   showGithub: true,
   showLinkedIn: true,
   showWebsite: true,
+  showIcon: true,
 };
 
 Header.propTypes = {
@@ -98,6 +100,7 @@ Header.propTypes = {
   showWebsite: PropTypes.bool,
   showAddress: PropTypes.bool,
   font: PropTypes.string.isRequired,
+  showIcon: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
@@ -109,6 +112,7 @@ const mapStateToProps = state => ({
   showLinkedIn: state.tools.showLinkedIn,
   showWebsite: state.tools.showWebsite,
   font: state.tools.font,
+  showIcon: state.tools.showIcon,
 });
 
 export default connect(mapStateToProps)(Header);

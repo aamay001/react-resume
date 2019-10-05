@@ -30,6 +30,7 @@ const initialState = {
   editorStatus: EDITOR_STATUS.WAITING,
   autoSave: false,
   paperSize: 'letter',
+  showIcon: true,
 };
 
 const getItemToToggle = (state, action) => ({

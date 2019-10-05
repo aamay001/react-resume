@@ -43,7 +43,7 @@ const Toolbar = ({
       <OrderChanger />
       <PrintButton />
       <DownloadButton resume={resume} />
-      <LoadFromFileButton 
+      <LoadFromFileButton
         dispatch={dispatch}
         autoSave={autoSave}
       />
