@@ -31,7 +31,7 @@ export const changeResumeOrder = order => ({
   order,
 });
 
-export const UPDATE_RESUME = 'UPDATE_RESIME';
+export const UPDATE_RESUME = 'UPDATE_RESUME';
 export const updateResume = (resume, autoSave) => ({
   type: UPDATE_RESUME,
   resume,
@@ -53,4 +53,9 @@ export const CHANGE_PAPER_SIZE = 'CHANGE_PAPER_SIZE';
 export const changePaperSize = paperSize => ({
   type: CHANGE_PAPER_SIZE,
   paperSize,
+});
+
+export const TOGGLE_MORE_VISIBILITY = 'TOGGLE_MORE_VISIBILITY';
+export const toggleMoreVisibility = () => ({
+  type: TOGGLE_MORE_VISIBILITY,
 });

@@ -3,6 +3,7 @@ import {
   CodeEditor,
   TopNavigation,
   Toolbar,
+  MoreVisibilityModal,
 } from '../components';
 import Resume from '../components/Resume';
 
@@ -12,6 +13,7 @@ const Home = () => (
     <Resume />
     <Toolbar />
     <CodeEditor />
+    <MoreVisibilityModal />
   </>
 );
 

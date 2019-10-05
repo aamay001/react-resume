@@ -16,9 +16,10 @@ export const Header = ({
   showLinkedIn,
   showWebsite,
   showAddress,
+  font,
 }) => (
-  <header className="resume-header">
-    <h1>{header.name}</h1>
+  <header className="resume-header" style={{ fontFamily: font }}>
+    <h1 style={{ fontFamily: font }}>{header.name}</h1>
     <ul>
       {showEmail
         && (
@@ -96,6 +97,7 @@ Header.propTypes = {
   showLinkedIn: PropTypes.bool,
   showWebsite: PropTypes.bool,
   showAddress: PropTypes.bool,
+  font: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -106,6 +108,7 @@ const mapStateToProps = state => ({
   showGithub: state.tools.showGithub,
   showLinkedIn: state.tools.showLinkedIn,
   showWebsite: state.tools.showWebsite,
+  font: state.tools.font,
 });
 
 export default connect(mapStateToProps)(Header);

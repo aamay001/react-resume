@@ -15,7 +15,7 @@ const SidebarCloseButton = ({
     attached="top"
     size="massive"
     borderless
-    style={{ border: 'none', backgroundColor: backgroundColor || 'transparent' }}
+    style={{ border: 'none', backgroundColor: backgroundColor || 'transparent', maxWidth: '100%' }}
   >
     {title
       && <Menu.Item position="left" content={title} icon={titleIcon} />}

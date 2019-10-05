@@ -3,26 +3,31 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
 
-const Certifications = ({ certification }) => (
+const Certifications = ({ certification, font }) => (
   <section className="resume-certification">
-    <h2>Certifications</h2>
+    <h2 style={{ fontFamily: font }}>
+      Certifications
+    </h2>
     <hr />
     <ul>
-      {certification.map(cert => (
+      {certification.map(
+        cert => cert.isVisible !== false && (
         <li key={uuid()}>
-          <h3>{cert.issuedBy}</h3>
-          {cert.dateFrom
-            &&
-              <h3>
-                {`${cert.dateFrom}${cert.dateTo ? ` - ${cert.dateTo}` : ''}`}
-              </h3>}
+          <h3 style={{ fontFamily: font }}>
+            {cert.issuedBy}
+          </h3>
+          {cert.dateFrom && (
+          <h3 style={{ fontFamily: font }}>
+            {`${cert.dateFrom}${cert.dateTo ? ` - ${cert.dateTo}` : ''}`}
+          </h3>
+          )}
           <p>{cert.id}</p>
         </li>
-      ))}
+        ),
+      )}
     </ul>
   </section>
 );
-
 
 Certifications.defaultProps = {
   certification: [],
@@ -30,10 +35,12 @@ Certifications.defaultProps = {
 
 Certifications.propTypes = {
   certification: PropTypes.arrayOf(PropTypes.shape({})),
+  font: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   certification: state.resume.certification,
+  font: state.tools.font,
 });
 
 export default connect(mapStateToProps)(Certifications);
