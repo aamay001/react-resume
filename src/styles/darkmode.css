@@ -1,0 +1,23 @@
+@media only screen{
+    .react-resume.dark{
+      background-color: #2d2d2d;
+      color: #fff;
+    }
+  
+    .react-resume.dark h1{
+      color: #f2bb13;
+      font-weight: 1.1em;
+    }
+  
+    .react-resume.dark h2 {
+      color: #f2bb13;
+    }
+  
+    .react-resume.dark hr{
+      border-color: #1f1f1f;
+    }
+  
+    .react-resume.dark a{
+      color: #51ffff;
+    }
+}

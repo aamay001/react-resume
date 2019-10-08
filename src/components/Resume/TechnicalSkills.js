@@ -9,7 +9,10 @@ const defaultLevel = 4;
 const retString = kw => (typeof kw === 'string' ? kw : kw.name);
 const retObject = kw => (typeof kw === 'string' ? { name: kw, level: defaultLevel } : kw);
 
-const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
+const TechnicalSkills = ({
+  techSkills, showSkillLevel,
+  font, darkMode,
+}) => (
   <section className="resume-tech-skills">
     <h2 style={{ fontFamily: font }}>
       Technical Skills
@@ -27,7 +30,7 @@ const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
                 ? skill.keywords.map(kw => (
                   <div className="tech-skills-keyword" key={uuid()}>
                     <div className="keyword-name">{retObject(kw).name}</div>
-                    <Stars lev={retObject(kw).level} />
+                    <Stars lev={retObject(kw).level} darkMode={darkMode} />
                   </div>
                 ))
                 : skill.keywords.map((kw, skillIndex) => (skillIndex === skill.keywords.length - 1 ? retString(kw) : `${retString(kw)}, `))}
@@ -41,18 +44,21 @@ const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
 TechnicalSkills.defaultProps = {
   techSkills: [],
   showSkillLevel: false,
+  darkMode: false,
 };
 
 TechnicalSkills.propTypes = {
   techSkills: PropTypes.arrayOf(PropTypes.shape({})),
   showSkillLevel: PropTypes.bool,
   font: PropTypes.string.isRequired,
+  darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   techSkills: state.resume.technicalSkills,
   showSkillLevel: state.tools.showSkillLevel,
   font: state.tools.font,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(TechnicalSkills);

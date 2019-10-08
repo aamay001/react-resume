@@ -31,6 +31,7 @@ const initialState = {
   autoSave: false,
   paperSize: 'letter',
   showIcon: true,
+  darkMode: false,
 };
 
 const getItemToToggle = (state, action) => ({

@@ -19,6 +19,7 @@ import {
   defaultResumeOrder,
 } from '../../helpers/resume.helper';
 import '../../styles/Resume.css';
+import '../../styles/darkmode.css';
 
 const Resume = ({
   font,
@@ -29,9 +30,10 @@ const Resume = ({
   showCertification,
   order,
   paperSizeObj,
+  darkMode,
 }) => (
   <>
-    <div className={classNames('react-resume', paperSizeObj.tag)}>
+    <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })}>
       <div
         className="resume"
         style={{ fontFamily: font }}
@@ -85,6 +87,7 @@ Resume.defaultProps = {
   showCertification: true,
   order: defaultResumeOrder,
   paperSizeObj: paperSizes[0],
+  darkMode: false,
 };
 
 Resume.propTypes = {
@@ -99,6 +102,7 @@ Resume.propTypes = {
     name: PropTypes.string,
     tag: PropTypes.string,
   }),
+  darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
@@ -111,6 +115,7 @@ const mapStateToProps = state => ({
   order: state.tools.order,
   paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
   resume: state.resume,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(Resume);
