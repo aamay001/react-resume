@@ -13,13 +13,15 @@ const level = (lev) => {
   return a;
 };
 
-const Stars = ({ lev, darkMode }) => {
+const Stars = ({ lev }) => {
   const stars = [];
   for (let i = 1; i <= level(lev); i += 1) {
-    stars.push(<img src={darkMode ? starsfilleddark : starsfilled} key={i} alt="filled-star" />);
+    stars.push(<img src={starsfilled} key={i} alt="filled-star" className="normal-icon" />);
+    stars.push(<img src={starsfilleddark} key={i + 5} alt="filled-star" className="dark-icon" />);
   }
   for (let i = level(lev) + 1; i <= 5; i += 1) {
-    stars.push(<img src={darkMode ? starsblankdark : starsblank} key={i} alt="blank-star" />);
+    stars.push(<img src={starsblank} key={i} alt="blank-star" className="normal-icon" />);
+    stars.push(<img src={starsblankdark} key={i + 5} alt="blank-star" className="dark-icon" />);
   }
   return (
     <div className="keyword-level">
@@ -30,12 +32,10 @@ const Stars = ({ lev, darkMode }) => {
 
 Stars.defaultProps = {
   lev: 0,
-  darkMode: false,
 };
 
 Stars.propTypes = {
   lev: PropTypes.number,
-  darkMode: PropTypes.bool,
 };
 
 export default Stars;

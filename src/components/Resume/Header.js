@@ -24,7 +24,6 @@ export const Header = ({
   showAddress,
   font,
   showIcon,
-  darkMode,
 }) => (
   <header className="resume-header" style={{ fontFamily: font }}>
     <h1 style={{ fontFamily: font }}>{header.name}</h1>
@@ -33,7 +32,8 @@ export const Header = ({
         && (
           <li>
             <a href={`mailto:${header.email}?subject=Interview%20Request`}>
-              { showIcon ? <img src={darkMode ? mailDarkIcon : mailIcon} className="header-icon" alt="Mail Icon" /> : '' }
+              { showIcon ? <img src={mailIcon} className="header-icon normal-icon" alt="Mail Icon" /> : '' }
+              { showIcon ? <img src={mailDarkIcon} className="header-icon dark-icon" alt="Mail Icon" /> : '' }
               {header.email}
             </a>
           </li>
@@ -42,7 +42,8 @@ export const Header = ({
         && (
           <li>
             <a href={`tel:${header.phone}`}>
-              { showIcon ? <img src={darkMode ? phoneDarkIcon : phoneIcon} className="header-icon" alt="Phone Icon" /> : '' }
+              { showIcon ? <img src={phoneIcon} className="header-icon normal-icon" alt="Phone Icon" /> : '' }
+              { showIcon ? <img src={phoneDarkIcon} className="header-icon dark-icon" alt="Phone Icon" /> : '' }
               {header.phone}
             </a>
           </li>
@@ -51,7 +52,8 @@ export const Header = ({
         && (
           <li>
             <a href={header.github} target="_new">
-              { showIcon ? <img src={darkMode ? githubDarkIcon : githubIcon} className="header-icon" alt="Github Icon" /> : '' }
+              { showIcon ? <img src={githubIcon} className="header-icon normal-icon" alt="Github Icon" /> : '' }
+              { showIcon ? <img src={githubDarkIcon} className="header-icon dark-icon" alt="Github Icon" /> : '' }
               {header.github}
             </a>
           </li>
@@ -60,7 +62,8 @@ export const Header = ({
         && (
           <li>
             <a href={header.linkedin} target="_new">
-              { showIcon ? <img src={darkMode ? linkedinDarkIcon : linkedinIcon} className="header-icon" alt="LinkedIn Icon" /> : '' }
+              { showIcon ? <img src={linkedinIcon} className="header-icon normal-icon" alt="LinkedIn Icon" /> : '' }
+              { showIcon ? <img src={linkedinDarkIcon} className="header-icon dark-icon" alt="LinkedIn Icon" /> : '' }
               {header.linkedin}
             </a>
           </li>
@@ -69,7 +72,8 @@ export const Header = ({
         && (
           <li>
             <a href={header.website} target="_new">
-              { showIcon ? <img src={darkMode ? websiteDarkIcon : websiteIcon} className="header-icon" alt="Website Icon" /> : '' }
+              { showIcon ? <img src={websiteIcon} className="header-icon normal-icon" alt="Website Icon" /> : '' }
+              { showIcon ? <img src={websiteDarkIcon} className="header-icon dark-icon" alt="Website Icon" /> : '' }
               {header.website}
             </a>
           </li>
@@ -96,7 +100,6 @@ Header.defaultProps = {
   showLinkedIn: true,
   showWebsite: true,
   showIcon: true,
-  darkMode: false,
 };
 
 Header.propTypes = {
@@ -109,7 +112,6 @@ Header.propTypes = {
   showAddress: PropTypes.bool,
   font: PropTypes.string.isRequired,
   showIcon: PropTypes.bool,
-  darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
@@ -122,7 +124,6 @@ const mapStateToProps = state => ({
   showWebsite: state.tools.showWebsite,
   font: state.tools.font,
   showIcon: state.tools.showIcon,
-  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(Header);

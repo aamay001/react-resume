@@ -204,6 +204,10 @@
   margin: 0 0.2em;
 }
 
+.react-resume img.dark-icon{
+  display: none;
+}
+
 @media (min-width: 500px) {
   .resume-tech-skills .grid-container {
     grid-template-columns: 50% 50%;
