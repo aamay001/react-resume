@@ -10,7 +10,7 @@ const retString = kw => (typeof kw === 'string' ? kw : kw.name);
 const retObject = kw => (typeof kw === 'string' ? { name: kw, level: defaultLevel } : kw);
 
 const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
-  <section className="resume-tech-skills">
+  <section data-testid="TechSkills" className="resume-tech-skills">
     <h2 style={{ fontFamily: font }}>
       Technical Skills
     </h2>

@@ -17,7 +17,7 @@ export const Header = ({
     <ul>
       {showEmail
         && (
-          <li>
+          <li data-testid="Email">
             <a href={`mailto:${header.email}?subject=Interview%20Request`}>
               {header.email}
             </a>
@@ -25,7 +25,7 @@ export const Header = ({
         )}
       {showPhone
         && (
-          <li>
+          <li data-testid="Phone">
             <a href={`tel:${header.phone}`}>
               {header.phone}
             </a>
@@ -33,7 +33,7 @@ export const Header = ({
         )}
       {showGithub
         && (
-          <li>
+          <li data-testid="Github">
             <a href={header.github} target="_new">
               {header.github}
             </a>
@@ -41,7 +41,7 @@ export const Header = ({
         )}
       {showLinkedIn
         && (
-          <li>
+          <li data-testid="LinkedIn">
             <a href={header.linkedin} target="_new">
               {header.linkedin}
             </a>
@@ -49,7 +49,7 @@ export const Header = ({
         )}
       {showWebsite
         && (
-          <li>
+          <li data-testid="Website">
             <a href={header.website} target="_new">
               {header.website}
             </a>
@@ -57,7 +57,7 @@ export const Header = ({
         )}
     </ul>
     {showAddress && (
-      <ul>
+      <ul data-testid="Address">
         <li>{header.address}</li>
         <li>{header.city}</li>
         <li>{header.state}</li>
@@ -101,3 +101,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
+
+
+

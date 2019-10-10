@@ -34,7 +34,7 @@ class VisibilityChanger extends Component {
       showSkillLevel,
     } = this.props;
     return (
-      <div className="json-resume-tool">
+      <div data-testid="VisibilityChanger" className="json-resume-tool">
         <Label size="big" basic>
           <Icon name="eye" />
           Visibility

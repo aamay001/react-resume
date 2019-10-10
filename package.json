@@ -54,6 +54,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.1",
+    "@testing-library/react": "^9.3.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.3",
