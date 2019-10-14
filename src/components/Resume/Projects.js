@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import uuid from 'uuid/v4';
 
 const Projects = ({ projects, font }) => (
-  <section className="resume-projects">
+  <section data-testid="Projects" className="resume-projects">
     <h2 style={{ fontFamily: font }}>
       Projects
     </h2>

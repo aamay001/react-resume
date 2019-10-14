@@ -18,6 +18,7 @@ const ItemToggleButton = ({
       backgroundColor: 'white',
       color: 'black',
     }}
+    data-testid={name}
   >
     <Checkbox
       toggle

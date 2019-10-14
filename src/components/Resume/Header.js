@@ -24,7 +24,7 @@ export const Header = ({
     <ul>
       {showEmail
         && (
-          <li>
+          <li data-testid="Email">
             <a href={`mailto:${header.email}?subject=Interview%20Request`}>
               { showIcon ? <img src={mailIcon} className="header-icon" alt="Mail Icon" /> : '' }
               {header.email}
@@ -33,7 +33,7 @@ export const Header = ({
         )}
       {showPhone
         && (
-          <li>
+          <li data-testid="Phone">
             <a href={`tel:${header.phone}`}>
               { showIcon ? <img src={phoneIcon} className="header-icon" alt="Phone Icon" /> : '' }
               {header.phone}
@@ -42,7 +42,7 @@ export const Header = ({
         )}
       {showGithub
         && (
-          <li>
+          <li data-testid="Github">
             <a href={header.github} target="_new">
               { showIcon ? <img src={githubIcon} className="header-icon" alt="Github Icon" /> : '' }
               {header.github}
@@ -51,7 +51,7 @@ export const Header = ({
         )}
       {showLinkedIn
         && (
-          <li>
+          <li data-testid="LinkedIn">
             <a href={header.linkedin} target="_new">
               { showIcon ? <img src={linkedinIcon} className="header-icon" alt="LinkedIn Icon" /> : '' }
               {header.linkedin}
@@ -60,7 +60,7 @@ export const Header = ({
         )}
       {showWebsite
         && (
-          <li>
+          <li data-testid="Website">
             <a href={header.website} target="_new">
               { showIcon ? <img src={websiteIcon} className="header-icon" alt="Website Icon" /> : '' }
               {header.website}
@@ -69,7 +69,7 @@ export const Header = ({
         )}
     </ul>
     {showAddress && (
-      <ul>
+      <ul data-testid="Address">
         <li>{header.address}</li>
         <li>{header.city}</li>
         <li>{header.state}</li>
@@ -116,3 +116,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
+
+
+
