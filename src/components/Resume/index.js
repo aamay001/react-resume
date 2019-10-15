@@ -19,7 +19,6 @@ import {
   defaultResumeOrder,
 } from '../../helpers/resume.helper';
 import '../../styles/Resume.css';
-import '../../styles/darkmode.css';
 
 const Resume = ({
   font,

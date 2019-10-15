@@ -40,6 +40,21 @@ export const getStatusColor = (status) => {
   }
 };
 
+export const getDarkStatusColor = (status) => {
+  switch (status) {
+    case EDITOR_STATUS.WAITING:
+      return 'teal';
+    case EDITOR_STATUS.ERROR:
+      return 'pink';
+    case EDITOR_STATUS.VALIDATING:
+      return 'yellow';
+    case EDITOR_STATUS.UPDATED:
+      return 'green';
+    default:
+      return undefined;
+  }
+};
+
 export const saveTools = (tools) => {
   if (!tools.autoSave && prevLocalStorageState) {
     toast(' ⚠️ Auto save to local storage is now off!', { toastId: 'rrtrlsoff', position: 'top-right', autoClose: false });

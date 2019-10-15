@@ -144,7 +144,7 @@ body {
   }
 }
 
-@media print{
+@media print {
   .Toastify{
     display: none;
   }

@@ -103,7 +103,7 @@
   content: "";
 }
 
-.resume-header .header-icon{
+.resume-header .header-icon {
   position: relative;
   top: 0.2em;
   width: 1.2em;
@@ -188,12 +188,12 @@
   box-sizing: border-box;
 }
 
-.tech-skills-keyword .keyword-name{
+.tech-skills-keyword .keyword-name {
   width: 60%;
   display: inline-block;
 }
 
-.tech-skills-keyword .keyword-level{
+.tech-skills-keyword .keyword-level {
   width: 40%;
   display: inline-block;
 }
@@ -204,7 +204,7 @@
   margin: 0 0.2em;
 }
 
-.react-resume img.dark-icon{
+.react-resume img.dark-icon {
   display: none;
 }
 

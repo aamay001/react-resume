@@ -1,10 +1,10 @@
-@media only screen{
-    .react-resume.dark{
+@media only screen {
+    .react-resume.dark {
       background-color: #2d2d2d;
       color: #fff;
     }
   
-    .react-resume.dark h1{
+    .react-resume.dark h1 {
       color: #f2bb13;
       font-weight: 1.1em;
     }
@@ -13,19 +13,88 @@
       color: #f2bb13;
     }
   
-    .react-resume.dark hr{
+    .react-resume.dark hr {
       border-color: #1f1f1f;
     }
   
-    .react-resume.dark a{
+    .react-resume.dark a {
       color: #51ffff;
     }
 
-    .react-resume.dark img.normal-icon{
+    .react-resume.dark img.normal-icon {
       display: none;
     }
 
-    .react-resume.dark img.dark-icon{
+    .react-resume.dark img.dark-icon {
       display: initial;
+    }
+
+    .App.darkMode {
+      background: #2d2d2d !important;
+    }
+
+    .App.darkMode .ui.basic.label {
+      color: #f2bb13;
+    }
+
+    .App.darkMode .sidebar .ui.massive.attached.menu .item {
+      color:#f2bb13;
+    }
+
+    .App.darkMode .json-resume-tool {
+      background: #2d2d2d;
+    }
+
+    .App.darkMode .ui.scale.down.sidebar {
+      background: #2d2d2d !important;
+    }
+
+    .App.darkMode .ui.scale.down.sidebar div>em, .App.darkMode .ui.scale.down.sidebar div>h1, .App.darkMode .ui.scale.down.sidebar h2 {
+      color: #f2bb13 !important;
+    }
+
+    .App.darkMode .ui.large.fluid.button {
+      background: #1f1f1f !important;
+      color: #fff !important;
+    }
+
+    .App.darkMode .ui.checkbox label{
+      color: #fff !important;
+    }
+
+    .App.darkMode .ui.toggle.checked.checkbox input:checked ~ label{
+      color: #fff !important;
+    }
+
+    .App.darkMode .ui.large.fluid.button .options-selector{
+      color: #fff !important;
+      background: url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/hardware/1x_web/ic_keyboard_arrow_down_white_48dp.png) no-repeat right center
+    }
+
+    .App.darkMode .ui.button.basic.circular {
+      color: #fff !important;
+      box-shadow:  0 0 1.5px rgba(31,31,31,.65) inset !important;
+      background: transparent !important;
+    }
+
+    .App.darkMode .ui.button.basic.circular:hover {
+      background: #000 !important;
+    }
+
+    .App.darkMode .ui.modal .ui.top.attached.menu {
+      background: #2d2d2d !important;
+    }
+
+    .App.darkMode .ui.modal .content {
+      background: #2d2d2d !important;
+      color: #fff;
+    }
+
+    .App.darkMode .ui.modal .content .ui.accordion.styled {
+      background: #1f1f1f !important;
+    }
+
+    .App.darkMode .ui.modal .content .ui.accordion.styled .title{
+      color: #fff !important;
     }
 }
