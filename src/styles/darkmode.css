@@ -41,6 +41,10 @@
       color:#f2bb13;
     }
 
+    .App.darkMode > .ui.massive.attached.menu > .item{
+      color: #f2bb13;
+    }
+
     .App.darkMode .json-resume-tool {
       background: #2d2d2d;
     }
