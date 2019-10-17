@@ -16,17 +16,24 @@ const { Home } = routes;
 
 const App = ({
   editorOpen, toolbarOpen, moreVisibilityOpen, darkMode,
-}) => (
-  <div className={classNames('App', { darkMode })}>
-    <Router history={history}>
-      <Switch>
-        <Route exact path={ROUTES.HOME.PATH} component={Home} />
-        <Route component={Home} />
-      </Switch>
-    </Router>
-    <FocusTrap full={editorOpen} mobile={toolbarOpen || moreVisibilityOpen} />
-  </div>
-);
+}) => {
+  if (darkMode) {
+    document.body.style.background = '#2d2d2d';
+  } else {
+    document.body.style.background = '#fff';
+  }
+  return (
+    <div className={classNames('App', { darkMode })}>
+      <Router history={history}>
+        <Switch>
+          <Route exact path={ROUTES.HOME.PATH} component={Home} />
+          <Route component={Home} />
+        </Switch>
+      </Router>
+      <FocusTrap full={editorOpen} mobile={toolbarOpen || moreVisibilityOpen} />
+    </div>
+  );
+};
 
 App.defaultProps = {
   editorOpen: false,
