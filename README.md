@@ -1,10 +1,21 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c698519f-9fbf-4213-8389-785569184446/deploy-status)](https://app.netlify.com/sites/resumejs/deploys)
 
+
+## Welcome to React Resume
+
+![Screenshot](screenshot.png)
+
+This project helps create a resume from JSON code for downloading, printing, and auto-saving to Google Drive, Dropbox, or OneDrive.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Get started
 
 In the project directory, you can run:
+
+### `npm install`
+
+Required to install dependencies for running locally.
 
 ### `npm start`
 
@@ -40,7 +51,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Useful links
 
-### Get started
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started)
 - [React documentation](https://reactjs.org/)
 - [Making a Progressive Web App](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
@@ -53,3 +63,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Got an error? Don't panic!
 - [Troubleshooting](https://create-react-app.dev/docs/troubleshooting)
+
+
+## Contributors
+
+<a href="https://github.com/aamay001/react-resume/graphs/contributors"> <img src="https://contributors-img.firebaseapp.com/image?repo=aamay001/react-resume" /> </a>
