@@ -85,20 +85,38 @@
       background: #000 !important;
     }
 
-    .App.darkMode .ui.modal .ui.top.attached.menu {
+    .ui.modal.darkModal .ui.top.attached.menu {
       background: #2d2d2d !important;
+      
     }
 
-    .App.darkMode .ui.modal .content {
+    .ui.modal.darkModal .ui.large.fluid.button {
+      background: #1f1f1f !important;
+      color: #fff !important;
+    }
+
+    .ui.modal.darkModal .ui.checkbox label{
+      color: #fff !important;
+    }
+
+    .ui.modal.darkModal .ui.toggle.checked.checkbox input:checked ~ label{
+      color: #fff !important;
+    }
+
+    .ui.modal.darkModal .ui.top.attached.menu .item {
+      color: #f2bb13 !important;
+    }
+
+    .ui.modal.darkModal .content {
       background: #2d2d2d !important;
       color: #fff;
     }
 
-    .App.darkMode .ui.modal .content .ui.accordion.styled {
+    .ui.modal.darkModal .content .ui.accordion.styled {
       background: #1f1f1f !important;
     }
 
-    .App.darkMode .ui.modal .content .ui.accordion.styled .title{
+    .ui.modal.darkModal .content .ui.accordion.styled .title{
       color: #fff !important;
     }
 }
