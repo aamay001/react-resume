@@ -11,9 +11,10 @@ import {
   updateResumeEditorStatus,
 } from '../../actions/app.actions';
 import { isValidJSON } from '../../helpers/resume.helper';
-import { EDITOR_STATUS, getStatusColor } from '../../helpers/tools.helper';
+import { EDITOR_STATUS, getStatusColor, getDarkStatusColor } from '../../helpers/tools.helper';
 
 import 'brace/mode/json';
+import 'brace/theme/tomorrow_night_bright';
 import 'brace/theme/tomorrow';
 import 'brace/ext/language_tools';
 
@@ -56,9 +57,11 @@ class CodeEditor extends Component {
       editorOpen,
       dispatch,
       statusMessage,
+      darkMode,
     } = this.props;
     const { editorValue } = this.state;
-    const statusColor = getStatusColor(statusMessage);
+    const statusColor = darkMode ?
+      getDarkStatusColor(statusMessage) : getStatusColor(statusMessage);
     return (
       <Sidebar
         animation="scale down"
@@ -70,7 +73,7 @@ class CodeEditor extends Component {
           maxWidth: '100vw',
           maxHeight: '100vh',
           overflowX: 'hidden',
-          backgroundColor: 'white',
+          backgroundColor: darkMode ? '#2d2d2d' : '#fff',
         }}
       >
         <SidebarCloseButton
@@ -80,7 +83,7 @@ class CodeEditor extends Component {
           statusMessageColor={statusColor}
           closeToolbar={() => dispatch(toggleEditor())}
           toolbarOpen={editorOpen}
-          backgroundColor="white"
+          backgroundColor={darkMode ? '#2d2d2d' : '#fff'}
         />
         <div
           style={{
@@ -93,12 +96,12 @@ class CodeEditor extends Component {
           }}
         >
           <Segment
-            style={{ height: '100%', width: '100%' }}
+            style={{ height: '100%', width: '100%', backgroundColor: darkMode ? '#1f1f1f' : '#fff' }}
             color={statusColor}
           >
             <AceEditor
               mode="json"
-              theme="tomorrow"
+              theme={darkMode ? 'tomorrow_night_bright' : 'tomorrow'}
               name="json-resume-editor"
               enableBasicAutocompletion={false}
               enableLiveAutocompletion={false}
@@ -121,6 +124,7 @@ CodeEditor.defaultProps = {
   resume: {},
   statusMessage: EDITOR_STATUS.WAITING,
   autoSave: false,
+  darkMode: false,
 };
 
 CodeEditor.propTypes = {
@@ -129,6 +133,7 @@ CodeEditor.propTypes = {
   resume: PropTypes.shape({}),
   statusMessage: PropTypes.string,
   autoSave: PropTypes.bool,
+  darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
@@ -136,6 +141,7 @@ const mapStateToProps = state => ({
   resume: state.resume,
   statusMessage: state.tools.editorStatus,
   autoSave: state.tools.autoSave,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(CodeEditor);

@@ -143,3 +143,9 @@ body {
     margin: 0;
   }
 }
+
+@media print {
+  .Toastify{
+    display: none;
+  }
+}

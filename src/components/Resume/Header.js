@@ -8,6 +8,12 @@ import phoneIcon from '../../icons/phone.svg';
 import websiteIcon from '../../icons/internet.svg';
 import githubIcon from '../../icons/github.svg';
 
+import linkedinDarkIcon from '../../icons/dark/linkedin.svg';
+import mailDarkIcon from '../../icons/dark/mail.svg';
+import phoneDarkIcon from '../../icons/dark/phone.svg';
+import websiteDarkIcon from '../../icons/dark/internet.svg';
+import githubDarkIcon from '../../icons/dark/github.svg';
+
 export const Header = ({
   header,
   showEmail,
@@ -26,7 +32,8 @@ export const Header = ({
         && (
           <li data-testid="Email">
             <a href={`mailto:${header.email}?subject=Interview%20Request`}>
-              { showIcon ? <img src={mailIcon} className="header-icon" alt="Mail Icon" /> : '' }
+              { showIcon ? <img src={mailIcon} className="header-icon normal-icon" alt="Mail Icon" /> : '' }
+              { showIcon ? <img src={mailDarkIcon} className="header-icon dark-icon" alt="Mail Icon" /> : '' }
               {header.email}
             </a>
           </li>
@@ -35,7 +42,8 @@ export const Header = ({
         && (
           <li data-testid="Phone">
             <a href={`tel:${header.phone}`}>
-              { showIcon ? <img src={phoneIcon} className="header-icon" alt="Phone Icon" /> : '' }
+              { showIcon ? <img src={phoneIcon} className="header-icon normal-icon" alt="Phone Icon" /> : '' }
+              { showIcon ? <img src={phoneDarkIcon} className="header-icon dark-icon" alt="Phone Icon" /> : '' }
               {header.phone}
             </a>
           </li>
@@ -44,7 +52,8 @@ export const Header = ({
         && (
           <li data-testid="Github">
             <a href={header.github} target="_new">
-              { showIcon ? <img src={githubIcon} className="header-icon" alt="Github Icon" /> : '' }
+              { showIcon ? <img src={githubIcon} className="header-icon normal-icon" alt="Github Icon" /> : '' }
+              { showIcon ? <img src={githubDarkIcon} className="header-icon dark-icon" alt="Github Icon" /> : '' }
               {header.github}
             </a>
           </li>
@@ -53,7 +62,8 @@ export const Header = ({
         && (
           <li data-testid="LinkedIn">
             <a href={header.linkedin} target="_new">
-              { showIcon ? <img src={linkedinIcon} className="header-icon" alt="LinkedIn Icon" /> : '' }
+              { showIcon ? <img src={linkedinIcon} className="header-icon normal-icon" alt="LinkedIn Icon" /> : '' }
+              { showIcon ? <img src={linkedinDarkIcon} className="header-icon dark-icon" alt="LinkedIn Icon" /> : '' }
               {header.linkedin}
             </a>
           </li>
@@ -62,7 +72,8 @@ export const Header = ({
         && (
           <li data-testid="Website">
             <a href={header.website} target="_new">
-              { showIcon ? <img src={websiteIcon} className="header-icon" alt="Website Icon" /> : '' }
+              { showIcon ? <img src={websiteIcon} className="header-icon normal-icon" alt="Website Icon" /> : '' }
+              { showIcon ? <img src={websiteDarkIcon} className="header-icon dark-icon" alt="Website Icon" /> : '' }
               {header.website}
             </a>
           </li>

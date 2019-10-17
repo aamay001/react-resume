@@ -33,6 +33,7 @@ class VisibilityChanger extends Component {
       showWebsite,
       showSkillLevel,
       showIcon,
+      darkMode,
     } = this.props;
     return (
       <div data-testid="VisibilityChanger" className="json-resume-tool">
@@ -40,6 +41,7 @@ class VisibilityChanger extends Component {
           <Icon name="eye" />
           Visibility
         </Label>
+        <ItemToggleButton onToggle={this.handleToggle} name="darkMode" label="Dark Mode" status={darkMode} />
         <ItemToggleButton onToggle={this.handleToggle} name="showEmail" label="Show Email" status={showEmail} />
         <ItemToggleButton onToggle={this.handleToggle} name="showPhone" label="Show Phone" status={showPhone} />
         <ItemToggleButton onToggle={this.handleToggle} name="showGithub" label="Show Github" status={showGithub} />
@@ -74,6 +76,7 @@ VisibilityChanger.defaultProps = {
   showLinkedIn: true,
   showWebsite: true,
   showIcon: true,
+  darkMode: false,
 };
 
 VisibilityChanger.propTypes = {
@@ -91,6 +94,7 @@ VisibilityChanger.propTypes = {
   showLinkedIn: PropTypes.bool,
   showWebsite: PropTypes.bool,
   showIcon: PropTypes.bool,
+  darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
@@ -107,6 +111,7 @@ const mapStateToProps = state => ({
   showLinkedIn: state.tools.showLinkedIn,
   showWebsite: state.tools.showWebsite,
   showIcon: state.tools.showIcon,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(VisibilityChanger);
