@@ -55,7 +55,7 @@ class VisibilityChanger extends Component {
         <ItemToggleButton onToggle={this.handleToggle} name="showProjects" label="Show Projects" status={showProjects} />
         <ItemToggleButton onToggle={this.handleToggle} name="showTechSkills" label="Show Technical Skills" status={showTechSkills} />
         <ItemToggleButton onToggle={this.handleToggle} name="showSkillLevel" label="Show Skill Level" status={showSkillLevel} disabled={!showTechSkills} />
-        <MoreVisibilityButton />
+        <MoreVisibilityButton isDarkMode={darkMode}/>
       </div>
     );
   }

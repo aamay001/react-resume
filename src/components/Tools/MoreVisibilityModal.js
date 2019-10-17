@@ -32,6 +32,7 @@ const MoreVisibilityModal = ({
   dispatch,
   resume,
   autoSave,
+  isDarkMode
 }) => {
   const [activeAccordion, setActiveAccordion] = useState('');
   return (
@@ -42,7 +43,8 @@ const MoreVisibilityModal = ({
       closeOnEscape={false}
       closeOnDocumentClick={false}
       centered={false}
-      dimmer="inverted"
+      dimmer={!isDarkMode ? 'inverted' : true}
+      className={isDarkMode ? 'darkMode' : ''}
     >
       <Modal.Header style={{ padding: 0 }}>
         <SidebarCloseButton
@@ -106,12 +108,14 @@ MoreVisibilityModal.propTypes = {
   open: PropTypes.bool.isRequired,
   resume: PropTypes.shape({}).isRequired,
   autoSave: PropTypes.bool.isRequired,
+  isDarkMode: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   open: state.app.moreVisibilityOpen,
   resume: state.resume,
   autoSave: state.tools.autoSave,
+  isDarkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(MoreVisibilityModal);

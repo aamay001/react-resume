@@ -101,4 +101,45 @@
     .App.darkMode .ui.modal .content .ui.accordion.styled .title{
       color: #fff !important;
     }
+    /* For the modal, since it is outside the main ".App.darkmode" DOM when opened */
+    .darkMode.ui.button.basic.circular:hover {
+      background: #000 !important;
+    }
+
+    .darkMode.ui.modal .ui.top.attached.menu {
+      background: #2d2d2d !important;
+    }
+    .darkMode.ui.modal .header{
+      border-bottom: 1px solid rgba(0, 0, 0, 0.65);
+    }
+
+    .darkMode.ui.modal .content,
+    .darkMode.ui.modal .header .ui.massive.borderless.top.attached.menu .item {
+      background: #2d2d2d !important;
+      color: #fff;
+    }
+
+    .darkMode.ui.modal .content .ui.accordion.styled {
+      background: #1f1f1f !important;
+      box-shadow: 0 1px 2px 0 rgba(221, 219, 217, 0.15), 0 0 0 1px rgba(221, 219, 217, 0.15)
+    }
+
+    .darkMode.ui.modal .content .ui.accordion.styled .title{
+      color: rgba(255,255,255,0.4) !important;
+      border-top: 1px solid rgba(221, 219, 217,.15);
+    }
+
+    .darkMode.ui.modal .content .ui.accordion.styled .title:first-child{
+      border-top: none;
+    }
+
+    .darkMode.ui.modal .content .ui.accordion.styled .active.title,
+    .darkMode.ui.modal .content .ui.accordion.styled .title:hover{
+      color: rgb(255,255,255) !important;
+    }
+    .darkMode.ui.modal .content .ui.accordion.styled .content .json-resume-tool button,
+    .darkMode.ui.modal .content .ui.accordion.styled .content .json-resume-tool button label{
+      background: #2d2d2d !important;
+      color: #fff !important;
+    }
 }
