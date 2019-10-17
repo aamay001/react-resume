@@ -148,4 +148,7 @@ body {
   .Toastify{
     display: none;
   }
+  body {
+    background-color: #fff !important;
+  }
 }
