@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import {
   Modal,
@@ -32,6 +33,7 @@ const MoreVisibilityModal = ({
   dispatch,
   resume,
   autoSave,
+  darkMode,
 }) => {
   const [activeAccordion, setActiveAccordion] = useState('');
   return (
@@ -43,6 +45,7 @@ const MoreVisibilityModal = ({
       closeOnDocumentClick={false}
       centered={false}
       dimmer="inverted"
+      className={classNames({ darkModal: darkMode })}
     >
       <Modal.Header style={{ padding: 0 }}>
         <SidebarCloseButton
@@ -106,12 +109,14 @@ MoreVisibilityModal.propTypes = {
   open: PropTypes.bool.isRequired,
   resume: PropTypes.shape({}).isRequired,
   autoSave: PropTypes.bool.isRequired,
+  darkMode: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   open: state.app.moreVisibilityOpen,
   resume: state.resume,
   autoSave: state.tools.autoSave,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(MoreVisibilityModal);
