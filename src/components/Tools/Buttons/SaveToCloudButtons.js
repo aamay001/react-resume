@@ -17,6 +17,7 @@ import { toast } from 'react-toastify';
 import settings from '../../../config/settings';
 import { toggleToolbar } from '../../../actions/app.actions';
 import { FocusTrap } from '../../../helpers/app.helper';
+import classNames from 'classnames';
 
 const { API } = settings;
 const { SAVE_KEY, FILE_KEY } = API;
@@ -174,6 +175,7 @@ class SaveToCloudButtons extends Component {
       savingToCloud,
       saveComplete,
     } = this.state;
+    const { darkMode } = this.props;
     return (
       <div className="json-resume-tool">
         <Label size="big" basic>
@@ -206,7 +208,7 @@ class SaveToCloudButtons extends Component {
             onClick={() => this.prepareFile(CLOUDS.ONEDRIVE)}
           />
         </div>
-        <Modal open={preparingFile || fileReady} size="tiny" centered={false}>
+        <Modal className={classNames('save-to-cloud', { dark: darkMode })} open={preparingFile || fileReady} size="tiny" centered={false}>
           <Modal.Content>
             <Segment style={{ height: 300 }} basic clearing>
               {preparingFile &&
@@ -301,15 +303,18 @@ class SaveToCloudButtons extends Component {
 SaveToCloudButtons.defaultProps = {
   dispatch: () => {},
   resume: {},
+  darkMode: false,
 };
 
 SaveToCloudButtons.propTypes = {
   dispatch: PropTypes.func,
   resume: PropTypes.shape({}),
+  darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   resume: state.resume,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(SaveToCloudButtons);
