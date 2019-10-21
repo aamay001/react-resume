@@ -25,7 +25,7 @@ describe('Toggle buttons render as expected, displayed under "Visibility" with e
     expect(vc.classList).toContain('json-resume-tool');
 
     // should contain 14 child elements
-    expect(vc.childElementCount).toBe(14);
+    expect(vc.childElementCount).toBe(16);
 
     // first child should be a div with expected classes
     const label = vc.firstChild;
