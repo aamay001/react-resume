@@ -100,6 +100,7 @@ body {
   padding: .78571429em 1.5em .78571429em;
   background: url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png) no-repeat right center;
   background-size: 40px 40px;
+  cursor: pointer;
 }
 
 .json-resume-tool.font-selector button {
