@@ -25,7 +25,7 @@ describe('Toggle buttons render as expected, displayed under "Visibility" with e
     expect(vc.classList).toContain('json-resume-tool');
 
     // should contain 14 child elements
-    expect(vc.childElementCount).toBe(14);
+    expect(vc.childElementCount).toBe(16);
 
     // first child should be a div with expected classes
     const label = vc.firstChild;
@@ -115,7 +115,7 @@ describe('Toggle buttons work as expected', () => {
     render(<Provider store={store}><Resume /></Provider>);
 
     // note: "showSkillLevel" toggle button not being tested yet
-    const dataTestIDs = ['Email', 'Phone', 'Github', 'LinkedIn', 'Website', 'Address', 'Certification', 'Education', 'Experience', 'Projects', 'TechSkills'];
+    const dataTestIDs = ['Email', 'Phone', 'Github', 'LinkedIn', 'Website', 'Address', 'Certification', 'Education', 'Experience', 'Projects', 'TechSkills', 'SkillLevel'];
 
     dataTestIDs.forEach((id) => {
       // if toggle button status is on, corresponding resume content should be visible
