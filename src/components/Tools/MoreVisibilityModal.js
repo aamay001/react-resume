@@ -49,7 +49,7 @@ const MoreVisibilityModal = ({
     >
       <Modal.Header style={{ padding: 0 }}>
         <SidebarCloseButton
-          title="More Visbility"
+          title="More Visibility"
           titleIcon="eye"
           closeToolbar={() => dispatch(toggleMoreVisibility())}
           toolbarOpen={open}
