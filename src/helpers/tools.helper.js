@@ -1,10 +1,11 @@
 import { toast } from 'react-toastify';
 import { debounce } from './app.helper';
 import ls from './localstorage.helper';
-import { 
+import {
   SAVE_RESUME_ERROR_TOAST_ID, SAVE_RESUME_SUCCESS_TOAST_ID,
-  LOCAL_STORAGE_ON_TOAST_ID, LOCAL_STORAGE_OFF_TOAST_ID } 
-from '../config/constants';
+  LOCAL_STORAGE_ON_TOAST_ID, LOCAL_STORAGE_OFF_TOAST_ID,
+}
+  from '../config/constants';
 
 const STORED_TOOLS_KEY = 'rr-ls-tools-key';
 const savedTools = ls.getItem(STORED_TOOLS_KEY);

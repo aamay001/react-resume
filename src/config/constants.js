@@ -25,10 +25,10 @@ const CONSTANTS = {
 
 export default CONSTANTS;
 
-export const SAVE_RESUME_ERROR_TOAST_ID = 'rrterrorsaveresume'
+export const SAVE_RESUME_ERROR_TOAST_ID = 'rrterrorsaveresume';
 
-export const SAVE_RESUME_SUCCESS_TOAST_ID = 'rrtresumesaved'
+export const SAVE_RESUME_SUCCESS_TOAST_ID = 'rrtresumesaved';
 
-export const LOCAL_STORAGE_ON_TOAST_ID = 'rrtrlson'
+export const LOCAL_STORAGE_ON_TOAST_ID = 'rrtrlson';
 
-export const LOCAL_STORAGE_OFF_TOAST_ID = 'rrtrlsoff'
+export const LOCAL_STORAGE_OFF_TOAST_ID = 'rrtrlsoff';
