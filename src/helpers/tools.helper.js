@@ -1,6 +1,11 @@
 import { toast } from 'react-toastify';
 import { debounce } from './app.helper';
 import ls from './localstorage.helper';
+import {
+  SAVE_RESUME_ERROR_TOAST_ID, SAVE_RESUME_SUCCESS_TOAST_ID,
+  LOCAL_STORAGE_ON_TOAST_ID, LOCAL_STORAGE_OFF_TOAST_ID,
+}
+  from '../config/constants';
 
 const STORED_TOOLS_KEY = 'rr-ls-tools-key';
 const savedTools = ls.getItem(STORED_TOOLS_KEY);
@@ -57,24 +62,24 @@ export const getDarkStatusColor = (status) => {
 
 export const saveTools = (tools) => {
   if (!tools.autoSave && prevLocalStorageState) {
-    toast(' ⚠️ Auto save to local storage is now off!', { toastId: 'rrtrlsoff', position: 'top-right', autoClose: false });
+    toast(' ⚠️ Auto save to local storage is now off!', { toastId: LOCAL_STORAGE_OFF_TOAST_ID, position: 'top-right', autoClose: false });
   } else if (tools.autoSave && !prevLocalStorageState) {
     toast.dismiss('rrtrlsoffinit');
-    toast.dismiss('rrtrlsoff');
-    toast(' 💾 Auto save to local storage is now on!', { toastId: 'rrtrlson', position: 'top-right', autoClose: 10000 });
+    toast.dismiss(LOCAL_STORAGE_OFF_TOAST_ID);
+    toast(' 💾 Auto save to local storage is now on!', { toastId: LOCAL_STORAGE_ON_TOAST_ID, position: 'top-right', autoClose: 10000 });
   }
   prevLocalStorageState = tools.autoSave;
   if (ls.setItem(STORED_TOOLS_KEY, tools)) {
-    toast.dismiss('rrterrorsaveresume');
-    debounce(() => toast(' 💾 saved to local storage...', { toastId: 'rrtresumesaved', position: 'top-right' }),
+    toast.dismiss(SAVE_RESUME_ERROR_TOAST_ID);
+    debounce(() => toast(' 💾 saved to local storage...', { toastId: SAVE_RESUME_SUCCESS_TOAST_ID, position: 'top-right' }),
       100,
       false,
-      'rrtresumesaved');
+      SAVE_RESUME_SUCCESS_TOAST_ID);
   } else {
-    debounce(() => toast(' ⚠️ error saving to local storage...', { toastId: 'rrterrorsaveresume', position: 'top-right' }),
+    debounce(() => toast(' ⚠️ error saving to local storage...', { toastId: SAVE_RESUME_ERROR_TOAST_ID, position: 'top-right' }),
       100,
       false,
-      'rrterrorsaveresume');
+      SAVE_RESUME_ERROR_TOAST_ID);
   }
   return tools;
 };

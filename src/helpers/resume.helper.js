@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 import { debounce } from './app.helper';
 import ls from './localstorage.helper';
+import { SAVE_RESUME_ERROR_TOAST_ID, SAVE_RESUME_SUCCESS_TOAST_ID } from '../config/constants';
 
 export const isValidJSON = (data) => {
   let cleanedResume;
@@ -78,15 +79,15 @@ export const STORED_RESUME_KEY = 'rr-ls-resume-key';
 
 export const saveResume = (resume) => {
   if (ls.setItem(STORED_RESUME_KEY, resume)) {
-    debounce(() => toast(' 💾 saved to localStorage...', { toastId: 'rrtresumesaved' }),
+    debounce(() => toast(' 💾 saved to localStorage...', { toastId: SAVE_RESUME_SUCCESS_TOAST_ID }),
       500,
       false,
-      'rrtresumesaved');
+      SAVE_RESUME_SUCCESS_TOAST_ID);
   } else {
-    debounce(() => toast(' ⚠️ error saving to localStorage...', { toastId: 'rrterrorsaveresume' }),
+    debounce(() => toast(' ⚠️ error saving to localStorage...', { toastId: SAVE_RESUME_ERROR_TOAST_ID }),
       500,
       false,
-      'rrterrorsaveresume');
+      SAVE_RESUME_ERROR_TOAST_ID);
   }
 };
 
