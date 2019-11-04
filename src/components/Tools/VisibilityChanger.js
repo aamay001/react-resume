@@ -5,6 +5,10 @@ import { Label, Icon } from 'semantic-ui-react';
 import { toggleShowItem } from '../../actions/app.actions';
 import { ItemToggleButton, MoreVisibilityButton } from './Buttons';
 
+const controlledToggleMap = {
+  showTechSkills: ['showSkillLevel'],
+};
+
 class VisibilityChanger extends Component {
   constructor(props) {
     super(props);
@@ -12,10 +16,20 @@ class VisibilityChanger extends Component {
   }
 
   handleToggle(item, disabled) {
+    // eslint-disable-next-line react/destructuring-assignment
+    const itemOn = this.props[item];
+    if (disabled) return;
     const { dispatch } = this.props;
-    if (!disabled) {
-      dispatch(toggleShowItem(item));
-    }
+    const children = controlledToggleMap[item] || [];
+
+    dispatch(toggleShowItem(item));
+    children.forEach((child) => {
+      // eslint-disable-next-line react/destructuring-assignment
+      const childOn = this.props[child];
+      if (itemOn && childOn) {
+        dispatch(toggleShowItem(child));
+      }
+    });
   }
 
   render() {
