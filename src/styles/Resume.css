@@ -170,18 +170,18 @@
 }
 
 .resume-tech-skills .grid-container {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 50% 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
-.resume-tech-skills .grid-column-1,
-.resume-tech-skills .grid-column-2 {
-  grid-column-start: 1;
+.resume-tech-skills .grid-column {
+  flex-basis: 50%;
   margin-bottom: 15px;
 }
 
-.tech-skills-keyword{
+.tech-skills-keyword {
   width: 100%;
   height: 1.4em;
   padding: 0.1em 0;
