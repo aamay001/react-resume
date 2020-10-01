@@ -17,9 +17,8 @@ const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
     <hr />
     <div className="grid-container">
       {techSkills.map(
-        (skill, index) => skill.isVisible !== false &&
-          (index < 2 && (
-            <div key={uuid()} className={`grid-column-${index + 1}`}>
+        (skill, index) => skill.isVisible !== false && (
+            <div key={uuid()} className="grid-column" style={{ flexBasis: skill.columnWidthPercent || undefined}}>
               <h3 style={{ fontFamily: font }}>
                 {skill.category}
               </h3>
@@ -31,8 +30,7 @@ const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
                   </div>
                 ))
                 : skill.keywords.map((kw, skillIndex) => (skillIndex === skill.keywords.length - 1 ? retString(kw) : `${retString(kw)}, `))}
-            </div>
-          )),
+            </div>)
       )}
     </div>
   </section>
