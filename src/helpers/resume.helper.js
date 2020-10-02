@@ -15,15 +15,14 @@ export const isValidJSON = (data) => {
     let missingProp = false;
     [
       'name',
+      'label',
+      'picture',
       'email',
       'phone',
-      'github',
-      'linkedin',
-      'address',
-      'city',
-      'state',
-      'zip',
-      'country',
+      'website',
+      'summary',
+      'location',
+      'profiles'
     ].forEach((key) => {
       if (!(key in newResume.header)) {
         missingProp = true;
