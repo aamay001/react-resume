@@ -1,5 +1,22 @@
 /// <reference types="cypress" />
 
+const defaultValues = {
+  showAddress: true,
+  showEmail: true,
+  showPhone: true,
+  showGithub: false,
+  showTechSkills: true,
+  showSkillLevel: false,
+  showProjects: true,
+  showEducation: true,
+  showCertification: true,
+  showExperience: true,
+  showLinkedIn: false,
+  showWebsite: true,
+  showIcon: true,
+  darkMode: false,
+};
+
 context('Visibility changer (toggle buttons)', () => {
   beforeEach(() => {
     // visit baseURL (cypress.json)
@@ -7,35 +24,35 @@ context('Visibility changer (toggle buttons)', () => {
   });
 
   it('should toggle dark mode', () => {
-    cy.get('div.App').should('not.have.class', 'darkMode');
+    cy.get('div.App').should((defaultValues.darkMode ? '' : 'not.') + 'have.class', 'darkMode');
     cy.get('[data-testid=darkMode]').click();
-    cy.get('div.App').should('have.class', 'darkMode');
+    cy.get('div.App').should((!defaultValues.darkMode ? '' : 'not.') + 'have.class', 'darkMode');
     cy.get('[data-testid=darkMode]').click();
-    cy.get('div.App').should('not.have.class', 'darkMode');
+    cy.get('div.App').should((defaultValues.darkMode ? '' : 'not.') + 'have.class', 'darkMode');
   });
 
   it('should toggle email', () => {
-    cy.get('[data-testid=Email]').should('exist');
+    cy.get('[data-testid=Email]').should((defaultValues.showEmail ? '' : 'not.') + 'exist');
     cy.get('[data-testid=showEmail]').click();
-    cy.get('[data-testid=Email]').should('not.exist');
+    cy.get('[data-testid=Email]').should((!defaultValues.showEmail ? '' : 'not.') + 'exist');
     cy.get('[data-testid=showEmail]').click();
-    cy.get('[data-testid=Email]').should('exist');
+    cy.get('[data-testid=Email]').should((defaultValues.showEmail ? '' : 'not.') + 'exist');
   });
 
   it('should toggle phone', () => {
-    cy.get('[data-testid=Phone]').should('exist');
+    cy.get('[data-testid=Phone]').should((defaultValues.showPhone ? '' : 'not.') + 'exist');
     cy.get('[data-testid=showPhone]').click();
-    cy.get('[data-testid=Phone]').should('not.exist');
+    cy.get('[data-testid=Phone]').should((!defaultValues.showPhone ? '' : 'not.') + 'exist');
     cy.get('[data-testid=showPhone]').click();
-    cy.get('[data-testid=Phone]').should('exist');
+    cy.get('[data-testid=Phone]').should((defaultValues.showPhone ? '' : 'not.') + 'exist');
   });
 
   it('should toggle github', () => {
-    cy.get('[data-testid=Github]').should('not.exist');
+    cy.get('[data-testid=Github]').should((defaultValues.showGithub ? '' : 'not.') + 'exist');
     cy.get('[data-testid=showGithub]').click();
-    cy.get('[data-testid=Github]').should('exist');
+    cy.get('[data-testid=Github]').should((!defaultValues.showGithub ? '' : 'not.') + 'exist');
     cy.get('[data-testid=showGithub]').click();
-    cy.get('[data-testid=Github]').should('not.exist');
+    cy.get('[data-testid=Github]').should((defaultValues.showGithub ? '' : 'not.') + 'exist');
   });
 
 });
