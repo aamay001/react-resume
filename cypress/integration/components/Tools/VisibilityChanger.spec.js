@@ -55,4 +55,85 @@ context('Visibility changer (toggle buttons)', () => {
     cy.get('[data-testid=Github]').should((defaultValues.showGithub ? '' : 'not.') + 'exist');
   });
 
+  it('should toggle linkedin', () => {
+    cy.get('[data-testid=LinkedIn]').should((defaultValues.showLinkedIn ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showLinkedIn]').click();
+    cy.get('[data-testid=LinkedIn]').should((!defaultValues.showLinkedIn ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showLinkedIn]').click();
+    cy.get('[data-testid=LinkedIn]').should((defaultValues.showLinkedIn ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Website', () => {
+    cy.get('[data-testid=Website]').should((defaultValues.showWebsite ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showWebsite]').click();
+    cy.get('[data-testid=Website]').should((!defaultValues.showWebsite ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showWebsite]').click();
+    cy.get('[data-testid=Website]').should((defaultValues.showWebsite ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Icon', () => {
+    cy.get('[data-testid=Email] > a > img').should((defaultValues.showIcon ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showIcon]').click();
+    cy.get('[data-testid=Email] > a > img').should((!defaultValues.showIcon ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showIcon]').click();
+    cy.get('[data-testid=Email] > a > img').should((defaultValues.showIcon ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Address', () => {
+    cy.get('[data-testid=Address]').should((defaultValues.showAddress ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showAddress]').click();
+    cy.get('[data-testid=Address]').should((!defaultValues.showAddress ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showAddress]').click();
+    cy.get('[data-testid=Address]').should((defaultValues.showAddress ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Certification', () => {
+    cy.get('[data-testid=Certification]').should((defaultValues.showCertification ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showCertification]').click();
+    cy.get('[data-testid=Certification]').should((!defaultValues.showCertification ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showCertification]').click();
+    cy.get('[data-testid=Certification]').should((defaultValues.showCertification ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Education', () => {
+    cy.get('[data-testid=Education]').should((defaultValues.showEducation ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showEducation]').click();
+    cy.get('[data-testid=Education]').should((!defaultValues.showEducation ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showEducation]').click();
+    cy.get('[data-testid=Education]').should((defaultValues.showEducation ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Experience', () => {
+    cy.get('[data-testid=Experience]').should((defaultValues.showExperience ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showExperience]').click();
+    cy.get('[data-testid=Experience]').should((!defaultValues.showExperience ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showExperience]').click();
+    cy.get('[data-testid=Experience]').should((defaultValues.showExperience ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle Projects', () => {
+    cy.get('[data-testid=Projects]').should((defaultValues.showProjects ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showProjects]').click();
+    cy.get('[data-testid=Projects]').should((!defaultValues.showProjects ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showProjects]').click();
+    cy.get('[data-testid=Projects]').should((defaultValues.showProjects ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle TechSkills', () => {
+    cy.get('[data-testid=TechSkills]').should((defaultValues.showTechSkills ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showTechSkills]').click();
+    cy.get('[data-testid=TechSkills]').should((!defaultValues.showTechSkills ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showTechSkills]').click();
+    cy.get('[data-testid=TechSkills]').should((defaultValues.showTechSkills ? '' : 'not.') + 'exist');
+  });
+
+  it('should toggle SkillLevel', () => {
+    const selectorSkillLevel = '[data-testid=TechSkills] > .grid-container > .grid-column > .tech-skills-keyword > .keyword-level';
+    cy.get(selectorSkillLevel).should((defaultValues.showSkillLevel ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showSkillLevel]').click();
+    cy.get(selectorSkillLevel).should((!defaultValues.showSkillLevel ? '' : 'not.') + 'exist');
+    cy.get('[data-testid=showSkillLevel]').click();
+    cy.get(selectorSkillLevel).should((defaultValues.showSkillLevel ? '' : 'not.') + 'exist');
+  });
+
 });
