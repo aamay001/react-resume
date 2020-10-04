@@ -70,7 +70,22 @@ const jsonEdited = {
 			"isVisible": true
 		}
 	]
-}
+};
+
+const editorStatus = {
+	waiting: {
+		label: 'waiting for changes',
+		color: 'blue'
+	},
+	invalid: {
+		label: 'invalid json',
+		color: 'red'
+	},
+	valid: {
+		label: 'code updated',
+		color: 'green'
+	}
+};
 
 context('Code Editor', () => {
   beforeEach(() => {
@@ -79,10 +94,22 @@ context('Code Editor', () => {
   });
 
   it('should replace default datas', () => {
-    cy.get('div.json-resume-tool button').contains('Code Editor').click();
+	cy.get('div.json-resume-tool button').contains('Code Editor').click();
+	
+	// Check editor status is waiting
+	cy.get('div.left.item').last().should('contain', editorStatus.waiting.label);
+	cy.get('div.ui.segment').should('have.class', editorStatus.waiting.color);
 
     const jsonEditedText = JSON.stringify(jsonEdited).replace(/{/g, '{{}');
-    cy.get("#json-resume-editor .ace_content").type('{selectall}{backspace}' + jsonEditedText);
+	cy.get("#json-resume-editor .ace_content").type('{selectall}{backspace}');
+	// Check editor status is invalid json
+	cy.get('div.left.item').last().should('contain', editorStatus.invalid.label);
+	cy.get('div.ui.segment').should('have.class', editorStatus.invalid.color);
+
+	cy.get("#json-resume-editor .ace_content").type('{selectall}{backspace}' + jsonEditedText);
+	// Check editor status is valid json
+	cy.get('div.left.item').last().should('contain', editorStatus.valid.label);
+	cy.get('div.ui.segment').should('have.class', editorStatus.valid.color);
 
     cy.get('.very > .massive > .right').click({force: true});
 
