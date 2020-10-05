@@ -9,6 +9,7 @@ const defaultValues = {
 context('Auto Save to Local Storage Button', () => {
   beforeEach(() => {
     cy.visit('/');
+    if (defaultValues.autoSave) cy.get('[data-testid=autoSave]').click();
   });
 
   it('should toggle auto save to local storage button', () => {
