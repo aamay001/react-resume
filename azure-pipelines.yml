@@ -19,5 +19,5 @@ steps:
   displayName: 'Install Packages'
 
 - script: |
-    npm run test:cypress-ci
+  start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY)'
   displayName: 'Run Cypress Tests'
