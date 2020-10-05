@@ -18,8 +18,23 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: Cache@2
+  inputs:
+    key: 'npm | "$(Agent.OS)" | package-lock.json'
+    restoreKeys: |
+      version2 | npm | "$(Agent.OS)"
+    path: $(npm_config_cache)
+  displayName: Cache NPM Packages
+
+- task: Cache@2
+  inputs:
+    key: cypress | $(Agent.OS) | package-lock.json
+    path: $(cypress_config_cache)
+    restoreKeys: version2 | cypress | $(Agent.OS) | package-lock.json
+  displayName: Cache Cypress
+
 - script: |
-    npm install
+    npm ci
   displayName: 'Install Packages'
 
 - script: |
