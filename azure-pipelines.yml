@@ -40,6 +40,9 @@ jobs:
       - script: npm install
         displayName: 'Install NPM dependencies'
 
+      - script: npm install
+        displayName: 'Install Cypress'
+
       - script: npm run cy:verify
         displayName: 'Cypress verify'
 
