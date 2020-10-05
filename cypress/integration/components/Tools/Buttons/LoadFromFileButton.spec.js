@@ -14,7 +14,7 @@ context('Click LoadFromFile Button', () => {
             mimeType: 'text/json'
         });
     });
-    cy.get('body > div:nth-child(7) > div > div.Toastify__toast-container.Toastify__toast-container--top-center > div > div.Toastify__toast-body.resume-toast-body')
+    cy.get('body > div > div > div.Toastify__toast-container.Toastify__toast-container--top-center > div > div.Toastify__toast-body.resume-toast-body')
     .contains('🙌 Resume loaded from file!');
   });
 });
