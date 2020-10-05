@@ -36,7 +36,7 @@ steps:
   displayName: Cache Cypress binary
 
 - script: |
-    npm install
+    npm ci
   displayName: 'Install Packages'
 
 - script: |
