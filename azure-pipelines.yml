@@ -5,7 +5,6 @@
 
 trigger:
 - development
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -16,9 +15,9 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
+    npm ci
   displayName: 'Install Packages'
 
 - script: |
-    npm run test:cypress-ci
+    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY)'
   displayName: 'Run Cypress Tests'
