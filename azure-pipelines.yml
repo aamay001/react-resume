@@ -22,7 +22,7 @@ steps:
 # (there is even an open question about it)
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops
 # just use "/home/vsts" for now
-- task: CacheBeta@1
+- task: Cache@2
   inputs:
     key: npm | $(Agent.OS) | package-lock.json
     path: /home/vsts/.npm
