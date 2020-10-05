@@ -10,8 +10,6 @@ jobs:
   - job: Cypress_e2e_tests
     pool:
       vmImage: 'ubuntu-16.04'
-    strategy:
-      parallel: 4
     steps:
       - task: NodeTool@0
         inputs:
@@ -39,7 +37,7 @@ jobs:
         displayName: Cache Cypress binary
 
       # Install Node dependencies
-      - script: npm ci
+      - script: npm install
         displayName: 'Install NPM dependencies'
 
       - script: npm run cy:verify
