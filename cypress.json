@@ -3,6 +3,7 @@
   "pluginsFile": "cypress/plugins/index.js",
   "supportFile": "cypress/support/index.js",
   "screenshotOnRunFailure": false,
+  "projectId": "2t65yn",
   "video": false,
   "reporter": "junit",
   "reporterOptions": {
