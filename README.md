@@ -1,5 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c698519f-9fbf-4213-8389-785569184446/deploy-status)](https://app.netlify.com/sites/resumejs/deploys)
-
+[![Build Status](https://dev.azure.com/aamay001/react-resume/_apis/build/status/Run%20Cypress%20Tests?branchName=development)](https://dev.azure.com/aamay001/react-resume/_build/latest?definitionId=2&branchName=development)
+[![react-resume](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/2t65yn/development&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/2t65yn/runs)
 
 ## Welcome to React Resume
 
