@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+- development
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -17,5 +17,6 @@ steps:
 
 - script: |
     npm install
+    npm run test:cypress
     npm run build
   displayName: 'npm install and build'
