@@ -34,7 +34,7 @@
     "cy:cache:list": "cypress cache list",
     "cy:run": "cypress run",
     "cy:run:record": "cypress run --record",
-    "cy:open": "cypress open",
+    "cy:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "airbnb",
