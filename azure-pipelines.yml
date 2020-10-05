@@ -5,6 +5,9 @@
 
 trigger:
 - development
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+  cypress_config_cache: $(Pipeline.Workspace)/.cypresscache
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -15,25 +18,20 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-# NPM modules and Cypress binary should be cached
-# otherwise the install will be too slow
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/caching/?view=azure-devops
-# since the username / user home directory are not available via system variables
-# (there is even an open question about it)
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops
-# just use "/home/vsts" for now
 - task: Cache@2
   inputs:
-    key: npm | $(Agent.OS) | package-lock.json
-    path: /home/vsts/.npm
-    restoreKeys: npm | $(Agent.OS) | package-lock.json
-  displayName: Cache NPM packages
-- task: CacheBeta@1
+    key: 'npm | "$(Agent.OS)" | package-lock.json'
+    restoreKeys: |
+      npm | "$(Agent.OS)"
+    path: $(npm_config_cache)
+  displayName: Cache NPM Packages
+
+- task: Cache@2
   inputs:
     key: cypress | $(Agent.OS) | package-lock.json
-    path: /home/vsts/.cache/Cypress
+    path: $(cypress_config_cache)
     restoreKeys: cypress | $(Agent.OS) | package-lock.json
-  displayName: Cache Cypress binary
+  displayName: Cache Cypress
 
 - script: |
     npm ci
