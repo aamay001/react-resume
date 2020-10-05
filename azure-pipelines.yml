@@ -20,17 +20,17 @@ steps:
 
 - task: Cache@2
   inputs:
-    key: 'npm | "$(Agent.OS)" | package-lock.json'
+    key: version2 | npm | "$(Agent.OS)" | package-lock.json
     restoreKeys: |
-      version2 | npm | "$(Agent.OS)"
+      npm | "$(Agent.OS)"
     path: $(npm_config_cache)
   displayName: Cache NPM Packages
 
 - task: Cache@2
   inputs:
-    key: cypress | $(Agent.OS) | package-lock.json
+    key: version2 | cypress | $(Agent.OS) | package-lock.json
     path: $(cypress_config_cache)
-    restoreKeys: version2 | cypress | $(Agent.OS) | package-lock.json
+    restoreKeys: cypress | $(Agent.OS) | package-lock.json
   displayName: Cache Cypress
 
 - script: |
