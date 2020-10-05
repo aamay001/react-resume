@@ -1,4 +1,5 @@
 # Node.js with React
+
 # Build a Node.js project that uses React.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -21,3 +22,10 @@ steps:
 - script: |
     npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY)'
   displayName: 'Run Cypress Tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/*.xml'
+    failTaskOnFailedTests: true
+    testRunTitle: 'Publish Test Results'
