@@ -1,5 +1,14 @@
 {
   "baseUrl": "http://localhost:3000",
+  "pluginsFile": "cypress/plugins/index.js",
+  "supportFile": "cypress/support/index.js",
   "screenshotOnRunFailure": false,
-  "video": false
+  "projectId": "2t65yn",
+  "video": false,
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "tests/test-output-[hash].xml",
+    "toConsole": true,
+    "attachments": true
+  }
 }
