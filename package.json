@@ -29,7 +29,7 @@
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test:cypress": "start-server-and-test 'npm start' 3000 'cypress run --headed'",
     "test:cypress-open": "start-server-and-test 'npm start' 3000 'cypress open'",
-    "test:cypress-ci": "start-server-and-test 'npm start' 3000 'cypress run --record'",
+    "test:cypress-ci": "start-server-and-test 'npm start' 3000 'cypress run'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -62,6 +62,7 @@
     "@testing-library/react": "^9.3.0",
     "cypress": "^5.3.0",
     "cypress-file-upload": "^4.1.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.3.1",
