@@ -35,7 +35,7 @@ steps:
   displayName: 'Install Packages'
 
 - script: |
-    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY) --parallel --ci-build-id'
+    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY) --parallel --ci-build-id $(Build.BuildId)'
   displayName: 'Run Cypress Tests'
 
 - task: PublishTestResults@2
