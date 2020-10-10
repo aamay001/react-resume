@@ -48,7 +48,7 @@ steps:
   displayName: 'Run Tests'
 
 - script: |
-    npx start-server-and-test 'npm start' 3000 'cypress run'
+    npm run test:cypress-ci
   displayName: 'Run Cypress Tests'
 
 - task: PublishTestResults@2
