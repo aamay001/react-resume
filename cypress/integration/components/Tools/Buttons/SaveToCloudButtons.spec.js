@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 
-context('Click SaveToCloud buttons', () => {
+context('Click SaveToCloud buttons', { execTimeout: 30000 }, () => {
   beforeEach(() => {
     cy.visit('/');
   });
