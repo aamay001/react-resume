@@ -44,13 +44,17 @@ steps:
   displayName: 'Install Packages'
 
 - script: |
-    npx start-server-and-test 'npm start' 3000 'cypress run'
+    npm run test:ci
+  displayName: 'Run Tests'
+
+- script: |
+    npm run test:cypress-ci
   displayName: 'Run Cypress Tests'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-*.xml'
+    testResultsFiles: 'test-reports/test-*.xml'
     failTaskOnFailedTests: true
     testRunTitle: 'Publish Test Results'
-    displayName: 'Publish Test Results'
+  displayName: 'Publish Test Results'
