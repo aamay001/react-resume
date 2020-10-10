@@ -6,27 +6,63 @@
 
 trigger:
 - development
+
 pool:
   vmImage: 'ubuntu-latest'
+  strategy:
+    parallel: 4
 
 steps:
+- script: |
+    mkdir -p $(Pipeline.Workspace)/.cache/Cypress
+  displayName: 'Check Cypress Cache Path'
+
+- script: |
+    mkdir -p $(Pipeline.Workspace)/.npm
+  displayName: 'Check NPM Cache Path'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+
+- task: Cache@2
+  inputs:
+    key: npm | $(Agent.OS) | package-lock.json
+    path: $(Pipeline.Workspace)/.npm
+    restoreKeys: npm | $(Agent.OS) | package-lock.json
+  displayName: Cache NPM packages
+- task: Cache@2
+  inputs:
+    key: cypress | $(Agent.OS) | package-lock.json
+    path: $(Pipeline.Workspace)/.cache/Cypress
+    restoreKeys: cypress | $(Agent.OS) | package-lock.json
+  displayName: Cache Cypress binary
 
 - script: |
     npm ci
   displayName: 'Install Packages'
 
 - script: |
-    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY)'
+    REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm run test:ci
+  displayName: 'Run Tests'
+  env:
+    REACT_APP_API_URL: $(REACT_APP_API_URL)
+    REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
+    REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
+
+- script: |
+     npx start-server-and-test 'REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm start' 3000 'CI=true cypress run'
   displayName: 'Run Cypress Tests'
+  env:
+    REACT_APP_API_URL: $(REACT_APP_API_URL)
+    REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
+    REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-*.xml'
+    testResultsFiles: 'test-reports/test-*.xml'
     failTaskOnFailedTests: true
     testRunTitle: 'Publish Test Results'
-    displayName: 'Publish Test Results'
+  displayName: 'Publish Test Results'

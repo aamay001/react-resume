@@ -26,10 +26,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "CI=true react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test:cypress": "start-server-and-test 'npm start' 3000 'cypress run --headed'",
     "test:cypress-open": "start-server-and-test 'npm start' 3000 'cypress open'",
-    "test:cypress-ci": "start-server-and-test 'npm start' 3000 'cypress run --record'",
+    "test:cypress-ci": "start-server-and-test 'npm start' 3000 'CI=true cypress run'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -57,15 +58,26 @@
       "last 1 safari version"
     ]
   },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": ".",
+    "outputName": "test-reports/test-jest.xml",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.1",
     "@testing-library/react": "^9.3.0",
     "cypress": "^5.3.0",
     "cypress-file-upload": "^4.1.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.13.0",
+    "jest-junit": "^12.0.0",
     "redux-logger": "^3.0.6",
     "start-server-and-test": "^1.11.5"
   }
