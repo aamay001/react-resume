@@ -10,7 +10,7 @@ trigger:
 pool:
     vmImage: 'ubuntu-latest'
   strategy:
-      parallel: 4
+    parallel: 4
 
 
 - script: |
