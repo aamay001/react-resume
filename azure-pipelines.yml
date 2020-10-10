@@ -8,7 +8,7 @@ trigger:
 - development
 
 pool:
-    vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'
   strategy:
     parallel: 4
 
