@@ -6,42 +6,50 @@
 
 trigger:
 - development
-pool:
-  vmImage: 'ubuntu-latest'
-  strategy:
-      parallel: 4
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+jobs:
+- job: Run Cypress Tests
+  pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+        parallel: 4
 
-- task: Cache@2
-  inputs:
-    key: npm | $(Agent.OS) | package-lock.json
-    path: $(Pipeline.Workspace)/.npm
-    restoreKeys: npm | $(Agent.OS) | package-lock.json
-  displayName: Cache NPM packages
-- task: Cache@2
-  inputs:
-    key: cypress | $(Agent.OS) | package-lock.json
-    path: $(Pipeline.Workspace)/.cache/Cypress
-    restoreKeys: cypress | $(Agent.OS) | package-lock.json
-  displayName: Cache Cypress binary
 
-- script: |
-    npm ci
-  displayName: 'Install Packages'
+  - script: |
+      mkdir -p $(Pipeline.Workspace)/.cache/Cypress
+    displayName: 'Install Packages'
 
-- script: |
-    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY) --parallel --ci-build-id $(Build.BuildId)'
-  displayName: 'Run Cypress Tests'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-*.xml'
-    failTaskOnFailedTests: true
-    testRunTitle: 'Publish Test Results'
-    displayName: 'Publish Test Results'
+  - task: Cache@2
+    inputs:
+      key: npm | $(Agent.OS) | package-lock.json
+      path: $(Pipeline.Workspace)/.npm
+      restoreKeys: npm | $(Agent.OS) | package-lock.json
+    displayName: Cache NPM packages
+  - task: Cache@2
+    inputs:
+      key: cypress | $(Agent.OS) | package-lock.json
+      path: $(Pipeline.Workspace)/.cache/Cypress
+      restoreKeys: cypress | $(Agent.OS) | package-lock.json
+    displayName: Cache Cypress binary
+
+  - script: |
+      npm ci
+    displayName: 'Install Packages'
+
+  - script: |
+      npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY) --parallel --ci-build-id $(Build.BuildId)'
+    displayName: 'Run Cypress Tests'
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/test-*.xml'
+      failTaskOnFailedTests: true
+      testRunTitle: 'Publish Test Results'
+      displayName: 'Publish Test Results'
