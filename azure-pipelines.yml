@@ -12,12 +12,11 @@ pool:
   strategy:
     parallel: 4
 
-
+steps:
 - script: |
     mkdir -p $(Pipeline.Workspace)/.cache/Cypress
   displayName: 'Check Cypress Cache Path'
 
-steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
