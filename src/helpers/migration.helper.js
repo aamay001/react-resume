@@ -1,7 +1,7 @@
 import jsonResume from '../jsonresume-data';
 
 export const migrateSchema = (oldSchema) => {
-  const newSchema = {};
+  let newSchema = {};
 
   newSchema.basics = migrateHeader(oldSchema.header);
   newSchema.work = migrateExperience(oldSchema.experience);
