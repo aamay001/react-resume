@@ -44,6 +44,10 @@ steps:
   displayName: 'Install Packages'
 
 - script: |
+    npm run test:ci
+  displayName: 'Run Tests'
+
+- script: |
     npx start-server-and-test 'npm start' 3000 'cypress run'
   displayName: 'Run Cypress Tests'
 
