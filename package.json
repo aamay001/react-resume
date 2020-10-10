@@ -26,7 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:ci": "CI=true && react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
+    "test:ci": "CI=true react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test:cypress": "start-server-and-test 'npm start' 3000 'cypress run --headed'",
     "test:cypress-open": "start-server-and-test 'npm start' 3000 'cypress open'",
