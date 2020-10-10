@@ -5,3 +5,4 @@ coverage
 .vscode
 tests/test-output-*.xml
 TEST-junit.xml
+test-reports/**
