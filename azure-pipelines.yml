@@ -46,10 +46,18 @@ steps:
 - script: |
     npm run test:ci
   displayName: 'Run Tests'
+  env:
+    REACT_APP_API_URL: $(REACT_APP_API_URL)
+    REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
+    REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
 
 - script: |
     npm run test:cypress-ci
   displayName: 'Run Cypress Tests'
+  env:
+    REACT_APP_API_URL: $(REACT_APP_API_URL)
+    REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
+    REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
 
 - task: PublishTestResults@2
   inputs:
