@@ -17,6 +17,10 @@ steps:
     mkdir -p $(Pipeline.Workspace)/.cache/Cypress
   displayName: 'Check Cypress Cache Path'
 
+- script: |
+    mkdir -p $(Pipeline.Workspace)/.npm
+  displayName: 'Check NPM Cache Path'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
