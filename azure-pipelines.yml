@@ -52,7 +52,7 @@ steps:
     REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
 
 - script: |
-    REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) CI=true npx start-server-and-test 'npm start' 3000 'cypress run'
+     npx start-server-and-test 'REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm start' 3000 'CI=true cypress run'
   displayName: 'Run Cypress Tests'
   env:
     REACT_APP_API_URL: $(REACT_APP_API_URL)
