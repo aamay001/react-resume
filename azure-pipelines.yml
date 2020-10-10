@@ -54,7 +54,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-*.xml'
+    testResultsFiles: 'test-reports/test-*.xml'
     failTaskOnFailedTests: true
     testRunTitle: 'Publish Test Results'
-    displayName: 'Publish Test Results'
+  displayName: 'Publish Test Results'
