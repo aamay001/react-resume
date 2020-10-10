@@ -6,21 +6,45 @@
 
 trigger:
 - development
+
 pool:
   vmImage: 'ubuntu-latest'
+  strategy:
+    parallel: 4
 
 steps:
+- script: |
+    mkdir -p $(Pipeline.Workspace)/.cache/Cypress
+  displayName: 'Check Cypress Cache Path'
+
+- script: |
+    mkdir -p $(Pipeline.Workspace)/.npm
+  displayName: 'Check NPM Cache Path'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+
+- task: Cache@2
+  inputs:
+    key: npm | $(Agent.OS) | package-lock.json
+    path: $(Pipeline.Workspace)/.npm
+    restoreKeys: npm | $(Agent.OS) | package-lock.json
+  displayName: Cache NPM packages
+- task: Cache@2
+  inputs:
+    key: cypress | $(Agent.OS) | package-lock.json
+    path: $(Pipeline.Workspace)/.cache/Cypress
+    restoreKeys: cypress | $(Agent.OS) | package-lock.json
+  displayName: Cache Cypress binary
 
 - script: |
     npm ci
   displayName: 'Install Packages'
 
 - script: |
-    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY)'
+    npx start-server-and-test 'npm start' 3000 'cypress run --record --key $(CYPRESS_RECORD_KEY) --parallel --ci-build-id $(Build.BuildId)'
   displayName: 'Run Cypress Tests'
 
 - task: PublishTestResults@2
