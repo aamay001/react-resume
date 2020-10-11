@@ -1,37 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import uuid from 'uuid/v4';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import uuid from "uuid/v4";
+import migrateSchema from "../../helpers/migration.helper";
 
 const Experience = ({ experience, font }) => (
   <section data-testid="Experience" className="resume-experience">
-    <h2 style={{ fontFamily: font }}>
-      Experience
-    </h2>
+    <h2 style={{ fontFamily: font }}>Experience</h2>
     <hr />
     <ul>
       {experience.map(
-        exp => exp.isVisible !== false && (
-        <li key={uuid()}>
-          {' '}
-          <h3 style={{ fontFamily: font }}>
-            {exp.position}
-          </h3>
-          {exp.dateFrom &&
-            <h3 style={{ fontFamily: font }}>
-              {`${exp.dateFrom}${exp.dateTo ? ` - ${exp.dateTo}` : ''}`}
-            </h3>}
-          <em>{`${exp.company}, ${exp.city}, ${exp.state}`}</em>
-          <ul>
-            <li>{exp.primaryWorkBrief}</li>
-            {exp.impact1 && <li>{exp.impact1}</li>}
-            {exp.impact2 && <li>{exp.impact2}</li>}
-            {exp.impact3 && <li>{exp.impact3}</li>}
-            {exp.impact4 && <li>{exp.impact4}</li>}
-            {exp.impact5 && <li>{exp.impact5}</li>}
-          </ul>
-        </li>
-        ),
+        (exp) =>
+          exp.isVisible !== false && (
+            <li key={uuid()}>
+              <h3 style={{ fontFamily: font }}>{exp.position}</h3>
+              {exp.startDate && (
+                <h3 style={{ fontFamily: font }}>
+                  {`${exp.startDate}${exp.endDate ? ` - ${exp.endDate}` : ""}`}
+                </h3>
+              )}
+              <em>{exp.company}</em>
+              <p>{exp.summary}</p>
+              <ul>
+                {exp.highlights.map((highlight) => (
+                  <li key={uuid()}>{highlight}</li>
+                ))}
+              </ul>
+            </li>
+          )
       )}
     </ul>
   </section>
@@ -46,8 +42,8 @@ Experience.propTypes = {
   font: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
-  experience: state.resume.experience,
+const mapStateToProps = (state) => ({
+  experience: migrateSchema(state.resume).work,
   font: state.tools.font,
 });
 
