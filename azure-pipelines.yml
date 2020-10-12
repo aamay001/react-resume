@@ -12,7 +12,7 @@ pool:
     parallel: 4
 
 stages:
-- stage: Environment Setup
+- stage: EnvironmentSetup
   jobs:
   - job: CreateCacheDirectoriesIfNotPresent
     steps:
