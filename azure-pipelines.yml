@@ -10,6 +10,7 @@ stages:
 - stage: AzureFunctionPing
   jobs:
   - job: PingAzureFunction
+    displayName: Ping Azure Functions
     pool: server
     steps:
     - task: AzureFunction@1
@@ -28,7 +29,8 @@ stages:
 
 - stage: RunTests
   jobs:
-  - job: CreateCacheDirectoriesIfNotPresent
+  - job: RunTests
+    displayName: Run Tests
     pool:
       vmImage: 'ubuntu-latest'
       strategy:
@@ -61,8 +63,6 @@ stages:
         restoreKeys: cypress | $(Agent.OS) | package-lock.json
       displayName: Cache Cypress binary
 
-  - job: InstallPackages
-    steps:
     - script: |
         npm ci
       displayName: 'Install Packages'
