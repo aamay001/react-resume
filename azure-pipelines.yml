@@ -25,7 +25,7 @@ stages:
           "content": "Invocation from Azure Pipeline"
           }
         waitForCompletion: 'false'
-      displayName: "Invoke Azure Function"
+      displayName: "Invoke Save API"
 
 - stage: RunTests
   jobs:
