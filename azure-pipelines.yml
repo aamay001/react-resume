@@ -11,71 +11,98 @@ pool:
   strategy:
     parallel: 4
 
-steps:
-- script: |
-    mkdir -p $(Pipeline.Workspace)/.cache/Cypress
-  displayName: 'Check Cypress Cache Path'
+stages:
+- stage: Environment Setup
+  jobs:
+  - job: CreateCacheDirectoriesIfNotPresent
+    steps:
 
-- script: |
-    mkdir -p $(Pipeline.Workspace)/.npm
-  displayName: 'Check NPM Cache Path'
+    - script: |
+        mkdir -p $(Pipeline.Workspace)/.cache/Cypress
+      displayName: 'Check Cypress Cache Path'
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    - script: |
+        mkdir -p $(Pipeline.Workspace)/.npm
+      displayName: 'Check NPM Cache Path'
 
-- task: Cache@2
-  inputs:
-    key: npm | $(Agent.OS) | package-lock.json
-    path: $(Pipeline.Workspace)/.npm
-    restoreKeys: npm | $(Agent.OS) | package-lock.json
-  displayName: Cache NPM packages
-- task: Cache@2
-  inputs:
-    key: cypress | $(Agent.OS) | package-lock.json
-    path: $(Pipeline.Workspace)/.cache/Cypress
-    restoreKeys: cypress | $(Agent.OS) | package-lock.json
-  displayName: Cache Cypress binary
+  - job: InstallNode
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+      displayName: 'Install Node.js'
+  
+  - job: CheckForCacheHits
+    steps:
 
-- task: AzureFunction@1
-  inputs:
-    function: 'https://resumejs.azurewebsites.net/api/save'
-    key: '$(REACT_APP_SAVE_KEY)'
-    method: 'POST'
-    headers: 
-    body: |
-      {
-      "jsId": "$(system.JobId)", 
-      "content": "Invocation from Azure Pipeline"
-      }
-    waitForCompletion: 'false'
-  displayName: "Invoke Azure Function"
+    - task: Cache@2
+      inputs:
+        key: npm | $(Agent.OS) | package-lock.json
+        path: $(Pipeline.Workspace)/.npm
+        restoreKeys: npm | $(Agent.OS) | package-lock.json
+      displayName: Cache NPM packages
 
-- script: |
-    npm ci
-  displayName: 'Install Packages'
+    - task: Cache@2
+      inputs:
+        key: cypress | $(Agent.OS) | package-lock.json
+        path: $(Pipeline.Workspace)/.cache/Cypress
+        restoreKeys: cypress | $(Agent.OS) | package-lock.json
+      displayName: Cache Cypress binary
 
-- script: |
-    REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm run test:ci
-  displayName: 'Run Tests'
-  env:
-    REACT_APP_API_URL: $(REACT_APP_API_URL)
-    REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
-    REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
+  - job: PingAzureFunction
+    steps:
 
-- script: |
-     npx start-server-and-test 'REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm start' 3000 'CI=true cypress run'
-  displayName: 'Run Cypress Tests'
-  env:
-    REACT_APP_API_URL: $(REACT_APP_API_URL)
-    REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
-    REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
+    - task: AzureFunction@1
+      inputs:
+        function: 'https://resumejs.azurewebsites.net/api/save'
+        key: '$(REACT_APP_SAVE_KEY)'
+        method: 'POST'
+        headers: 
+        body: |
+          {
+          "jsId": "$(system.JobId)", 
+          "content": "Invocation from Azure Pipeline"
+          }
+        waitForCompletion: 'false'
+      displayName: "Invoke Azure Function"
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: 'test-reports/test-*.xml'
-    failTaskOnFailedTests: true
-    testRunTitle: 'Publish Test Results'
-  displayName: 'Publish Test Results'
+  - job: InstallPackages
+    steps:
+
+    - script: |
+        npm ci
+      displayName: 'Install Packages'
+
+- stage: RunTests
+  jobs:
+  - job: RunJestTests
+    steps:
+    - script: |
+        REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm run test:ci
+      displayName: 'Run Tests'
+      env:
+        REACT_APP_API_URL: $(REACT_APP_API_URL)
+        REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
+        REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
+
+  - job: RunCypressTests
+    steps:
+    - script: |
+        npx start-server-and-test 'REACT_APP_API_URL=$(REACT_APP_API_URL) REACT_APP_FILE_KEY=$(REACT_APP_FILE_KEY) REACT_APP_SAVE_KEY=$(REACT_APP_SAVE_KEY) npm start' 3000 'CI=true cypress run'
+      displayName: 'Run Cypress Tests'
+      env:
+        REACT_APP_API_URL: $(REACT_APP_API_URL)
+        REACT_APP_FILE_KEY: $(REACT_APP_FILE_KEY)
+        REACT_APP_SAVE_KEY: $(REACT_APP_SAVE_KEY)
+
+- stage: CleanUp
+  jobs:
+  - job:
+    steps:
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: 'test-reports/test-*.xml'
+        failTaskOnFailedTests: true
+        testRunTitle: 'Publish Test Results'
+      displayName: 'Publish Test Results'
