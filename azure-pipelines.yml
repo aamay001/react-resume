@@ -40,7 +40,8 @@ steps:
 
 - task: InvokeRESTAPI@1
   inputs:
-    connectionType: 'connectedServiceName'
+    connectionType: 'connectedServiceNameARM'
+    azureServiceConnection: 'Pay-As-You-Go(a8a1ebc6-78f4-4129-82d0-135ed64f69ae)'
     method: 'POST'
     body: |
       {
