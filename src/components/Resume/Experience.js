@@ -43,7 +43,7 @@ Experience.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  experience: migrateSchema(state.resume).work,
+  experience: state.resume.experience,
   font: state.tools.font,
 });
 
