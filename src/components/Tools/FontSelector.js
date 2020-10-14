@@ -38,6 +38,7 @@ class FontSelector extends Component {
         >
           <select
             className="options-selector"
+            data-cy="font-selector"
             onChange={this.handleFontChange}
             value={selectedFont}
           >
