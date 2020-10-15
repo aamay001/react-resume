@@ -111,7 +111,7 @@ context('Code Editor', () => {
       .clear({ force: true });
 
     cy.get('#json-resume-editor textarea')
-      .invoke('val', jsonEditedText)
+      .invoke('val', jsonEditedText, { force: true })
       .trigger('input', { force: true, bubbles: true });
 
     // Check editor status is valid json
