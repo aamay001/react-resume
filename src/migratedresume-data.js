@@ -124,24 +124,24 @@ const Resume = {
       isVisible: true,
     },
     {
-			"category": "Custom Category",
-			"keywords": [
-				{
-					"name": "Item 1",
-					"level": 3
-				},
-				{
-					"name": "Item 2",
-					"level": 4
-				},
-				{
-					"name": "Item 3",
-					"level": 4
-				}
-			],
-			"isVisible": true,
-			"columnWidthPercent": "33.33%"
-		}
+      category: 'Custom Category',
+      keywords: [
+        {
+          name: 'Item 1',
+          level: 3,
+        },
+        {
+          name: 'Item 2',
+          level: 4,
+        },
+        {
+          name: 'Item 3',
+          level: 4,
+        },
+      ],
+      isVisible: true,
+      columnWidthPercent: '33.33%',
+    },
   ],
   projects: [
     {
