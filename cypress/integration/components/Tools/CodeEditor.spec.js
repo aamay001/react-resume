@@ -108,11 +108,11 @@ context('Code Editor', () => {
     cy.get('div.ui.segment').should('have.class', editorStatus.invalid.color);
 
     cy.get('#json-resume-editor textarea')
-      .clear({ force: true })
-      .invoke('val', jsonEditedText)
-      .trigger('input', { force: true });
+      .clear({ force: true });
 
-    cy.wait(10);
+    cy.get('#json-resume-editor textarea')
+      .invoke('val', jsonEditedText)
+      .trigger('input', { force: true, bubbles: true });
 
     // Check editor status is valid json
     cy.get('div.left.item').last().should('contain', editorStatus.valid.label);
