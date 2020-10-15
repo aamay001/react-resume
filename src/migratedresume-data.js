@@ -1,16 +1,24 @@
 const Resume = {
   header: {
-    name: 'Your Name',
-    email: 'email@domain.com',
-    phone: '123-456-7890',
-    github: 'https://github.com/xxxxxxx',
-    linkedin: 'https://linkedin.com/in/xxxxxx',
-    address: '123 Main Street',
-    website: 'https://website.com',
-    city: 'City',
-    state: 'CA',
-    zip: '00000',
-    country: 'USA',
+    name: "John Doe",
+    label: "Programmer",
+    picture: "",
+    email: "john@gmail.com",
+    phone: "(912) 555-4321",
+    website: "http://johndoe.com",
+    summary: "A summary of John Doe...",
+    location: {
+      address: "2712 Broadway St",
+      postalCode: "CA 94115",
+      city: "San Francisco",
+      countryCode: "US",
+      region: "California"
+    },
+    profiles: [{
+      network: "Twitter",
+      username: "john",
+      url: "http://twitter.com/john"
+    }]
   },
   experience: [
     {
@@ -124,24 +132,24 @@ const Resume = {
       isVisible: true,
     },
     {
-			"category": "Custom Category",
-			"keywords": [
-				{
-					"name": "Item 1",
-					"level": 3
-				},
-				{
-					"name": "Item 2",
-					"level": 4
-				},
-				{
-					"name": "Item 3",
-					"level": 4
-				}
-			],
-			"isVisible": true,
-			"columnWidthPercent": "33.33%"
-		}
+      "category": "Custom Category",
+      "keywords": [
+        {
+          "name": "Item 1",
+          "level": 3
+        },
+        {
+          "name": "Item 2",
+          "level": 4
+        },
+        {
+          "name": "Item 3",
+          "level": 4
+        }
+      ],
+      "isVisible": true,
+      "columnWidthPercent": "33.33%"
+    }
   ],
   projects: [
     {

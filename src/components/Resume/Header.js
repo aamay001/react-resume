@@ -130,7 +130,7 @@ Header.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  header: state.resume.basics,
+  header: state.resume.header,
   showAddress: state.tools.showAddress,
   showEmail: state.tools.showEmail,
   showPhone: state.tools.showPhone,
