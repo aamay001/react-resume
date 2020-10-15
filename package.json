@@ -44,6 +44,10 @@
       "browser": true,
       "node": true,
       "jest": true
+    },
+    "globals": {
+      "cy": true,
+      "context": true
     }
   },
   "browserslist": {
