@@ -2,7 +2,7 @@ import {
   NEW_RESUME,
   UPDATE_RESUME,
 } from '../actions/app.actions';
-import Resume from '../migratedresume-data'
+import Resume from '../migratedresume-data';
 import { saveResume, loadResume } from '../helpers/resume.helper';
 
 const storedResume = loadResume();

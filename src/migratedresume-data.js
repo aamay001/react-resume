@@ -91,18 +91,18 @@ const Resume = {
       isVisible: true,
     },
     {
-      category: "Custom Category",
+      category: 'Custom Category',
       keywords: [
         {
-          name: "Item 1",
+          name: 'Item 1',
           level: 3,
         },
         {
-          name: "Item 2",
+          name: 'Item 2',
           level: 4,
         },
         {
-          name: "Item 3",
+          name: 'Item 3',
           level: 4,
         },
       ],
