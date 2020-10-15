@@ -93,7 +93,7 @@ context('Code Editor', () => {
     cy.visit('/');
   });
 
-  it('should replace default datas', () => {
+  it('should replace default data', () => {
     cy.get('div.json-resume-tool button').contains('Code Editor').click();
 
     // Check editor status is waiting
@@ -111,6 +111,8 @@ context('Code Editor', () => {
       .clear({ force: true })
       .invoke('val', jsonEditedText)
       .trigger('input', { force: true });
+
+    cy.wait(10);
 
     // Check editor status is valid json
     cy.get('div.left.item').last().should('contain', editorStatus.valid.label);
