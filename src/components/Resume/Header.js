@@ -28,7 +28,6 @@ export const Header = ({
     <header className="resume-header" style={{ fontFamily: font }}>
       <h1 style={{ fontFamily: font }}>{header.name}</h1>
       <ul>
-        {console.log(header)}
         {showEmail
           && (
             <li data-testid="Email">
