@@ -16,15 +16,13 @@ const jsonEdited = {
   },
   experience: [
     {
-      company: 'Cypress Corp',
-      city: 'Cypress City',
-      state: 'FR',
-      position: 'Cypress position',
-      dateFrom: '06/08/1997',
-      dateTo: '03/10/2020',
-      primaryWorkBrief: 'Brief description of your Cypress tasks.',
-      impact1: 'Cypress is awesome 1.',
-      isVisible: true,
+      company: "Company",
+      position: "President",
+      website: "http://company.com",
+      startDate: "2013-01-01",
+      endDate: "2014-01-01",
+      summary: "Description...",
+      highlights: ["Started the company"],
     },
   ],
   education: [
