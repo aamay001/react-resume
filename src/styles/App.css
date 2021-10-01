@@ -1,4 +1,4 @@
-*:not(#json-resume-editor, #json-resume-editor *, .resume){
+*:not(#json-resume-editor, #json-resume-editor *, .resume, #resume-toast-container *){
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   color: #263238 !important;
@@ -120,6 +120,11 @@ body {
   color: #263238;
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
+.Toastify__toast-theme--dark .resume-toast-body {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
 }
 
 .ui.attached.menu {
