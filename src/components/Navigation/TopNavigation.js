@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 import { Menu } from 'semantic-ui-react';
 import { toggleToolbar } from '../../actions/app.actions';
 
-const TopNavigation = ({ dispatch, toolbarOpen }) => (
-  <Menu attached="top" size="massive">
-    <Menu.Item
-      icon={toolbarOpen ? 'x' : 'bars'}
-      onClick={() => dispatch(toggleToolbar())}
-      style={{
-        minWidth: 60,
-      }}
-    />
-  </Menu>
-);
+function TopNavigation({ dispatch, toolbarOpen }) {
+  return (
+    <Menu attached="top" size="massive">
+      <Menu.Item
+        icon={toolbarOpen ? 'x' : 'bars'}
+        onClick={() => dispatch(toggleToolbar())}
+        style={{
+          minWidth: 60,
+        }}
+      />
+    </Menu>
+  );
+}
 
 TopNavigation.defaultProps = {
   dispatch: () => {},
@@ -26,7 +28,7 @@ TopNavigation.propTypes = {
   toolbarOpen: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   toolbarOpen: state.app.toolbarOpen,
 });
 

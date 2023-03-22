@@ -7,19 +7,11 @@ import { updateResume } from '../../../actions/app.actions';
 class LoadFromFileButton extends Component {
   fileRef = createRef();
 
-  readFile(file) {
-    const fileReader = new FileReader()
-    
-    fileReader.onload = this.onFileRead
-    fileReader.onerror = this.onFileError
-    fileReader.readAsText(file)
-  }
-
   onFileChange = ({ target }) => {
     const file = target.files && target.files.length && target.files[0];
-    
-    if(file) {
-      this.readFile(file)
+
+    if (file) {
+      this.readFile(file);
     }
   }
 
@@ -28,22 +20,31 @@ class LoadFromFileButton extends Component {
   }
 
   onFileRead = ({ target }) => {
-    const result = target.result
+    const { dispatch, autoSave } = this.props;
+    const { result } = target;
 
-    if(!result) {
+    if (!result) {
       toast('😟 No data loaded from file!', { autoClose: false });
-      return
+      return;
     }
 
     try {
-      const resume = JSON.parse(result)
+      const resume = JSON.parse(result);
 
-      this.props.dispatch(updateResume(resume, this.props.autoSave));
+      dispatch(updateResume(resume, autoSave));
+
       toast('🙌 Resume loaded from file!');
-    } catch(e) {
+    } catch (e) {
       toast('😟 Could not parse data file!', { autoClose: false });
-      return
     }
+  }
+
+  readFile(file) {
+    const fileReader = new FileReader();
+
+    fileReader.onload = this.onFileRead;
+    fileReader.onerror = this.onFileError;
+    fileReader.readAsText(file);
   }
 
   render() {
@@ -64,16 +65,16 @@ class LoadFromFileButton extends Component {
             color: 'black',
           }}
         />
-        <input 
+        <input
           ref={this.fileRef}
           type="file"
           hidden
           onChange={this.onFileChange}
         />
       </div>
-    )
+    );
   }
-};
+}
 
 LoadFromFileButton.defaultProps = {
   dispatch: () => {},

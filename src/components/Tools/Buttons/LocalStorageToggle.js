@@ -1,4 +1,3 @@
-/* global location */
 /* eslint-disable no-restricted-globals */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -12,7 +11,7 @@ import ItemToggleButton from './ItemToggleButton';
 import { toggleAutoSave } from '../../../actions/app.actions';
 import ls from '../../../helpers/localstorage.helper';
 
-const LocalStorageToggle = ({ dispatch, status }) => {
+function LocalStorageToggle({ dispatch, status }) {
   const [confirm, setConfirm] = useState(false);
   return (
     <div className="json-resume-tool">
@@ -47,7 +46,7 @@ const LocalStorageToggle = ({ dispatch, status }) => {
       />
     </div>
   );
-};
+}
 
 LocalStorageToggle.defaultProps = {
   dispatch: () => {},

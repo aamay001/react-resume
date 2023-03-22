@@ -12,7 +12,7 @@ import {
   Loader,
 } from 'semantic-ui-react';
 import axios from 'axios';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { toast } from 'react-toastify';
 import classNames from 'classnames';
 import settings from '../../../config/settings';

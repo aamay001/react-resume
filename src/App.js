@@ -15,9 +15,9 @@ const history = createBrowserHistory();
 const { ROUTES } = constants;
 const { Home } = routes;
 
-const App = ({
+function App({
   editorOpen, toolbarOpen, moreVisibilityOpen, darkMode,
-}) => {
+}) {
   if (darkMode) {
     document.body.style.background = '#2d2d2d';
   } else {
@@ -51,7 +51,7 @@ const App = ({
       <FocusTrap full={editorOpen} mobile={toolbarOpen || moreVisibilityOpen} />
     </div>
   );
-};
+}
 
 App.defaultProps = {
   editorOpen: false,

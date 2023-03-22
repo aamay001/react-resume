@@ -17,44 +17,43 @@ import {
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
-const Toolbar = ({
-  toolbarOpen,
-  dispatch,
-  resume,
-  autoSave,
-}) => (
-  <aside>
-    <Sidebar
-      animation="scale down"
-      visible={toolbarOpen}
-      width="wide"
-      onHide={() => toolbarOpen && dispatch(toggleToolbar())}
-      style={{ overflowX: 'hidden', backgroundColor: '#fcfcfc', paddingBottom: 25 }}
-    >
-      <SidebarCloseButton
-        closeToolbar={() => dispatch(toggleToolbar())}
-        toolbarOpen={toolbarOpen}
-      />
-      <ToolbarHeader />
-      <SaveToCloudButtons />
-      <EditorButton dispatch={dispatch} />
-      <FontSelector />
-      <VisibilityChanger />
-      <OrderChanger />
-      <PrintButton />
-      <DownloadButton resume={resume} />
-      <LoadFromFileButton
-        dispatch={dispatch}
-        autoSave={autoSave}
-      />
-      <PaperSize />
-      <LocalStorageToggle
-        dispatch={dispatch}
-        status={autoSave}
-      />
-    </Sidebar>
-  </aside>
-);
+function Toolbar({
+  toolbarOpen, dispatch, resume, autoSave,
+}) {
+  return (
+    <aside>
+      <Sidebar
+        animation="scale down"
+        visible={toolbarOpen}
+        width="wide"
+        onHide={() => toolbarOpen && dispatch(toggleToolbar())}
+        style={{ overflowX: 'hidden', backgroundColor: '#fcfcfc', paddingBottom: 25 }}
+      >
+        <SidebarCloseButton
+          closeToolbar={() => dispatch(toggleToolbar())}
+          toolbarOpen={toolbarOpen}
+        />
+        <ToolbarHeader />
+        <SaveToCloudButtons />
+        <EditorButton dispatch={dispatch} />
+        <FontSelector />
+        <VisibilityChanger />
+        <OrderChanger />
+        <PrintButton />
+        <DownloadButton resume={resume} />
+        <LoadFromFileButton
+          dispatch={dispatch}
+          autoSave={autoSave}
+        />
+        <PaperSize />
+        <LocalStorageToggle
+          dispatch={dispatch}
+          status={autoSave}
+        />
+      </Sidebar>
+    </aside>
+  );
+}
 
 Toolbar.defaultProps = {
   dispatch: () => {},
@@ -70,7 +69,7 @@ Toolbar.propTypes = {
   autoSave: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   toolbarOpen: state.app.toolbarOpen,
   resume: state.resume,
   autoSave: state.tools.autoSave,

@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const ProfessionalSummary = ({ professionalSummary, font }) => (
-  <section data-testid="ProfessionalSummary" className="resume-professional-summary">
-    <h2 style={{ fontFamily: font }}>
-      Professional Summary
-    </h2>
-    <hr />
-    <p>
-      {professionalSummary.text}
-    </p>
-  </section>
-);
+function ProfessionalSummary({ professionalSummary, font }) {
+  return (
+    <section data-testid="ProfessionalSummary" className="resume-professional-summary">
+      <h2 style={{ fontFamily: font }}>
+        Professional Summary
+      </h2>
+      <hr />
+      <p>
+        {professionalSummary.text}
+      </p>
+    </section>
+  );
+}
 
 ProfessionalSummary.propTypes = {
   professionalSummary: PropTypes.shape({

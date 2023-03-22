@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Label, Icon, Button } from 'semantic-ui-react';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { changePaperSize } from '../../actions/app.actions';
 
 export const paperSizes = [

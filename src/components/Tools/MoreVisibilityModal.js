@@ -20,21 +20,16 @@ const sectionHeaderMap = {
 };
 
 const itemNamePropMap = {
-  experience: item => `${item.company} - ${item.position}`,
-  education: item => `${item.site} - ${item.studyDegree}`,
-  certification: item => item.issuedBy,
-  technicalSkills: item => item.category,
-  projects: item => item.name,
+  experience: (item) => `${item.company} - ${item.position}`,
+  education: (item) => `${item.site} - ${item.studyDegree}`,
+  certification: (item) => item.issuedBy,
+  technicalSkills: (item) => item.category,
+  projects: (item) => item.name,
 };
 
-
-const MoreVisibilityModal = ({
-  open,
-  dispatch,
-  resume,
-  autoSave,
-  darkMode,
-}) => {
+function MoreVisibilityModal({
+  open, dispatch, resume, autoSave, darkMode,
+}) {
   const [activeAccordion, setActiveAccordion] = useState('');
   return (
     <Modal
@@ -59,7 +54,7 @@ const MoreVisibilityModal = ({
       <Modal.Content>
         <p>Use these toggle to enable and disable individual items in your resume.</p>
         <Accordion fluid styled>
-          {Object.keys(sectionHeaderMap).map(section => (
+          {Object.keys(sectionHeaderMap).map((section) => (
             <Fragment key={section}>
               <Accordion.Title
                 active={activeAccordion === section}
@@ -101,8 +96,7 @@ const MoreVisibilityModal = ({
       </Modal.Content>
     </Modal>
   );
-};
-
+}
 
 MoreVisibilityModal.propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -112,7 +106,7 @@ MoreVisibilityModal.propTypes = {
   darkMode: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   open: state.app.moreVisibilityOpen,
   resume: state.resume,
   autoSave: state.tools.autoSave,

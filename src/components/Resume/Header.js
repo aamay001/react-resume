@@ -14,82 +14,76 @@ import phoneDarkIcon from '../../icons/dark/phone.svg';
 import websiteDarkIcon from '../../icons/dark/internet.svg';
 import githubDarkIcon from '../../icons/dark/github.svg';
 
-export const Header = ({
-  header,
-  showEmail,
-  showPhone,
-  showGithub,
-  showLinkedIn,
-  showWebsite,
-  showAddress,
-  font,
-  showIcon,
-}) => (
-  <header className="resume-header" style={{ fontFamily: font }}>
-    <h1 style={{ fontFamily: font }}>{header.name}</h1>
-    <ul>
-      {showEmail
-        && (
-          <li data-testid="Email">
-            <a href={`mailto:${header.email}?subject=Interview%20Request`}>
-              { showIcon ? <img src={mailIcon} className="header-icon normal-icon" alt="Mail Icon" /> : '' }
-              { showIcon ? <img src={mailDarkIcon} className="header-icon dark-icon" alt="Mail Icon" /> : '' }
-              {header.email}
-            </a>
-          </li>
-        )}
-      {showPhone
-        && (
-          <li data-testid="Phone">
-            <a href={`tel:${header.phone}`}>
-              { showIcon ? <img src={phoneIcon} className="header-icon normal-icon" alt="Phone Icon" /> : '' }
-              { showIcon ? <img src={phoneDarkIcon} className="header-icon dark-icon" alt="Phone Icon" /> : '' }
-              {header.phone}
-            </a>
-          </li>
-        )}
-      {showGithub
-        && (
-          <li data-testid="Github">
-            <a href={header.github} target="_new">
-              { showIcon ? <img src={githubIcon} className="header-icon normal-icon" alt="Github Icon" /> : '' }
-              { showIcon ? <img src={githubDarkIcon} className="header-icon dark-icon" alt="Github Icon" /> : '' }
-              {header.github}
-            </a>
-          </li>
-        )}
-      {showLinkedIn
-        && (
-          <li data-testid="LinkedIn">
-            <a href={header.linkedin} target="_new">
-              { showIcon ? <img src={linkedinIcon} className="header-icon normal-icon" alt="LinkedIn Icon" /> : '' }
-              { showIcon ? <img src={linkedinDarkIcon} className="header-icon dark-icon" alt="LinkedIn Icon" /> : '' }
-              {header.linkedin}
-            </a>
-          </li>
-        )}
-      {showWebsite
-        && (
-          <li data-testid="Website">
-            <a href={header.website} target="_new">
-              { showIcon ? <img src={websiteIcon} className="header-icon normal-icon" alt="Website Icon" /> : '' }
-              { showIcon ? <img src={websiteDarkIcon} className="header-icon dark-icon" alt="Website Icon" /> : '' }
-              {header.website}
-            </a>
-          </li>
-        )}
-    </ul>
-    {showAddress && (
-      <ul data-testid="Address">
-        <li>{header.address}</li>
-        <li>{header.city}</li>
-        <li>{header.state}</li>
-        <li>{header.zip}</li>
-        <li>{header.country}</li>
+export function Header({
+  header, showEmail, showPhone, showGithub, showLinkedIn, showWebsite, showAddress, font, showIcon,
+}) {
+  return (
+    <header className="resume-header" style={{ fontFamily: font }}>
+      <h1 style={{ fontFamily: font }}>{header.name}</h1>
+      <ul>
+        {showEmail
+          && (
+            <li data-testid="Email">
+              <a href={`mailto:${header.email}?subject=Interview%20Request`}>
+                {showIcon ? <img src={mailIcon} className="header-icon normal-icon" alt="Mail Icon" /> : ''}
+                {showIcon ? <img src={mailDarkIcon} className="header-icon dark-icon" alt="Mail Icon" /> : ''}
+                {header.email}
+              </a>
+            </li>
+          )}
+        {showPhone
+          && (
+            <li data-testid="Phone">
+              <a href={`tel:${header.phone}`}>
+                {showIcon ? <img src={phoneIcon} className="header-icon normal-icon" alt="Phone Icon" /> : ''}
+                {showIcon ? <img src={phoneDarkIcon} className="header-icon dark-icon" alt="Phone Icon" /> : ''}
+                {header.phone}
+              </a>
+            </li>
+          )}
+        {showGithub
+          && (
+            <li data-testid="Github">
+              <a href={header.github} target="_new">
+                {showIcon ? <img src={githubIcon} className="header-icon normal-icon" alt="Github Icon" /> : ''}
+                {showIcon ? <img src={githubDarkIcon} className="header-icon dark-icon" alt="Github Icon" /> : ''}
+                {header.github}
+              </a>
+            </li>
+          )}
+        {showLinkedIn
+          && (
+            <li data-testid="LinkedIn">
+              <a href={header.linkedin} target="_new">
+                {showIcon ? <img src={linkedinIcon} className="header-icon normal-icon" alt="LinkedIn Icon" /> : ''}
+                {showIcon ? <img src={linkedinDarkIcon} className="header-icon dark-icon" alt="LinkedIn Icon" /> : ''}
+                {header.linkedin}
+              </a>
+            </li>
+          )}
+        {showWebsite
+          && (
+            <li data-testid="Website">
+              <a href={header.website} target="_new">
+                {showIcon ? <img src={websiteIcon} className="header-icon normal-icon" alt="Website Icon" /> : ''}
+                {showIcon ? <img src={websiteDarkIcon} className="header-icon dark-icon" alt="Website Icon" /> : ''}
+                {header.website}
+              </a>
+            </li>
+          )}
       </ul>
-    )}
-  </header>
-);
+      {showAddress && (
+        <ul data-testid="Address">
+          <li>{header.address}</li>
+          <li>{header.city}</li>
+          <li>{header.state}</li>
+          <li>{header.zip}</li>
+          <li>{header.country}</li>
+        </ul>
+      )}
+    </header>
+  );
+}
 
 Header.defaultProps = {
   header: undefined,

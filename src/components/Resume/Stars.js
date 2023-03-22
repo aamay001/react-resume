@@ -13,7 +13,7 @@ const level = (lev) => {
   return a;
 };
 
-const Stars = ({ lev }) => {
+function Stars({ lev }) {
   const stars = [];
   for (let i = 1; i <= level(lev); i += 1) {
     stars.push(<img src={starsfilled} key={i} alt="filled-star" className="normal-icon" />);
@@ -28,7 +28,7 @@ const Stars = ({ lev }) => {
       {stars}
     </div>
   );
-};
+}
 
 Stars.defaultProps = {
   lev: 0,

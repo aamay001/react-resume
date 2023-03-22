@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import classNames from 'classnames';
 import Certifications from './Certifications';
 import Education from './Education';
@@ -22,7 +22,7 @@ import {
 } from '../../helpers/resume.helper';
 import '../../styles/Resume.css';
 
-const Resume = ({
+function Resume({
   font,
   showEducation,
   showTechSkills,
@@ -33,55 +33,57 @@ const Resume = ({
   order,
   paperSizeObj,
   darkMode,
-}) => (
-  <>
-    <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })}>
-      <div
-        className="resume"
-        style={{ fontFamily: font }}
-      >
-        <ResumeHeader />
-        {order.map((item) => {
-          switch (item) {
-            case PROFESSIONAL_SUMMARY:
-              return showProfessionalSummary
-                && <ProfessionalSummary key={uuid()} />;
-            case TECH_SKILLS:
-              return showTechSkills
-                && <TechnicalSkills key={uuid()} />;
-            case EXPERIENCE:
-              return showExperience
-                && <Experience key={uuid()} />;
-            case PROJECTS:
-              return showProjects
-                && <Projects key={uuid()} />;
-            case EDUCATION:
-              return showEducation
-                && <Education key={uuid()} />;
-            case CERTIFICATION:
-              return showCertification
-                && <Certifications key={uuid()} />;
-            default:
-              return <p>Error with order.</p>;
-          }
-        })}
+}) {
+  return (
+    <>
+      <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })}>
+        <div
+          className="resume"
+          style={{ fontFamily: font }}
+        >
+          <ResumeHeader />
+          {order.map((item) => {
+            switch (item) {
+              case PROFESSIONAL_SUMMARY:
+                return showProfessionalSummary
+                  && <ProfessionalSummary key={uuid()} />;
+              case TECH_SKILLS:
+                return showTechSkills
+                  && <TechnicalSkills key={uuid()} />;
+              case EXPERIENCE:
+                return showExperience
+                  && <Experience key={uuid()} />;
+              case PROJECTS:
+                return showProjects
+                  && <Projects key={uuid()} />;
+              case EDUCATION:
+                return showEducation
+                  && <Education key={uuid()} />;
+              case CERTIFICATION:
+                return showCertification
+                  && <Certifications key={uuid()} />;
+              default:
+                return <p>Error with order.</p>;
+            }
+          })}
+        </div>
       </div>
-    </div>
-    <p
-      style={{
-        color: 'red',
-        textAlign: 'center',
-        position: 'absolute',
-        width: '100vw',
-        marginTop: 5,
-      }}
-    >
-      <span role="img" aria-label="img"> ⬆ ️</span>
-      {`bottom limit of ${paperSizeObj.name} size page`}
-      <span role="img" aria-label="img"> ⬆ ️</span>
-    </p>
-  </>
-);
+      <p
+        style={{
+          color: 'red',
+          textAlign: 'center',
+          position: 'absolute',
+          width: '100vw',
+          marginTop: 5,
+        }}
+      >
+        <span role="img" aria-label="img"> ⬆ ️</span>
+        {`bottom limit of ${paperSizeObj.name} size page`}
+        <span role="img" aria-label="img"> ⬆ ️</span>
+      </p>
+    </>
+  );
+}
 
 Resume.defaultProps = {
   font: undefined,
