@@ -25,7 +25,14 @@ function App({
   const [autoSaveToastId, setToastId] = useState('');
   useEffect(() => {
     if (!autoSave) {
-      const id = toast.warn('To prevent data loss, download your resume using the Download button or turn on auto save!', { autoClose: false, position: 'bottom-right', closeOnClick: false });
+      const id = toast.warn(
+        'To prevent data loss, download your resume using the Download button or turn on auto save!',
+        {
+          autoClose: false,
+          position: 'bottom-right',
+          closeOnClick: false,
+        },
+      );
       setToastId(id);
     } else {
       toast.dismiss(autoSaveToastId);
