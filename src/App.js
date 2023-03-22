@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Router } from 'react-router';
 import { connect } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { createBrowserHistory } from 'history';
 import classNames from 'classnames';
 import { constants } from './config';
@@ -16,8 +16,23 @@ const { ROUTES } = constants;
 const { Home } = routes;
 
 function App({
-  editorOpen, toolbarOpen, moreVisibilityOpen, darkMode,
+  editorOpen,
+  toolbarOpen,
+  moreVisibilityOpen,
+  darkMode,
+  autoSave,
 }) {
+  const [autoSaveToastId, setToastId] = useState('');
+  useEffect(() => {
+    if (!autoSave) {
+      const id = toast.warn('To prevent data loss, download your resume using the Download button or turn on auto save!', { autoClose: false, position: 'bottom-right', closeOnClick: false });
+      setToastId(id);
+    } else {
+      toast.dismiss(autoSaveToastId);
+      setToastId('');
+    }
+  }, [autoSave]);
+
   if (darkMode) {
     document.body.style.background = '#2d2d2d';
   } else {
@@ -65,6 +80,7 @@ App.propTypes = {
   toolbarOpen: PropTypes.bool,
   moreVisibilityOpen: PropTypes.bool,
   darkMode: PropTypes.bool,
+  autoSave: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -72,6 +88,7 @@ const mapStateToProps = (state) => ({
   toolbarOpen: state.app.toolbarOpen,
   moreVisibilityOpen: state.app.moreVisibilityOpen,
   darkMode: state.tools.darkMode,
+  autoSave: state.tools.autoSave,
 });
 
 export default connect(mapStateToProps)(App);
