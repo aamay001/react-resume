@@ -182,7 +182,7 @@
 
 .resume-tech-skills .grid-column {
   flex-basis: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .tech-skills-keyword {
@@ -216,6 +216,7 @@
   .resume-tech-skills .grid-container {
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
+    margin-bottom: 0;
   }
 
   .resume-tech-skills .grid-column-1 {
