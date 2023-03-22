@@ -13,10 +13,10 @@ import {
 import { isValidJSON } from '../../helpers/resume.helper';
 import { EDITOR_STATUS, getStatusColor, getDarkStatusColor } from '../../helpers/tools.helper';
 
-import 'brace/mode/json';
-import 'brace/theme/tomorrow_night_bright';
-import 'brace/theme/tomorrow';
-import 'brace/ext/language_tools';
+import 'ace-builds/src-noconflict/mode-json';
+import 'ace-builds/src-noconflict/theme-tomorrow_night_bright';
+import 'ace-builds/src-noconflict/theme-tomorrow';
+import 'ace-builds/src-noconflict/ext-language_tools';
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -109,6 +109,10 @@ class CodeEditor extends Component {
               showLineNumber
               showPrintMargin={false}
               tabSize={3}
+              fontSize={14}
+              setOptions={{
+                useWorker: false,
+              }}
               onChange={this.onResumeChange}
             />
           </Segment>

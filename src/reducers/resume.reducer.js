@@ -1,3 +1,4 @@
+/* eslint default-param-last: 0 */
 import {
   NEW_RESUME,
   UPDATE_RESUME,

@@ -7,15 +7,17 @@ import {
 } from '../components';
 import Resume from '../components/Resume';
 
-const Home = () => (
-  <>
-    <TopNavigation />
-    <Resume />
-    <Toolbar />
-    <CodeEditor />
-    <MoreVisibilityModal />
-  </>
-);
+function Home() {
+  return (
+    <>
+      <TopNavigation />
+      <Resume />
+      <Toolbar />
+      <CodeEditor />
+      <MoreVisibilityModal />
+    </>
+  );
+}
 
 Home.defaultProps = {
 };

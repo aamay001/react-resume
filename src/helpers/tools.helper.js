@@ -12,15 +12,19 @@ const savedTools = ls.getItem(STORED_TOOLS_KEY);
 let prevLocalStorageState = savedTools ? savedTools.autoSave : false;
 
 if (!prevLocalStorageState) {
-  debounce(() => toast(' ⚠️ Auto save to local storage is turned off!', { toastId: 'rrtrlsoffinit', position: 'top-right', autoClose: false }),
+  debounce(
+    () => toast(' ⚠️ Auto save to local storage is turned off!', { toastId: 'rrtrlsoffinit', position: 'top-right', autoClose: false }),
     1000,
     false,
-    'rrtrlsoffinit');
+    'rrtrlsoffinit',
+  );
 } else {
-  debounce(() => toast(' 💾 Auto save to local storage is turned on!', { toastId: 'rrtrlsoninit', position: 'top-right', autoClose: 10000 }),
+  debounce(
+    () => toast(' 💾 Auto save to local storage is turned on!', { toastId: 'rrtrlsoninit', position: 'top-right', autoClose: 10000 }),
     1000,
     false,
-    'rrtrlsoninit');
+    'rrtrlsoninit',
+  );
 }
 
 export const EDITOR_STATUS = {
@@ -71,15 +75,19 @@ export const saveTools = (tools) => {
   prevLocalStorageState = tools.autoSave;
   if (ls.setItem(STORED_TOOLS_KEY, tools)) {
     toast.dismiss(SAVE_RESUME_ERROR_TOAST_ID);
-    debounce(() => toast(' 💾 saved to local storage...', { toastId: SAVE_RESUME_SUCCESS_TOAST_ID, position: 'top-right' }),
+    debounce(
+      () => toast(' 💾 saved to local storage...', { toastId: SAVE_RESUME_SUCCESS_TOAST_ID, position: 'top-right' }),
       100,
       false,
-      SAVE_RESUME_SUCCESS_TOAST_ID);
+      SAVE_RESUME_SUCCESS_TOAST_ID,
+    );
   } else {
-    debounce(() => toast(' ⚠️ error saving to local storage...', { toastId: SAVE_RESUME_ERROR_TOAST_ID, position: 'top-right' }),
+    debounce(
+      () => toast(' ⚠️ error saving to local storage...', { toastId: SAVE_RESUME_ERROR_TOAST_ID, position: 'top-right' }),
       100,
       false,
-      SAVE_RESUME_ERROR_TOAST_ID);
+      SAVE_RESUME_ERROR_TOAST_ID,
+    );
   }
   return tools;
 };

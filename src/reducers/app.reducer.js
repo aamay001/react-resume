@@ -1,3 +1,4 @@
+/* eslint default-param-last: 0 */
 import {
   TOGGLE_TOOLBAR,
   TOGGLE_EDITOR,
@@ -10,18 +11,18 @@ const initialState = {
   moreVisibilityOpen: false,
 };
 
-const toggleToolbar = state => ({
+const toggleToolbar = (state) => ({
   ...state,
   toolbarOpen: !state.toolbarOpen,
 });
 
-const toggleEditor = state => ({
+const toggleEditor = (state) => ({
   ...state,
   editorOpen: !state.editorOpen,
   toolbarOpen: state.editorOpen,
 });
 
-const toggleMoreVisivility = state => ({
+const toggleMoreVisivility = (state) => ({
   ...state,
   moreVisibilityOpen: !state.moreVisibilityOpen,
   toolbarOpen: state.moreVisibilityOpen,

@@ -43,7 +43,7 @@ class FontSelector extends Component {
           >
             {fonts
               .sort((f1, f2) => (f1.name < f2.name ? -1 : 0))
-              .map(font => (
+              .map((font) => (
                 <option value={font.font} key={uuid()}>
                   {font.name}
                 </option>
@@ -65,7 +65,7 @@ FontSelector.propTypes = {
   selectedFont: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   selectedFont: state.tools.font,
 });
 

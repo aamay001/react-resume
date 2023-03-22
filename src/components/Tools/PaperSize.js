@@ -48,7 +48,7 @@ class PaperSize extends Component {
             value={paperSize}
           >
             {paperSizes
-              .map(size => (
+              .map((size) => (
                 <option value={size.tag} key={uuid()}>
                   {size.name}
                 </option>
@@ -70,7 +70,7 @@ PaperSize.propTypes = {
   paperSize: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   paperSize: state.tools.paperSize,
 });
 

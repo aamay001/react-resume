@@ -1,3 +1,4 @@
+/* eslint default-param-last: 0 */
 import {
   CHANGE_FONT,
   TOGGLE_SHOW_ITEM,

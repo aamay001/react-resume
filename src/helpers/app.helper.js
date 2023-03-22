@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const FocusTrap = ({ full, mobile }) => (
-  <>
-    {mobile &&
-      <style>
-        {`@media only screen and (max-width: 500px) {
+export function FocusTrap({ full, mobile }) {
+  return (
+    <>
+      {mobile &&
+        <style>
+          {`@media only screen and (max-width: 500px) {
           body {
             overflow: hidden !important;
           }
@@ -16,19 +17,20 @@ export const FocusTrap = ({ full, mobile }) => (
             max-height: 100vh !important;
           }
         }`}
-      </style>}
-    {full &&
-      <style>
-        {`
+        </style>}
+      {full &&
+        <style>
+          {`
           html, body {
             overflow: hidden !important;
             max-width: 100vw !important;
             max-height: 100vh !important;
           }
         `}
-      </style>}
-  </>
-);
+        </style>}
+    </>
+  );
+}
 
 FocusTrap.defaultProps = {
   full: false,

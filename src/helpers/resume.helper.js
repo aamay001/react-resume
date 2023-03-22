@@ -147,15 +147,19 @@ export const STORED_RESUME_KEY = 'rr-ls-resume-key';
 
 export const saveResume = (resume) => {
   if (ls.setItem(STORED_RESUME_KEY, resume)) {
-    debounce(() => toast(' 💾 saved to localStorage...', { toastId: SAVE_RESUME_SUCCESS_TOAST_ID }),
+    debounce(
+      () => toast(' 💾 saved to localStorage...', { toastId: SAVE_RESUME_SUCCESS_TOAST_ID }),
       500,
       false,
-      SAVE_RESUME_SUCCESS_TOAST_ID);
+      SAVE_RESUME_SUCCESS_TOAST_ID,
+    );
   } else {
-    debounce(() => toast(' ⚠️ error saving to localStorage...', { toastId: SAVE_RESUME_ERROR_TOAST_ID }),
+    debounce(
+      () => toast(' ⚠️ error saving to localStorage...', { toastId: SAVE_RESUME_ERROR_TOAST_ID }),
       500,
       false,
-      SAVE_RESUME_ERROR_TOAST_ID);
+      SAVE_RESUME_ERROR_TOAST_ID,
+    );
   }
 };
 
