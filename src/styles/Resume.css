@@ -111,7 +111,8 @@
   padding: 0 0.4em;
 }
 
-.resume-experience {
+.resume-experience,
+.resume-professional-summary {
   text-align: left;
 }
 
