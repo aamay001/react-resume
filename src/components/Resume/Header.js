@@ -103,7 +103,19 @@ Header.defaultProps = {
 };
 
 Header.propTypes = {
-  header: PropTypes.shape({}),
+  header: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    github: PropTypes.string,
+    linkedin: PropTypes.string,
+    country: PropTypes.string,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zip: PropTypes.string,
+    phone: PropTypes.string,
+    website: PropTypes.string,
+  }),
   showEmail: PropTypes.bool,
   showPhone: PropTypes.bool,
   showGithub: PropTypes.bool,
@@ -114,7 +126,7 @@ Header.propTypes = {
   showIcon: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   header: state.resume.header,
   showAddress: state.tools.showAddress,
   showEmail: state.tools.showEmail,
@@ -127,6 +139,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
-
-
-

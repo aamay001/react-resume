@@ -14,19 +14,19 @@ export const newResume = () => ({
 });
 
 export const CHANGE_FONT = 'CHANGE_FONT';
-export const changeFont = font => ({
+export const changeFont = (font) => ({
   type: CHANGE_FONT,
   font,
 });
 
 export const TOGGLE_SHOW_ITEM = 'TOGGLE_SHOW_ITEM';
-export const toggleShowItem = item => ({
+export const toggleShowItem = (item) => ({
   type: TOGGLE_SHOW_ITEM,
   item,
 });
 
 export const CHANGE_RESUME_ORDER = 'CHANGE_RESUME_ORDER';
-export const changeResumeOrder = order => ({
+export const changeResumeOrder = (order) => ({
   type: CHANGE_RESUME_ORDER,
   order,
 });
@@ -39,7 +39,7 @@ export const updateResume = (resume, autoSave) => ({
 });
 
 export const UPDATE_EDITOR_STATUS = 'UPDATE_RESUME_STAUS';
-export const updateResumeEditorStatus = status => ({
+export const updateResumeEditorStatus = (status) => ({
   type: UPDATE_EDITOR_STATUS,
   status,
 });
@@ -50,7 +50,7 @@ export const toggleAutoSave = () => ({
 });
 
 export const CHANGE_PAPER_SIZE = 'CHANGE_PAPER_SIZE';
-export const changePaperSize = paperSize => ({
+export const changePaperSize = (paperSize) => ({
   type: CHANGE_PAPER_SIZE,
   paperSize,
 });

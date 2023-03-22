@@ -10,7 +10,6 @@ import {
 import { EDITOR_STATUS, saveTools, loadTools } from '../helpers/tools.helper';
 import { defaultResumeOrder } from '../helpers/resume.helper';
 
-
 const storedTools = loadTools();
 const initialState = {
   font: 'Source Code Pro, monospace',
@@ -27,6 +26,7 @@ const initialState = {
   showExperience: true,
   showLinkedIn: false,
   showWebsite: true,
+  showProfessionalSummary: true,
   editorStatus: EDITOR_STATUS.WAITING,
   autoSave: false,
   paperSize: 'letter',
@@ -58,12 +58,12 @@ const updateResumeEditorStatus = (state, action) => ({
   editorStatus: action.status,
 });
 
-const toggleEditor = state => ({
+const toggleEditor = (state) => ({
   ...state,
   editorStatus: EDITOR_STATUS.WAITING,
 });
 
-const toggleAutoSave = state => ({
+const toggleAutoSave = (state) => ({
   ...state,
   autoSave: !state.autoSave,
 });
@@ -72,7 +72,6 @@ const choosePaperSize = (state, paperSize) => ({
   ...state,
   paperSize,
 });
-
 
 export default (state = storedTools || initialState, action) => {
   switch (action.type) {

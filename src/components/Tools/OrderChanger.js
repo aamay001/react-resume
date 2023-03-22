@@ -10,6 +10,7 @@ import {
   PROJECTS,
   EXPERIENCE,
   CERTIFICATION,
+  PROFESSIONAL_SUMMARY,
 } from '../../helpers/resume.helper';
 
 class OrderChanger extends Component {
@@ -27,7 +28,7 @@ class OrderChanger extends Component {
   onOrderChange(e) {
     const { dispatch } = this.props;
     const newResumeOrder = Array.from(e.to.children)
-      .map(item => parseInt(item.getAttribute('data-id'), 10));
+      .map((item) => parseInt(item.getAttribute('data-id'), 10));
     dispatch(changeResumeOrder(newResumeOrder));
   }
 
@@ -36,17 +37,20 @@ class OrderChanger extends Component {
     let resumeSection = '';
     return order.map((item) => {
       switch (item) {
-        case EDUCATION:
-          resumeSection = 'Education';
+        case PROFESSIONAL_SUMMARY:
+          resumeSection = 'Proessional Summary';
           break;
         case TECH_SKILLS:
           resumeSection = 'Technical Skills';
           break;
+        case EXPERIENCE:
+          resumeSection = 'Experience';
+          break;
         case PROJECTS:
           resumeSection = 'Projects';
           break;
-        case EXPERIENCE:
-          resumeSection = 'Experience';
+        case EDUCATION:
+          resumeSection = 'Education';
           break;
         case CERTIFICATION:
           resumeSection = 'Certifications';
@@ -112,7 +116,7 @@ OrderChanger.propTypes = {
   order: PropTypes.arrayOf(PropTypes.number),
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   order: state.tools.order,
 });
 

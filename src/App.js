@@ -25,23 +25,23 @@ const App = ({
   }
   return (
     <div className={classNames('App', { darkMode })}>
-    <ToastContainer
-      position='top-center'
-      autoClose={3000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick={true}
-      closeButton={false}
-      rtl={false}
-      pauseOnVisibilityChange
-      draggable
-      pauseOnHover
-      progressStyle={{
-        background: 'lightgray',
-      }}
-      bodyClassName='resume-toast-body'
-      theme={darkMode ? 'dark' : 'light'}
-    />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        closeButton={false}
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+        progressStyle={{
+          background: 'lightgray',
+        }}
+        bodyClassName="resume-toast-body"
+        theme={darkMode ? 'dark' : 'light'}
+      />
       <Router history={history}>
         <Switch>
           <Route exact path={ROUTES.HOME.PATH} component={Home} />
@@ -67,7 +67,7 @@ App.propTypes = {
   darkMode: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   editorOpen: state.app.editorOpen,
   toolbarOpen: state.app.toolbarOpen,
   moreVisibilityOpen: state.app.moreVisibilityOpen,

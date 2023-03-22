@@ -14,10 +14,10 @@ import {
 import axios from 'axios';
 import uuid from 'uuid/v4';
 import { toast } from 'react-toastify';
+import classNames from 'classnames';
 import settings from '../../../config/settings';
 import { toggleToolbar } from '../../../actions/app.actions';
 import { FocusTrap } from '../../../helpers/app.helper';
-import classNames from 'classnames';
 
 const { API } = settings;
 const { SAVE_KEY, FILE_KEY } = API;
@@ -312,7 +312,7 @@ SaveToCloudButtons.propTypes = {
   darkMode: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   resume: state.resume,
   darkMode: state.tools.darkMode,
 });

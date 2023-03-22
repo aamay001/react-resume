@@ -8,6 +8,7 @@ import Education from './Education';
 import Experience from './Experience';
 import ResumeHeader from './Header';
 import Projects from './Projects';
+import ProfessionalSummary from './ProfessionalSummary';
 import TechnicalSkills from './TechnicalSkills';
 import { paperSizes } from '../Tools/PaperSize';
 import {
@@ -16,6 +17,7 @@ import {
   PROJECTS,
   EXPERIENCE,
   CERTIFICATION,
+  PROFESSIONAL_SUMMARY,
   defaultResumeOrder,
 } from '../../helpers/resume.helper';
 import '../../styles/Resume.css';
@@ -27,6 +29,7 @@ const Resume = ({
   showProjects,
   showExperience,
   showCertification,
+  showProfessionalSummary,
   order,
   paperSizeObj,
   darkMode,
@@ -40,18 +43,21 @@ const Resume = ({
         <ResumeHeader />
         {order.map((item) => {
           switch (item) {
-            case EDUCATION:
-              return showEducation
-                && <Education key={uuid()} />;
+            case PROFESSIONAL_SUMMARY:
+              return showProfessionalSummary
+                && <ProfessionalSummary key={uuid()} />;
             case TECH_SKILLS:
               return showTechSkills
                 && <TechnicalSkills key={uuid()} />;
-            case PROJECTS:
-              return showProjects
-                && <Projects key={uuid()} />;
             case EXPERIENCE:
               return showExperience
                 && <Experience key={uuid()} />;
+            case PROJECTS:
+              return showProjects
+                && <Projects key={uuid()} />;
+            case EDUCATION:
+              return showEducation
+                && <Education key={uuid()} />;
             case CERTIFICATION:
               return showCertification
                 && <Certifications key={uuid()} />;
@@ -84,6 +90,7 @@ Resume.defaultProps = {
   showProjects: true,
   showExperience: true,
   showCertification: true,
+  showProfessionalSummary: true,
   order: defaultResumeOrder,
   paperSizeObj: paperSizes[0],
   darkMode: false,
@@ -96,6 +103,7 @@ Resume.propTypes = {
   showProjects: PropTypes.bool,
   showExperience: PropTypes.bool,
   showCertification: PropTypes.bool,
+  showProfessionalSummary: PropTypes.bool,
   order: PropTypes.arrayOf(PropTypes.number),
   paperSizeObj: PropTypes.shape({
     name: PropTypes.string,
@@ -104,15 +112,16 @@ Resume.propTypes = {
   darkMode: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   showEducation: state.tools.showEducation,
   showTechSkills: state.tools.showTechSkills,
   showProjects: state.tools.showProjects,
   showExperience: state.tools.showExperience,
   showCertification: state.tools.showCertification,
+  showProfessionalSummary: state.tools.showProfessionalSummary,
   font: state.tools.font,
   order: state.tools.order,
-  paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
+  paperSizeObj: paperSizes.find((size) => size.tag === state.tools.paperSize),
   resume: state.resume,
   darkMode: state.tools.darkMode,
 });

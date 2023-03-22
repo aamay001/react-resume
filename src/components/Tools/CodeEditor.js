@@ -136,7 +136,7 @@ CodeEditor.propTypes = {
   darkMode: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   editorOpen: state.app.editorOpen,
   resume: state.resume,
   statusMessage: state.tools.editorStatus,

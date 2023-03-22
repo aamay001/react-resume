@@ -46,6 +46,7 @@ class VisibilityChanger extends Component {
       showLinkedIn,
       showWebsite,
       showSkillLevel,
+      showProfessionalSummary,
       showIcon,
       darkMode,
     } = this.props;
@@ -63,6 +64,7 @@ class VisibilityChanger extends Component {
         <ItemToggleButton onToggle={this.handleToggle} name="showWebsite" label="Show Website" status={showWebsite} />
         <ItemToggleButton onToggle={this.handleToggle} name="showIcon" label="Show Icons" status={showIcon} />
         <ItemToggleButton onToggle={this.handleToggle} name="showAddress" label="Show Address" status={showAddress} />
+        <ItemToggleButton onToggle={this.handleToggle} name="showProfessionalSummary" label="Show Pro. Summary" status={showProfessionalSummary} />
         <ItemToggleButton onToggle={this.handleToggle} name="showCertification" label="Show Certifications" status={showCertification} />
         <ItemToggleButton onToggle={this.handleToggle} name="showEducation" label="Show Education" status={showEducation} />
         <ItemToggleButton onToggle={this.handleToggle} name="showExperience" label="Show Experience" status={showExperience} />
@@ -87,6 +89,7 @@ VisibilityChanger.defaultProps = {
   showEducation: true,
   showCertification: true,
   showExperience: true,
+  showProfessionalSummary: true,
   showLinkedIn: true,
   showWebsite: true,
   showIcon: true,
@@ -107,11 +110,12 @@ VisibilityChanger.propTypes = {
   showExperience: PropTypes.bool,
   showLinkedIn: PropTypes.bool,
   showWebsite: PropTypes.bool,
+  showProfessionalSummary: PropTypes.bool,
   showIcon: PropTypes.bool,
   darkMode: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   showAddress: state.tools.showAddress,
   showEmail: state.tools.showEmail,
   showPhone: state.tools.showPhone,
@@ -124,6 +128,7 @@ const mapStateToProps = state => ({
   showExperience: state.tools.showExperience,
   showLinkedIn: state.tools.showLinkedIn,
   showWebsite: state.tools.showWebsite,
+  showProfessionalSummary: state.tools.showProfessionalSummary,
   showIcon: state.tools.showIcon,
   darkMode: state.tools.darkMode,
 });

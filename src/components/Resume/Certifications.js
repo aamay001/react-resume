@@ -11,7 +11,7 @@ const Certifications = ({ certification, font }) => (
     <hr />
     <ul>
       {certification.map(
-        cert => cert.isVisible !== false && (
+        (cert) => cert.isVisible !== false && (
         <li key={uuid()}>
           <h3 style={{ fontFamily: font }}>
             {cert.issuedBy}
@@ -38,7 +38,7 @@ Certifications.propTypes = {
   font: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   certification: state.resume.certification,
   font: state.tools.font,
 });

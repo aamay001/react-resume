@@ -11,7 +11,7 @@ const Experience = ({ experience, font }) => (
     <hr />
     <ul>
       {experience.map(
-        exp => exp.isVisible !== false && (
+        (exp) => exp.isVisible !== false && (
         <li key={uuid()}>
           {' '}
           <h3 style={{ fontFamily: font }}>
@@ -46,7 +46,7 @@ Experience.propTypes = {
   font: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   experience: state.resume.experience,
   font: state.tools.font,
 });

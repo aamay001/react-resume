@@ -6,8 +6,8 @@ import Stars from './Stars';
 
 const defaultLevel = 4;
 
-const retString = kw => (typeof kw === 'string' ? kw : kw.name);
-const retObject = kw => (typeof kw === 'string' ? { name: kw, level: defaultLevel } : kw);
+const retString = (kw) => (typeof kw === 'string' ? kw : kw.name);
+const retObject = (kw) => (typeof kw === 'string' ? { name: kw, level: defaultLevel } : kw);
 
 const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
   <section data-testid="TechSkills" className="resume-tech-skills">
@@ -17,20 +17,20 @@ const TechnicalSkills = ({ techSkills, showSkillLevel, font }) => (
     <hr />
     <div className="grid-container">
       {techSkills.map(
-        (skill, index) => skill.isVisible !== false && (
-            <div key={uuid()} className="grid-column" style={{ flexBasis: skill.columnWidthPercent || undefined}}>
-              <h3 style={{ fontFamily: font }}>
-                {skill.category}
-              </h3>
-              {showSkillLevel
-                ? skill.keywords.map(kw => (
-                  <div className="tech-skills-keyword" key={uuid()}>
-                    <div className="keyword-name">{retObject(kw).name}</div>
-                    <Stars lev={retObject(kw).level} />
-                  </div>
-                ))
-                : skill.keywords.map((kw, skillIndex) => (skillIndex === skill.keywords.length - 1 ? retString(kw) : `${retString(kw)}, `))}
-            </div>)
+        (skill) => skill.isVisible !== false && (
+        <div key={uuid()} className="grid-column" style={{ flexBasis: skill.columnWidthPercent || undefined }}>
+          <h3 style={{ fontFamily: font }}>
+            {skill.category}
+          </h3>
+          {showSkillLevel
+            ? skill.keywords.map((kw) => (
+              <div className="tech-skills-keyword" key={uuid()}>
+                <div className="keyword-name">{retObject(kw).name}</div>
+                <Stars lev={retObject(kw).level} />
+              </div>
+            ))
+            : skill.keywords.map((kw, skillIndex) => (skillIndex === skill.keywords.length - 1 ? retString(kw) : `${retString(kw)}, `))}
+        </div>),
       )}
     </div>
   </section>
@@ -47,7 +47,7 @@ TechnicalSkills.propTypes = {
   font: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   techSkills: state.resume.technicalSkills,
   showSkillLevel: state.tools.showSkillLevel,
   font: state.tools.font,
