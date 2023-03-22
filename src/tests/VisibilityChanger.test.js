@@ -11,7 +11,6 @@ import Resume from '../components/Resume';
 
 // TODO?: isolate assertions checking for specific tree structures, classes, etc. for easier testing
 
-
 describe('Toggle buttons render as expected, displayed under "Visibility" with eye icon', () => {
   test('Container for toggle buttons renders as expected', () => {
     const { getByTestId } = render(
@@ -24,8 +23,8 @@ describe('Toggle buttons render as expected, displayed under "Visibility" with e
     // should have class "json-resume-tool"
     expect(vc.classList).toContain('json-resume-tool');
 
-    // should contain 14 child elements
-    expect(vc.childElementCount).toBe(16);
+    // should contain 17 child elements
+    expect(vc.childElementCount).toBe(17);
 
     // first child should be a div with expected classes
     const label = vc.firstChild;
@@ -44,7 +43,6 @@ describe('Toggle buttons render as expected, displayed under "Visibility" with e
     expect(text.nodeValue).toEqual('Visibility');
   });
 
-
   test('Toggle buttons render as expected', () => {
     const { getByTestId } = render(
       <Provider store={store}><VisibilityChanger /></Provider>,
@@ -56,7 +54,6 @@ describe('Toggle buttons render as expected, displayed under "Visibility" with e
         * (eg. "Email", "showEmail")
         */
     const dataTestIDs = ['Email', 'Phone', 'Github', 'LinkedIn', 'Website', 'Address', 'Certification', 'Education', 'Experience', 'Projects', 'TechSkills', 'SkillLevel'];
-
 
     dataTestIDs.forEach((id) => {
       // get btn el
@@ -104,7 +101,6 @@ describe('Toggle buttons render as expected, displayed under "Visibility" with e
     });
   });
 });
-
 
 describe('Toggle buttons work as expected', () => {
   test('Resume content visibility matches corresponding toggle button status on load', () => {

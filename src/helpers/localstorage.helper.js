@@ -1,4 +1,3 @@
-/* globals localStorage window btoa atob */
 const setItem = (key, item) => {
   if (window.localStorage) {
     localStorage.setItem(key, btoa(JSON.stringify(item)));

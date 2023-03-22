@@ -1,14 +1,28 @@
 import { toast } from 'react-toastify';
 import { debounce } from './app.helper';
 import ls from './localstorage.helper';
+import defaultResume from '../resume-data';
 import { SAVE_RESUME_ERROR_TOAST_ID, SAVE_RESUME_SUCCESS_TOAST_ID } from '../config/constants';
 
-export const isValidJSON = (data) => {
+export const isValidJSON = (data, parsed, autoFix) => {
   let cleanedResume;
   try {
-    const newResume = JSON.parse(data);
-    const keys = Object.keys(newResume);
-    if (!('header' in keys) && typeof newResume.header !== 'object') {
+    let newResume;
+    if (!parsed) {
+      newResume = JSON.parse(data);
+    } else {
+      newResume = data;
+    }
+
+    if (!newResume) {
+      return false;
+    }
+
+    if (('header' in newResume) && typeof newResume.header !== 'object') {
+      return false;
+    }
+
+    if (!('professionalSummary' in newResume) && typeof newResume.professionalSummary !== 'object') {
       return false;
     }
 
@@ -34,46 +48,100 @@ export const isValidJSON = (data) => {
       throw new Error('');
     }
 
-    if (!('experience' in keys) && !Array.isArray(newResume.experience)) {
-      throw new Error('');
+    const missingRootProps = [];
+
+    if (!('experience' in newResume) && !Array.isArray(newResume.experience)) {
+      if (!autoFix) {
+        throw new Error('');
+      } else {
+        missingRootProps.push('experience');
+      }
     }
-    if (!('education' in keys) && !Array.isArray(newResume.education)) {
-      throw new Error('');
+    if (!('education' in newResume) && !Array.isArray(newResume.education)) {
+      if (!autoFix) {
+        throw new Error('');
+      } else {
+        missingRootProps.push('education');
+      }
     }
     if (
-      !('technicalSkills' in keys) && !Array.isArray(newResume.technicalSkills)
+      !('technicalSkills' in newResume) && !Array.isArray(newResume.technicalSkills)
     ) {
-      throw new Error('');
+      if (!autoFix) {
+        throw new Error('');
+      } else {
+        missingRootProps.push('technicalSkills');
+      }
     }
-    if (!('projects' in keys) && !Array.isArray(newResume.projects)) {
-      throw new Error('');
+    if (!('projects' in newResume) && !Array.isArray(newResume.projects)) {
+      if (!autoFix) {
+        throw new Error('');
+      } else {
+        missingRootProps.push('projects');
+      }
     }
     if (
-      !('certification' in keys) && !Array.isArray(newResume.certification)
+      !('certification' in newResume) && !Array.isArray(newResume.certification)
     ) {
-      throw new Error('');
+      if (!autoFix) {
+        throw new Error('');
+      } else {
+        missingRootProps.push('certification');
+      }
+    }
+    if (!('professionalSummary' in newResume)) {
+      if (!autoFix) {
+        throw new Error('');
+      } else {
+        missingRootProps.push('professionalSummary');
+      }
     }
     cleanedResume = {
-      header: newResume.header,
-      experience: newResume.experience,
-      education: newResume.education,
-      technicalSkills: newResume.technicalSkills,
-      projects: newResume.projects,
-      certification: newResume.certification,
+      header: missingRootProps.includes('header')
+        ? defaultResume.header
+        : newResume.header,
+      experience: missingRootProps.includes('experience')
+        ? defaultResume.experience
+        : newResume.experience,
+      education: missingRootProps.includes('education')
+        ? defaultResume.education
+        : newResume.education,
+      technicalSkills: missingRootProps.includes('technicalSkills')
+        ? defaultResume.technicalSkills
+        : newResume.technicalSkills,
+      projects: missingRootProps.includes('projects')
+        ? defaultResume.projects
+        : newResume.projects,
+      certification: missingRootProps.includes('certification')
+        ? defaultResume.certification
+        : newResume.certification,
+      professionalSummary: missingRootProps.includes('professionalSummary')
+        ? defaultResume.professionalSummary
+        : newResume.professionalSummary,
     };
   } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
     return false;
   }
   return cleanedResume;
 };
 
-export const EDUCATION = 0;
+export const PROFESSIONAL_SUMMARY = 0;
 export const TECH_SKILLS = 1;
-export const PROJECTS = 2;
-export const EXPERIENCE = 3;
-export const CERTIFICATION = 4;
+export const EXPERIENCE = 2;
+export const PROJECTS = 3;
+export const EDUCATION = 4;
+export const CERTIFICATION = 5;
 
-export const defaultResumeOrder = [EDUCATION, TECH_SKILLS, PROJECTS, EXPERIENCE, CERTIFICATION];
+export const defaultResumeOrder = [
+  PROFESSIONAL_SUMMARY,
+  TECH_SKILLS,
+  EXPERIENCE,
+  PROJECTS,
+  EDUCATION,
+  CERTIFICATION,
+];
 
 export const STORED_RESUME_KEY = 'rr-ls-resume-key';
 
@@ -91,4 +159,8 @@ export const saveResume = (resume) => {
   }
 };
 
-export const loadResume = () => ls.getItem(STORED_RESUME_KEY);
+export const loadResume = () => {
+  const resume = ls.getItem(STORED_RESUME_KEY);
+  const cleaned = isValidJSON(resume, true, true);
+  return cleaned;
+};

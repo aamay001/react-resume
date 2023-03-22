@@ -1,4 +1,3 @@
-/* globals window */
 import React from 'react';
 import { Label, Icon, Button } from 'semantic-ui-react';
 
@@ -12,7 +11,11 @@ const PrintButton = () => (
       content="Print"
       size="large"
       fluid
-      onClick={() => window.print()}
+      onClick={() => {
+        // eslint-disable-next-line no-alert
+        window.alert('For best print results, adjust your margins using the print dialog!');
+        window.print();
+      }}
       style={{
         display: 'block',
         backgroundColor: 'white',

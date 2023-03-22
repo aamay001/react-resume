@@ -1,12 +1,14 @@
 .react-resume {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
+  margin-top: 15px;
   margin-bottom: 5px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  padding: 0.39in 0.38in 0.38in 0.39in;
+  padding: 0.20in 0.50in 0.25in 0.50in;
   box-sizing: content-box;
   background-color: rgba(51, 47, 47, 0);
+  text-overflow: clip;
+  overflow-y: hidden;
 }
 
 .letter {
@@ -58,6 +60,7 @@
 }
 
 .resume-header h1 {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -70,7 +73,7 @@
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   margin-top: 5px;
   padding: 0;
 }
