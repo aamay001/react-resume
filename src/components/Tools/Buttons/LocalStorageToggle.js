@@ -15,7 +15,7 @@ import ls from '../../../helpers/localstorage.helper';
 function LocalStorageToggle({ dispatch, status, resume }) {
   const [confirm, setConfirm] = useState(false);
   return (
-    <div className="json-resume-tool">
+    <div className="json-resume-tool" style={{ marginBottom: 200 }}>
       <Label size="big" basic>
         <Icon name="save outline" />
         Local Storage
