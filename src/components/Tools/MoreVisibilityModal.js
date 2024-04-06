@@ -43,7 +43,7 @@ function MoreVisibilityModal({
       closeOnEscape={false}
       closeOnDocumentClick={false}
       centered
-      dimmer="inverted"
+      dimmer="bluring"
       className={classNames({ darkModal: darkMode })}
     >
       <Modal.Header style={{ padding: 0 }}>
