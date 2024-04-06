@@ -3,12 +3,14 @@ import {
   TOGGLE_TOOLBAR,
   TOGGLE_EDITOR,
   TOGGLE_MORE_VISIBILITY,
+  REFRESH_RESUME,
 } from '../actions/app.actions';
 
 const initialState = {
   toolbarOpen: true,
   editorOpen: false,
   moreVisibilityOpen: false,
+  refreshResume: false,
 };
 
 const toggleToolbar = (state) => ({
@@ -28,6 +30,11 @@ const toggleMoreVisivility = (state) => ({
   toolbarOpen: state.moreVisibilityOpen,
 });
 
+const refreshResume = (state) => ({
+  ...state,
+  refreshResume: !state.refreshResume,
+});
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_TOOLBAR:
@@ -36,6 +43,8 @@ export default (state = initialState, action) => {
       return toggleEditor(state);
     case TOGGLE_MORE_VISIBILITY:
       return toggleMoreVisivility(state);
+    case REFRESH_RESUME:
+      return refreshResume(state);
     default:
       return state;
   }

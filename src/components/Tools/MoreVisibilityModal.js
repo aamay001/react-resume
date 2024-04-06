@@ -9,9 +9,10 @@ import {
 } from 'semantic-ui-react';
 import { SidebarCloseButton } from '../Navigation';
 import { ItemToggleButton } from './Buttons';
-import { toggleMoreVisibility, updateResume } from '../../actions/app.actions';
+import { refreshResume, toggleMoreVisibility, updateResume } from '../../actions/app.actions';
 
 const sectionHeaderMap = {
+  header: 'Address Parts',
   experience: 'Experience',
   education: 'Education',
   certification: 'Certification',
@@ -19,7 +20,10 @@ const sectionHeaderMap = {
   projects: 'Projects',
 };
 
+const capitalize = (str) => str.substring(0, 1).toUpperCase() + str.substring(1);
+
 const itemNamePropMap = {
+  header: (itemKey) => capitalize(itemKey),
   experience: (item) => `${item.company} - ${item.position}`,
   education: (item) => `${item.site} - ${item.studyDegree}`,
   certification: (item) => item.issuedBy,
@@ -38,7 +42,7 @@ function MoreVisibilityModal({
       closeOnDimmerClick={false}
       closeOnEscape={false}
       closeOnDocumentClick={false}
-      centered={false}
+      centered
       dimmer="inverted"
       className={classNames({ darkModal: darkMode })}
     >
@@ -70,26 +74,51 @@ function MoreVisibilityModal({
                 <Icon name="dropdown" />
                 {sectionHeaderMap[section]}
               </Accordion.Title>
-              <Accordion.Content active={activeAccordion === section}>
-                <div
-                  className="json-resume-tool"
-                  style={{ marginTop: 0, padding: 0 }}
-                >
-                  {resume[section].map((sectionItem, itemIndex) => (
-                    <ItemToggleButton
-                      key={itemNamePropMap[section](sectionItem)}
-                      label={itemNamePropMap[section](sectionItem)}
-                      status={sectionItem.isVisible !== false}
-                      onToggle={() => {
-                        const updatedResume = resume;
-                        updatedResume[section][itemIndex].isVisible =
-                          !(sectionItem.isVisible !== false);
-                        dispatch(updateResume(updatedResume, autoSave));
-                      }}
-                    />
-                  ))}
-                </div>
-              </Accordion.Content>
+              {section === 'header'
+                ? (
+                  <Accordion.Content active={activeAccordion === section}>
+                    <div
+                      className="json-resume-tool"
+                      style={{ marginTop: 0, padding: 0 }}
+                    >
+                      {Object.keys(resume[section].addressVisibility).map((itemKey) => (
+                        <ItemToggleButton
+                          label={itemNamePropMap[section](itemKey)}
+                          key={`${itemNamePropMap[section]}-${itemKey}-visibility`}
+                          status={resume[section].addressVisibility[itemKey] !== false}
+                          onToggle={() => {
+                            const updatedResume = resume;
+                            updatedResume[section].addressVisibility[itemKey] =
+                              !resume[section].addressVisibility[itemKey];
+                            dispatch(updateResume(updatedResume, autoSave));
+                            dispatch(refreshResume());
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </Accordion.Content>
+                )
+                : (
+                  <Accordion.Content active={activeAccordion === section}>
+                    <div
+                      className="json-resume-tool"
+                      style={{ marginTop: 0, padding: 0 }}
+                    >
+                      {resume[section].map((sectionItem, itemIndex) => (
+                        <ItemToggleButton
+                          key={itemNamePropMap[section](sectionItem)}
+                          label={itemNamePropMap[section](sectionItem)}
+                          status={sectionItem.isVisible !== false}
+                          onToggle={() => {
+                            const updatedResume = resume;
+                            updatedResume[section][itemIndex].isVisible =
+                              !(sectionItem.isVisible !== false);
+                            dispatch(updateResume(updatedResume, autoSave));
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </Accordion.Content>)}
             </Fragment>
           ))}
         </Accordion>

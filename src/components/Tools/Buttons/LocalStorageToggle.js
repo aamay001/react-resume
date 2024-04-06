@@ -62,7 +62,7 @@ LocalStorageToggle.defaultProps = {
 LocalStorageToggle.propTypes = {
   dispatch: PropTypes.func,
   status: PropTypes.bool,
-  resume: PropTypes.string.isRequired,
+  resume: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = (state) => ({

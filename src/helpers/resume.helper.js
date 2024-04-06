@@ -22,6 +22,23 @@ export const isValidJSON = (data, parsed, autoFix) => {
       return false;
     }
 
+    // Add address visibility props if they are missiing
+    if (newResume.header.addressVisibility === undefined) {
+      newResume = {
+        ...newResume,
+        header: {
+          ...newResume.header,
+          addressVisibility: {
+            address: true,
+            city: true,
+            state: true,
+            zip: true,
+            country: true,
+          },
+        },
+      };
+    }
+
     if (!('professionalSummary' in newResume) && typeof newResume.professionalSummary !== 'object') {
       return false;
     }

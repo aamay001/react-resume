@@ -33,15 +33,16 @@ function Resume({
   order,
   paperSizeObj,
   darkMode,
+  refresh,
 }) {
   return (
     <>
-      <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })}>
+      <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })} data-refresh={refresh}>
         <div
           className="resume"
           style={{ fontFamily: font }}
         >
-          <ResumeHeader />
+          <ResumeHeader refresh={refresh} />
           {order.map((item) => {
             switch (item) {
               case PROFESSIONAL_SUMMARY:
@@ -112,6 +113,7 @@ Resume.propTypes = {
     tag: PropTypes.string,
   }),
   darkMode: PropTypes.bool,
+  refresh: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -126,6 +128,7 @@ const mapStateToProps = (state) => ({
   paperSizeObj: paperSizes.find((size) => size.tag === state.tools.paperSize),
   resume: state.resume,
   darkMode: state.tools.darkMode,
+  refresh: state.app.refreshResume,
 });
 
 export default connect(mapStateToProps)(Resume);

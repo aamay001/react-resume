@@ -15,18 +15,37 @@ import websiteDarkIcon from '../../icons/dark/internet.svg';
 import githubDarkIcon from '../../icons/dark/github.svg';
 
 export function Header({
-  header, showEmail, showPhone, showGithub, showLinkedIn, showWebsite, showAddress, font, showIcon,
+  header,
+  showEmail,
+  showPhone,
+  showGithub,
+  showLinkedIn,
+  showWebsite,
+  showAddress,
+  font,
+  showIcon,
+  refresh,
 }) {
+  if (header === undefined) {
+    return null;
+  }
+
+  const { addressVisibility } = header;
+
   return (
-    <header className="resume-header" style={{ fontFamily: font }}>
+    <header className="resume-header" style={{ fontFamily: font }} data-refresh={refresh}>
       <h1 style={{ fontFamily: font }}>{header.name}</h1>
       <ul>
         {showEmail
           && (
             <li data-testid="Email">
               <a href={`mailto:${header.email}?subject=Interview%20Request`}>
-                {showIcon ? <img src={mailIcon} className="header-icon normal-icon" alt="Mail Icon" /> : ''}
-                {showIcon ? <img src={mailDarkIcon} className="header-icon dark-icon" alt="Mail Icon" /> : ''}
+                {showIcon
+                  ? <img src={mailIcon} className="header-icon normal-icon" alt="Mail Icon" />
+                  : ''}
+                {showIcon
+                  ? <img src={mailDarkIcon} className="header-icon dark-icon" alt="Mail Icon" />
+                  : ''}
                 {header.email}
               </a>
             </li>
@@ -74,11 +93,11 @@ export function Header({
       </ul>
       {showAddress && (
         <ul data-testid="Address">
-          <li>{header.address}</li>
-          <li>{header.city}</li>
-          <li>{header.state}</li>
-          <li>{header.zip}</li>
-          <li>{header.country}</li>
+          {addressVisibility.address && <li>{header.address}</li>}
+          {addressVisibility.city && <li>{header.city}</li>}
+          {addressVisibility.state && <li>{header.state}</li>}
+          {addressVisibility.zip && <li>{header.zip}</li>}
+          {addressVisibility.country && <li>{header.country}</li>}
         </ul>
       )}
     </header>
@@ -86,7 +105,6 @@ export function Header({
 }
 
 Header.defaultProps = {
-  header: undefined,
   showAddress: true,
   showEmail: true,
   showPhone: true,
@@ -109,7 +127,14 @@ Header.propTypes = {
     zip: PropTypes.string,
     phone: PropTypes.string,
     website: PropTypes.string,
-  }),
+    addressVisibility: PropTypes.shape({
+      address: PropTypes.bool,
+      city: PropTypes.bool,
+      state: PropTypes.bool,
+      zip: PropTypes.bool,
+      country: PropTypes.bool,
+    }),
+  }).isRequired,
   showEmail: PropTypes.bool,
   showPhone: PropTypes.bool,
   showGithub: PropTypes.bool,
@@ -118,6 +143,7 @@ Header.propTypes = {
   showAddress: PropTypes.bool,
   font: PropTypes.string.isRequired,
   showIcon: PropTypes.bool,
+  refresh: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

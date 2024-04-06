@@ -11,6 +11,13 @@ const Resume = {
     state: 'CA',
     zip: '00000',
     country: 'USA',
+    addressVisibility: {
+      address: true,
+      city: true,
+      state: true,
+      zip: true,
+      country: true,
+    },
   },
   professionalSummary: {
     text: 'Your professional summary!',

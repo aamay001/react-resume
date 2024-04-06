@@ -59,3 +59,8 @@ export const TOGGLE_MORE_VISIBILITY = 'TOGGLE_MORE_VISIBILITY';
 export const toggleMoreVisibility = () => ({
   type: TOGGLE_MORE_VISIBILITY,
 });
+
+export const REFRESH_RESUME = 'REFRESH_RESUME';
+export const refreshResume = () => ({
+  type: REFRESH_RESUME,
+});
