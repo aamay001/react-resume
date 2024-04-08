@@ -323,6 +323,7 @@ class SaveToCloudButtons extends Component {
                 onClick={this.onCloseModal}
                 icon="check"
                 size="large"
+                primary
                 disabled={savingToCloud}
               />
             </Modal.Actions>}
@@ -338,7 +339,9 @@ class SaveToCloudButtons extends Component {
             </Header>
           }
           content="When saving to a cloud, your data will be temporarily stored in a MongoDB collection for 5 minutes; I use the MongDB TTL index to automatically delete the document. If you do not want your data sent over the internet, please download the JSON file instead."
-          actions={[{ key: 'ok', content: 'OK', onClick: this.onCloseInfoButton }]}
+          actions={[{
+            key: 'ok', content: 'OK', onClick: this.onCloseInfoButton, primary: true,
+          }]}
         />
         <FocusTrap enabled={preparingFile || fileReady} />
       </div>

@@ -151,14 +151,9 @@
       -webkit-text-fill-color: #fff;
     }
 
-    .save-to-cloud.dark.ui.modal * {
+    .save-to-cloud.dark.ui.modal div {
       background: #2d2d2d !important;
       color: #fff !important;
       -webkit-text-fill-color: #fff;
-    }
-
-    .save-to-cloud.dark.ui.modal * > button,
-    .save-to-cloud.dark.ui.modal * > button * {
-      background: #1f1f1f !important;
     }
   }
