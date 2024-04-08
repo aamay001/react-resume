@@ -1,4 +1,5 @@
-*:not(#json-resume-editor, #json-resume-editor *, .resume, #resume-toast-container *){
+*:not(#json-resume-editor, #json-resume-editor *, .resume, #resume-toast-container *
+, .modals.dimmer.transition.visible.active > div > div.content > div > div *){
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   color: #263238 !important;
