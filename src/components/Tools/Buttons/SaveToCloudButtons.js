@@ -86,24 +86,23 @@ class SaveToCloudButtons extends Component {
             savingToCloud: false,
             saveComplete: true,
           });
+          this.onCloseModal();
           toast('🙌 Resume saved to Dropbox!');
         },
         cancel: () => {
           this.setState({
             savingToCloud: false,
             saveComplete: false,
-            preparingFile: false,
-            fileReady: false,
           });
+          this.onCloseModal();
           toast('✋ Save to Dropbox was cancelled!', { autoClose: 5000 });
         },
         error: () => {
           this.setState({
             savingToCloud: false,
             saveComplete: false,
-            preparingFile: false,
-            fileReady: false,
           });
+          this.onCloseModal();
           toast('😟 Something went wrong while saving to Dropbox!', { autoClose: false });
         },
       },
@@ -127,24 +126,23 @@ class SaveToCloudButtons extends Component {
           savingToCloud: false,
           saveComplete: true,
         });
+        this.onCloseModal();
         toast('🙌 Resume saved to OneDrive!');
       },
       cancel: () => {
         this.setState({
           savingToCloud: false,
           saveComplete: false,
-          preparingFile: false,
-          fileReady: false,
         });
+        this.onCloseModal();
         toast('✋ Save to OneDrive was cancelled!', { autoClose: 5000 });
       },
       error: () => {
         this.setState({
           savingToCloud: false,
           saveComplete: false,
-          preparingFile: false,
-          fileReady: false,
         });
+        this.onCloseModal();
         toast('😟 Something went wrong while saving to OneDrive!', { autoClose: false });
       },
     };
@@ -175,7 +173,7 @@ class SaveToCloudButtons extends Component {
               {
                 src: fileSource,
                 filename: 'resume.json',
-                sitename: 'JSON Resume',
+                sitename: 'https://resumejs.netlify.app/',
               },
             );
           }
@@ -269,6 +267,7 @@ class SaveToCloudButtons extends Component {
                     style={{ marginTop: 100 }}
                     fluid
                     content="Save to Google Drive"
+                    onClick={() => this.onCloseModal()}
                   />
                 </div>}
               {fileReady && cloudSelection === CLOUDS.DROPBOX &&
