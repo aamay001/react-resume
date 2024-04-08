@@ -8,11 +8,14 @@ import {
   Button,
   Confirm,
 } from 'semantic-ui-react';
+import classNames from 'classnames';
 import ItemToggleButton from './ItemToggleButton';
 import { toggleAutoSave, updateResume } from '../../../actions/app.actions';
 import ls from '../../../helpers/localstorage.helper';
 
-function LocalStorageToggle({ dispatch, status, resume }) {
+function LocalStorageToggle({
+  dispatch, status, resume, darkMode,
+}) {
   const [confirm, setConfirm] = useState(false);
   return (
     <div className="json-resume-tool" style={{ marginBottom: 200 }}>
@@ -41,8 +44,9 @@ function LocalStorageToggle({ dispatch, status, resume }) {
       />
       <Confirm
         open={confirm}
+        className={classNames('save-to-cloud', { dark: darkMode })}
         onCancel={() => setConfirm(false)}
-        centered={false}
+        centered
         onConfirm={() => {
           setConfirm(false);
           ls.clear();
@@ -63,10 +67,12 @@ LocalStorageToggle.propTypes = {
   dispatch: PropTypes.func,
   status: PropTypes.bool,
   resume: PropTypes.shape({}).isRequired,
+  darkMode: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   resume: state.resume,
+  darkMode: state.tools.darkMode,
 });
 
 export default connect(mapStateToProps)(LocalStorageToggle);

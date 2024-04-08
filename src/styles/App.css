@@ -82,6 +82,11 @@ body {
   font-size: 14px;
 }
 
+button.cloud-save-info-button {
+  background-color: transparent;
+  color: black;
+}
+
 .options-selector {
   font-weight: 100;
   -webkit-font-smoothing: antialiased;

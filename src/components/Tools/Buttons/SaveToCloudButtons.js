@@ -10,6 +10,7 @@ import {
   Segment,
   Dimmer,
   Loader,
+  Header,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
@@ -38,11 +39,14 @@ class SaveToCloudButtons extends Component {
       fileSource: undefined,
       savingToCloud: false,
       saveComplete: false,
+      showInfoBox: false,
     };
     this.prepareFile = this.prepareFile.bind(this);
     this.onCloseModal = this.onCloseModal.bind(this);
     this.onSaveToDropBox = this.onSaveToDropBox.bind(this);
     this.onSaveToOneDrive = this.onSaveToOneDrive.bind(this);
+    this.onClickInfoButton = this.onClickInfoButton.bind(this);
+    this.onCloseInfoButton = this.onCloseInfoButton.bind(this);
   }
 
   onCloseModal() {
@@ -53,6 +57,18 @@ class SaveToCloudButtons extends Component {
       fileSource: undefined,
       savingToCloud: false,
       saveComplete: false,
+    });
+  }
+
+  onClickInfoButton() {
+    this.setState({
+      showInfoBox: true,
+    });
+  }
+
+  onCloseInfoButton() {
+    this.setState({
+      showInfoBox: false,
     });
   }
 
@@ -174,6 +190,7 @@ class SaveToCloudButtons extends Component {
       cloudSelection,
       savingToCloud,
       saveComplete,
+      showInfoBox,
     } = this.state;
     const { darkMode } = this.props;
     return (
@@ -182,6 +199,14 @@ class SaveToCloudButtons extends Component {
           <Icon name="cloud upload" />
           Cloud Save
         </Label>
+        <Button
+          circular
+          icon="info"
+          basic
+          floated="right"
+          title="Cloud saving information."
+          onClick={() => this.onClickInfoButton()}
+        />
         <div style={{ textAlign: 'center' }}>
           <Button
             color="yellow"
@@ -294,6 +319,19 @@ class SaveToCloudButtons extends Component {
               />
             </Modal.Actions>}
         </Modal>
+        <Modal
+          className={classNames('save-to-cloud', { dark: darkMode })}
+          open={showInfoBox}
+          size="tiny"
+          header={
+            <Header>
+              <Icon name="info" />
+              Saving To Cloud
+            </Header>
+          }
+          content="When saving to a cloud, your data will be temporarily stored in a MongoDB collection for 5 minutes; I use the MongDB TTL index to automatically delete the document. If you do not want your data sent over the internet, please download the JSON file instead."
+          actions={[{ key: 'ok', content: 'OK', onClick: this.onCloseInfoButton }]}
+        />
         <FocusTrap enabled={preparingFile || fileReady} />
       </div>
     );
