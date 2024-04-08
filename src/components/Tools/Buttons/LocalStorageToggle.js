@@ -54,6 +54,7 @@ function LocalStorageToggle({
         }}
         content="Are you sure you want to clear everything in local storage? This cannot be undone!"
       />
+      <em style={{ marginTop: 5, display: 'inline-block' }}>Only turn this on if you are on a private computer!</em>
     </div>
   );
 }
