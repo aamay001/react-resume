@@ -92,6 +92,8 @@ class SaveToCloudButtons extends Component {
           this.setState({
             savingToCloud: false,
             saveComplete: false,
+            preparingFile: false,
+            fileReady: false,
           });
           toast('✋ Save to Dropbox was cancelled!', { autoClose: 5000 });
         },
@@ -99,6 +101,8 @@ class SaveToCloudButtons extends Component {
           this.setState({
             savingToCloud: false,
             saveComplete: false,
+            preparingFile: false,
+            fileReady: false,
           });
           toast('😟 Something went wrong while saving to Dropbox!', { autoClose: false });
         },
@@ -129,13 +133,17 @@ class SaveToCloudButtons extends Component {
         this.setState({
           savingToCloud: false,
           saveComplete: false,
+          preparingFile: false,
+          fileReady: false,
         });
         toast('✋ Save to OneDrive was cancelled!', { autoClose: 5000 });
       },
       error: () => {
         this.setState({
           savingToCloud: false,
-          saveComplete: true,
+          saveComplete: false,
+          preparingFile: false,
+          fileReady: false,
         });
         toast('😟 Something went wrong while saving to OneDrive!', { autoClose: false });
       },
@@ -176,6 +184,7 @@ class SaveToCloudButtons extends Component {
       .catch((error) => {
         this.setState({
           preparingFile: false,
+          fileReady: false,
         });
         // eslint-disable-next-line no-console
         console.log(error);
