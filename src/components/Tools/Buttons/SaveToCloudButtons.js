@@ -112,7 +112,7 @@ class SaveToCloudButtons extends Component {
       savingToCloud: true,
     });
     const odOptions = {
-      clientId: 'c1fafee2-0d91-43c8-9a1f-c2dff8d04fc9',
+      clientId: 'f95c8ea4-b187-408f-9778-912af37c3b74',
       action: 'save',
       sourceUri: fileSource,
       fileName: 'resume.json',
@@ -135,7 +135,7 @@ class SaveToCloudButtons extends Component {
       error: () => {
         this.setState({
           savingToCloud: false,
-          saveComplete: false,
+          saveComplete: true,
         });
         toast('😟 Something went wrong while saving to OneDrive!', { autoClose: false });
       },
