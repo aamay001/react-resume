@@ -70,17 +70,18 @@ function Resume({
         </div>
       </div>
       <p
+        className="page-limit-info"
         style={{
-          color: 'red',
+          color: darkMode ? 'white' : 'red',
           textAlign: 'center',
           position: 'absolute',
           width: '100vw',
           marginTop: 5,
         }}
       >
-        <span role="img" aria-label="img"> ⬆ ️</span>
+        <span role="img" aria-label="img" style={{ color: darkMode ? 'white' : 'red' }}> ⬆ ️</span>
         {`bottom limit of ${paperSizeObj.name} size page`}
-        <span role="img" aria-label="img"> ⬆ ️</span>
+        <span role="img" aria-label="img" style={{ color: darkMode ? 'white' : 'red' }}> ⬆ ️</span>
       </p>
     </>
   );

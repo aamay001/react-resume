@@ -1,5 +1,5 @@
 *:not(#json-resume-editor, #json-resume-editor *, .resume, #resume-toast-container *
-, .modals.dimmer.transition.visible.active > div > div.content > div > div *){
+, .modals.dimmer.transition.visible.active > div > div.content > div > div *, .page-limit-info){
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   color: #263238 !important;
@@ -168,3 +168,4 @@ button.cloud-save-info-button {
 #root > div > aside > div > div:nth-child(3) > div:nth-child(3) > button > i {
   color: white ! important;
 }
+
