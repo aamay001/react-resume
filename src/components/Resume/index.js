@@ -38,6 +38,7 @@ function Resume({
 }) {
   return (
     <>
+      <div style={{ height: '5VH', backgroundColor: 'transparent' }} />
       <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })} data-refresh={refresh}>
         <div
           className="resume"
@@ -73,17 +74,18 @@ function Resume({
       <p
         className="page-limit-info"
         style={{
-          color: darkMode ? 'white' : 'red',
+          color: darkMode ? 'white' : 'black',
           textAlign: 'center',
-          position: 'absolute',
+          position: 'static',
           width: '100vw',
-          marginTop: 5,
+          marginTop: 10,
         }}
       >
-        <span role="img" aria-label="img" style={{ color: 'red' }} ref={(node) => setColorImportant(node, 'red')}> ⬆ ️</span>
+        <span role="img" aria-label="img" ref={(node) => setColorImportant(node, 'red')}> ⬆ ️</span>
         {`bottom limit of ${paperSizeObj.name} size page`}
-        <span role="img" aria-label="img" style={{ color: 'red' }} ref={(node) => setColorImportant(node, 'red')}> ⬆ ️</span>
+        <span role="img" aria-label="img" ref={(node) => setColorImportant(node, 'red')}> ⬆ ️</span>
       </p>
+      <div style={{ height: '25VH', backgroundColor: 'transparent' }} />
     </>
   );
 }
