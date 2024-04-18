@@ -20,6 +20,7 @@ import {
   PROFESSIONAL_SUMMARY,
   defaultResumeOrder,
 } from '../../helpers/resume.helper';
+import { setColorImportant } from '../../helpers/font.helper';
 import '../../styles/Resume.css';
 
 function Resume({
@@ -79,9 +80,9 @@ function Resume({
           marginTop: 5,
         }}
       >
-        <span role="img" aria-label="img" style={{ color: darkMode ? 'white' : 'red' }}> ⬆ ️</span>
+        <span role="img" aria-label="img" style={{ color: 'red' }} ref={(node) => setColorImportant(node, 'red')}> ⬆ ️</span>
         {`bottom limit of ${paperSizeObj.name} size page`}
-        <span role="img" aria-label="img" style={{ color: darkMode ? 'white' : 'red' }}> ⬆ ️</span>
+        <span role="img" aria-label="img" style={{ color: 'red' }} ref={(node) => setColorImportant(node, 'red')}> ⬆ ️</span>
       </p>
     </>
   );

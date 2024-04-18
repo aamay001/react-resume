@@ -6,8 +6,8 @@ import {
 } from 'semantic-ui-react';
 import { updateResume } from '../../../actions/app.actions';
 
-const CLASSIC_LAYOUT = 0;
-const MODERN_LAYOUT = 1;
+export const CLASSIC_LAYOUT = 0;
+export const MODERN_LAYOUT = 1;
 
 function LayoutSelection({ dispatch, resume }) {
   const [layout, setLayout] = useState(CLASSIC_LAYOUT);
@@ -33,6 +33,9 @@ function LayoutSelection({ dispatch, resume }) {
       <Label size="big" basic>
         <Icon name="block layout" />
         Layout
+      </Label>
+      <Label color="yellow" tag>
+        Comming Soon
       </Label>
       <ButtonGroup fluid>
         <Button

@@ -52,4 +52,6 @@ const fonts = [
   { font: 'Source Code Pro, monospace', name: 'Source Code Pro' },
 ];
 
+export const setColorImportant = (node, color) => node && node.style.setProperty('color', color, 'important');
+
 export default fonts;
