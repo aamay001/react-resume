@@ -91,7 +91,8 @@
       -webkit-text-fill-color: #fff;
     }
 
-    .App.darkMode .ui.large.fluid.button .options-selector {
+    .App.darkMode .ui.large.fluid.button .options-selector,
+    .App.darkMode .ui.large.button {
       color: #fff !important;
       -webkit-text-fill-color: #fff;
 
@@ -115,7 +116,8 @@
       background: #2d2d2d !important;
     }
 
-    .ui.modal.darkModal .ui.large.fluid.button {
+    .ui.modal.darkModal .ui.large.fluid.button,
+    .App.darkMode .ui.large.button {
       background: #1f1f1f !important;
       color: #fff !important;
       -webkit-text-fill-color: #fff;

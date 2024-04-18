@@ -34,9 +34,10 @@ function LayoutSelection({ dispatch, resume }) {
         <Icon name="block layout" />
         Layout
       </Label>
-      <ButtonGroup fluid style={{ maxWidth: 300 }}>
+      <ButtonGroup fluid>
         <Button
-          positive={layout === CLASSIC_LAYOUT}
+          basic={layout === CLASSIC_LAYOUT}
+          color={layout === CLASSIC_LAYOUT ? 'blue' : 'black'}
           content="Classic"
           size="large"
           onClick={onSetClassicLayout}
@@ -48,7 +49,8 @@ function LayoutSelection({ dispatch, resume }) {
         />
         <ButtonOr />
         <Button
-          positive={layout === MODERN_LAYOUT}
+          basic={layout === MODERN_LAYOUT}
+          color={layout === MODERN_LAYOUT ? 'blue' : 'black'}
           content="Modern"
           size="large"
           onClick={onSetModernLayout}
