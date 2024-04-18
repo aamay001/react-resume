@@ -5,6 +5,7 @@ import {
   LoadFromFileButton,
   SaveToCloudButtons,
   LocalStorageToggle,
+  LayoutSelection,
 } from './Buttons';
 import VisibilityChanger from './VisibilityChanger';
 import FontSelector from './FontSelector';
@@ -22,4 +23,5 @@ export {
   SaveToCloudButtons,
   LocalStorageToggle,
   PaperSize,
+  LayoutSelection,
 };

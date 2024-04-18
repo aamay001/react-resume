@@ -14,6 +14,7 @@ import {
   SaveToCloudButtons,
   LocalStorageToggle,
   PaperSize,
+  LayoutSelection,
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
@@ -36,6 +37,7 @@ function Toolbar({
         <ToolbarHeader />
         <SaveToCloudButtons />
         <EditorButton dispatch={dispatch} />
+        <LayoutSelection />
         <FontSelector />
         <VisibilityChanger />
         <OrderChanger />
