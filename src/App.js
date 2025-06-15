@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch, Router } from 'react-router';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
-import { createBrowserHistory } from 'history';
 import classNames from 'classnames';
 import { constants } from './config';
 import { FocusTrap } from './helpers/app.helper';
@@ -11,7 +10,6 @@ import routes from './routes';
 import './styles/App.css';
 import './styles/darkmode.css';
 
-const history = createBrowserHistory();
 const { ROUTES } = constants;
 const { Home } = routes;
 
@@ -64,12 +62,12 @@ function App({
         bodyClassName="resume-toast-body"
         theme={darkMode ? 'dark' : 'light'}
       />
-      <Router history={history}>
-        <Switch>
-          <Route exact path={ROUTES.HOME.PATH} component={Home} />
-          <Route component={Home} />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path={ROUTES.HOME.PATH} element={<Home />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
       <FocusTrap full={editorOpen} mobile={toolbarOpen || moreVisibilityOpen} />
     </div>
   );
